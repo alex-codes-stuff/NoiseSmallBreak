@@ -4,3 +4,6 @@ draw_sprite_ext(sprite_index, -1, x, y, image_xscale * xscale, image_yscale * ys
 draw_set_font(fnt_caption)
 draw_set_color(c_white)
 draw_text(x, y - 50, movespeed);
+
+
+

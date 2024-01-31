@@ -8,10 +8,13 @@ if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 	//audio_stop_all();
 	room_restart();
 }
-if keyboard_check_pressed(ord("T"))
+if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
    global.timeattack = 1
 if room == testroom_1 && targetDoor = "X"
    timerend = 1
+//controller shit is turned off rn cause it does wierd shit
+if !gamepad_is_connected(0)
+{
 var key_left = -keyboard_check(vk_left);
 var key_right = keyboard_check(vk_right);
 var key_up = keyboard_check(vk_up);
@@ -20,6 +23,22 @@ var key_down2 = keyboard_check_pressed(vk_down);
 var key_jump = keyboard_check_pressed(ord("Z"));
 var key_jump2 = keyboard_check(ord("Z"));
 var move = key_left + key_right;
+}
+else if controllerfinished == 1
+{
+	var key_right =gamepad_axis_value(0, gp_axislh) > 0.5 
+	var key_left  =(gamepad_axis_value(0, gp_axislh) < -0.5) *-1
+	
+	var key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
+	var key_down = gamepad_axis_value(0, gp_axislv) > 0.5
+	_key_right = key_up
+	_key_left = key_down
+	var key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
+	var key_jump = gamepad_button_check_pressed(0, gp_face1)
+	var key_jump2 = gamepad_button_check(0, gp_face1)
+	var move = key_left + key_right;
+	_move = move
+}
 
 if key_jump
 	input_buffer_jump = 10;

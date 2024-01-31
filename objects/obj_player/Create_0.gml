@@ -1,5 +1,7 @@
 live_auto_call;
 timer = 0
+controllerfinished = 0
+//make it 1 when controller bugs are fixed.
 enum states
 {
 	normal,
@@ -32,6 +34,9 @@ platformid = noone;
 xscale = 1;
 yscale = 1;
 movespeed = 0;
+_move = 0
+_key_left = 0
+_key_right = 0
 mach2 = 0;
 jumpstop = false;
 inv = 0;

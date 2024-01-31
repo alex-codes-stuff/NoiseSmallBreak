@@ -21,7 +21,7 @@ gameframe_update();
 
 display_set_gui_size(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-if keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
+if (keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))) || gamepad_button_check_pressed(0,gp_start)
 {
 	game_restart();
 	ds_list_clear(global.saveroom);
