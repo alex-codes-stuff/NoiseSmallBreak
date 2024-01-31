@@ -1,0 +1,1 @@
+text = "Press CTRL+R to restart. Press T for time attack mode (beat the level in\nunder 50 seconds)."
