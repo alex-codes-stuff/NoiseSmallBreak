@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if draw == 1 && keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1)
+if draw == 1 && (keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1))
 {
 	draw = 0
 	obj_player.state = states.normal

@@ -12,7 +12,7 @@ if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
    global.timeattack = 1
 if room == testroom_1 && targetDoor = "X"
    timerend = 1
-//controller shit is turned off rn cause it does wierd shit
+//controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
 if !gamepad_is_connected(0)
 {
 var key_left = -keyboard_check(vk_left);
@@ -26,8 +26,8 @@ var move = key_left + key_right;
 }
 else if controllerfinished == 1
 {
-	var key_right =gamepad_axis_value(0, gp_axislh) > 0.5 
-	var key_left  =(gamepad_axis_value(0, gp_axislh) < -0.5) *-1
+	var key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
+	var key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
 	
 	var key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
 	var key_down = gamepad_axis_value(0, gp_axislv) > 0.5
@@ -38,6 +38,7 @@ else if controllerfinished == 1
 	var key_jump2 = gamepad_button_check(0, gp_face1)
 	var move = key_left + key_right;
 	_move = move
+
 }
 
 if key_jump
