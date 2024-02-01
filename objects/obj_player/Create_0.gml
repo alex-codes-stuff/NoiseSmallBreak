@@ -15,8 +15,7 @@ enum states
 	hitstun
 }
 #macro mach2_time 30
-if !audio_is_playing(mu_placeholder)
-	audio_play_sound(mu_placeholder, 0, 1)
+
 depth = -6;
 alarm[0] = room_speed * 0.1
 timerend = 0
