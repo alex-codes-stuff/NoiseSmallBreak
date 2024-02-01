@@ -117,6 +117,7 @@
     {"id":{"name":"GMLive_roomLoader","path":"scripts/GMLive_roomLoader/GMLive_roomLoader.yy",},},
     {"id":{"name":"spr_player_mask","path":"sprites/spr_player_mask/spr_player_mask.yy",},},
     {"id":{"name":"GMLive_vm_call","path":"scripts/GMLive_vm_call/GMLive_vm_call.yy",},},
+    {"id":{"name":"moonlight_1","path":"rooms/moonlight_1/moonlight_1.yy",},},
     {"id":{"name":"spr_player_stopping","path":"sprites/spr_player_stopping/spr_player_stopping.yy",},},
     {"id":{"name":"spr_player_mach2jump","path":"sprites/spr_player_mach2jump/spr_player_mach2jump.yy",},},
     {"id":{"name":"spr_baddie","path":"sprites/spr_baddie/spr_baddie.yy",},},
@@ -174,6 +175,7 @@
     {"id":{"name":"GMLive_noDeactivate","path":"scripts/GMLive_noDeactivate/GMLive_noDeactivate.yy",},},
     {"id":{"name":"spr_destroyable","path":"sprites/spr_destroyable/spr_destroyable.yy",},},
     {"id":{"name":"GMLive_http","path":"scripts/GMLive_http/GMLive_http.yy",},},
+    {"id":{"name":"Sprite65","path":"sprites/Sprite65/Sprite65.yy",},},
     {"id":{"name":"GMLive_parser","path":"scripts/GMLive_parser/GMLive_parser.yy",},},
     {"id":{"name":"spr_debris","path":"sprites/spr_debris/spr_debris.yy",},},
     {"id":{"name":"Note","path":"notes/Note/Note.yy",},},
@@ -222,6 +224,7 @@
     {"roomId":{"name":"testroom_2","path":"rooms/testroom_2/testroom_2.yy",},},
     {"roomId":{"name":"testroom_3","path":"rooms/testroom_3/testroom_3.yy",},},
     {"roomId":{"name":"testroom_4","path":"rooms/testroom_4/testroom_4.yy",},},
+    {"roomId":{"name":"moonlight_1","path":"rooms/moonlight_1/moonlight_1.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [
