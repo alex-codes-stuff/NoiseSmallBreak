@@ -6,3 +6,6 @@ moonlight:
 -do the 4th (last) room
 -add eggblockz and eggblocks
 -add eggocycle
+
+junk beach:
+-refine basically the entire level to teach the mechanics better and be easier

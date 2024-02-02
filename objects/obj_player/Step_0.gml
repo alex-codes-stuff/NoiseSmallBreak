@@ -373,10 +373,8 @@ switch state
 		if (place_meeting(x + sign(hsp), y, obj_solid) or scr_solid_slope(x + sign(hsp), y))
 		&& !place_meeting(x + hsp, y, obj_destroyable)
 		{
-			movespeed = 0;
-			state = states.normal
-			image_index = 0;
-			sprite_index = spr_player_idle;
+			xscale = xscale * -1
+			movespeed -= 1
 		}
 		if sprite_index == spr_player_forkstart && image_index >= image_number - 1
 			sprite_index = spr_player_crouchslip;
@@ -402,7 +400,7 @@ switch state
 				if movespeed <= 0
 					state = states.normal;
 			
-				if input_buffer_jump
+				if input_buffer_jump && !key_down
 				{
 					input_buffer_jump = 0;
 					sound_play_3d(sfx_jump, x, y);
