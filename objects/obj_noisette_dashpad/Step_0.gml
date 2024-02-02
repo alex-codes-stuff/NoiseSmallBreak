@@ -6,6 +6,8 @@ switch state
 	case 1:
 		player.state = states.actor;
 		player.sprite_index = spr_player_mach1;
+		    	gamepad_set_vibration(0, 0.8, 0.8);
+	obj_player.alarm[4] = 13
 		player.image_index = 0;
 		player.hsp = 0;
 		player.vsp = 0;

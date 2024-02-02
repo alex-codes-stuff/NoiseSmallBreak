@@ -45,6 +45,7 @@
     {"name":"spr_player_turn","order":22,"path":"sprites/spr_player_turn/spr_player_turn.yy",},
     {"name":"spr_player_hurt","order":18,"path":"sprites/spr_player_hurt/spr_player_hurt.yy",},
     {"name":"obj_convexslope","order":2,"path":"objects/obj_convexslope/obj_convexslope.yy",},
+    {"name":"sfx_punch","order":17,"path":"sounds/sfx_punch/sfx_punch.yy",},
     {"name":"spr_player_stop","order":20,"path":"sprites/spr_player_stop/spr_player_stop.yy",},
     {"name":"spr_player_glidefallstart","order":7,"path":"sprites/spr_player_glidefallstart/spr_player_glidefallstart.yy",},
     {"name":"GMLive_seekEval","order":5,"path":"scripts/GMLive_seekEval/GMLive_seekEval.yy",},

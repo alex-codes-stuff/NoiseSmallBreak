@@ -7,5 +7,7 @@ live_auto_call;
 
 chargecam = 0;
 flycam = 0;
+shake = 0
+shakestrength = 0
 global.points = 0
 global.timeattack = 0

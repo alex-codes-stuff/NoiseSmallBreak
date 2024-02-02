@@ -66,10 +66,18 @@ scr_hurtplayer = function()
 	
 	hp--;
 	if hp <= 0
-		instance_destroy()
+	{
+		y = 999999
+		alarm[5] = 150
+	}
 		
 	
-	
+		    	gamepad_set_vibration(0, 1, 1);
+	if instance_exists(obj_player)
+	obj_camera.shake = 1
+	obj_camera.shakestrength = 7
+	obj_player.alarm[4] = 16
+	obj_player.alarm[3] = 16
 	sound_play_3d(sfx_hurt, x, y);
 	grounded = false;
 	movespeed = 0;

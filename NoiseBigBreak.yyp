@@ -77,6 +77,7 @@
     {"id":{"name":"spr_player_hurt","path":"sprites/spr_player_hurt/spr_player_hurt.yy",},},
     {"id":{"name":"obj_convexslope","path":"objects/obj_convexslope/obj_convexslope.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
+    {"id":{"name":"sfx_punch","path":"sounds/sfx_punch/sfx_punch.yy",},},
     {"id":{"name":"spr_player_stop","path":"sprites/spr_player_stop/spr_player_stop.yy",},},
     {"id":{"name":"spr_player_glidefallstart","path":"sprites/spr_player_glidefallstart/spr_player_glidefallstart.yy",},},
     {"id":{"name":"GMLive_seekEval","path":"scripts/GMLive_seekEval/GMLive_seekEval.yy",},},
