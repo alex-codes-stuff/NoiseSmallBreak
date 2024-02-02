@@ -4,6 +4,7 @@ state = 0
 queue = ds_queue_create()
 interp = 0
 thingy = 0
+y += 15
 
 
 

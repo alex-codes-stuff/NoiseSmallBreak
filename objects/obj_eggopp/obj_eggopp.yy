@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_noisette_idle",
-    "path": "sprites/spr_noisette_idle/spr_noisette_idle.yy",
+    "name": "spr_eggopp_idle",
+    "path": "sprites/spr_eggopp_idle/spr_eggopp_idle.yy",
   },
   "spriteMaskId": null,
   "visible": true,
