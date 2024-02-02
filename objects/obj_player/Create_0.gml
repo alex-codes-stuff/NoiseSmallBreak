@@ -1,5 +1,6 @@
 live_auto_call;
 timer = 0
+tnt = 0
 controllerfinished = 1
 //make it 1 when controller bugs are fixed.
 enum states

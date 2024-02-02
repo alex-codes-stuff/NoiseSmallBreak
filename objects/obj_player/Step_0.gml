@@ -204,7 +204,7 @@ switch state
 			
 			{
 			sound_play_3d(sfx_slide, x, y);
-			movespeed = max(movespeed, 10);
+			movespeed = max(movespeed, 12);
 			
 			state = states.slide;
 			image_index = 0;
@@ -391,7 +391,7 @@ switch state
 					part_time = 0;
 					create_particle(x, y, spr_dashcloud, xscale);
 				}
-				movespeed = Approach(movespeed, 0, 0.1);
+				movespeed = Approach(movespeed, 0, 0.05);
 			
 				if movespeed <= 0
 					state = states.normal;
@@ -405,8 +405,9 @@ switch state
 					jumpstop = false;
 					sprite_index = spr_player_longjump;
 					image_index = 0;
+					movespeed += 2
 					state = states.jump;
-					vsp = -14;
+					vsp = -12;
 					jumpclouds = 12;
 				}
 				scr_player_addslopemomentum(0.4, 0.2);
