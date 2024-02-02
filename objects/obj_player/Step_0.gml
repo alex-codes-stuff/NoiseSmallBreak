@@ -320,11 +320,22 @@ switch state
 		
 		if movespeed > 2 && key_down2
 		{
+			if !(sprite_index = spr_player_longjump)
+			{
 			sound_play_3d(sfx_groundpound, x, y);
 			
 			state = states.slide;
 			sprite_index = spr_player_dive;
 			vsp = 10;
+			}
+			else if image_index >= 4
+			{
+				sound_play_3d(sfx_groundpound, x, y);
+			
+			state = states.slide;
+			sprite_index = spr_player_dive;
+			vsp = 10;
+			}
 		}
 		break;
 	
@@ -400,12 +411,12 @@ switch state
 				if movespeed <= 0
 					state = states.normal;
 			
-				if input_buffer_jump && !key_down
+				if input_buffer_jump
 				{
 					input_buffer_jump = 0;
 					sound_play_3d(sfx_jump, x, y);
 					create_particle(x, y, spr_highjumpcloud2);
-				
+				  
 					jumpstop = false;
 					sprite_index = spr_player_longjump;
 					image_index = 0;
