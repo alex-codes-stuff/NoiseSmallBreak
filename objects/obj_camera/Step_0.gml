@@ -27,7 +27,11 @@ if instance_exists(target)
 	camx = clamp(camx, -200, room_width - CAMW);
 	}
 	camy = clamp(camy, 0, room_height - CAMH);
-	
-
-	camera_set_view_pos(view_camera[0], camx, camy);
+	if !(obj_player.hp <= 0)
+	{
+    if shake = 0
+		camera_set_view_pos(view_camera[0], camx, camy);
+	else
+	   camera_set_view_pos(view_camera[0], camx + random_range(shakestrength * -1, shakestrength), camy +random_range(shakestrength * -1, shakestrength));
+	}
 }

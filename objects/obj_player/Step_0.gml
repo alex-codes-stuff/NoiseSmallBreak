@@ -23,6 +23,7 @@ var key_down2 = keyboard_check_pressed(vk_down);
 var key_jump = keyboard_check_pressed(ord("Z"));
 var key_jump2 = keyboard_check(ord("Z"));
 var move = key_left + key_right;
+var forward = gamepad_button_check(0, gp_shoulderrb)
 }
 else if controllerfinished == 1
 {
@@ -36,7 +37,12 @@ else if controllerfinished == 1
 	var key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
 	var key_jump = gamepad_button_check_pressed(0, gp_face1)
 	var key_jump2 = gamepad_button_check(0, gp_face1)
-	var move = key_left + key_right;
+	
+	var key_forward = gamepad_button_check(0, gp_shoulderrb) * xscale
+	if !gamepad_button_check(0, gp_shoulderrb)
+	var move = key_left + key_right
+	else
+	var move = key_forward
 	_move = move
 
 }
@@ -204,7 +210,7 @@ switch state
 			
 			{
 			sound_play_3d(sfx_slide, x, y);
-			movespeed = max(movespeed, 10);
+			movespeed = max(movespeed, 12);
 			
 			state = states.slide;
 			image_index = 0;
@@ -391,7 +397,7 @@ switch state
 					part_time = 0;
 					create_particle(x, y, spr_dashcloud, xscale);
 				}
-				movespeed = Approach(movespeed, 0, 0.1);
+				movespeed = Approach(movespeed, 0, 0.05);
 			
 				if movespeed <= 0
 					state = states.normal;
@@ -405,8 +411,9 @@ switch state
 					jumpstop = false;
 					sprite_index = spr_player_longjump;
 					image_index = 0;
+					movespeed += 2
 					state = states.jump;
-					vsp = -14;
+					vsp = -12;
 					jumpclouds = 12;
 				}
 				scr_player_addslopemomentum(0.4, 0.2);

@@ -1,4 +1,4 @@
-if ++global.collect >= 20
+if ++global.collect >= 20 && other.hp < 8
 {
 	global.collect = 0;
 	other.hp++;
