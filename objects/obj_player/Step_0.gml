@@ -320,22 +320,11 @@ switch state
 		
 		if movespeed > 2 && key_down2
 		{
-			if !(sprite_index = spr_player_longjump)
-			{
 			sound_play_3d(sfx_groundpound, x, y);
 			
 			state = states.slide;
 			sprite_index = spr_player_dive;
 			vsp = 10;
-			}
-			else if image_index >= 4
-			{
-				sound_play_3d(sfx_groundpound, x, y);
-			
-			state = states.slide;
-			sprite_index = spr_player_dive;
-			vsp = 10;
-			}
 		}
 		break;
 	
@@ -384,8 +373,10 @@ switch state
 		if (place_meeting(x + sign(hsp), y, obj_solid) or scr_solid_slope(x + sign(hsp), y))
 		&& !place_meeting(x + hsp, y, obj_destroyable)
 		{
-			xscale = xscale * -1
-			movespeed -= 1
+			movespeed = 0;
+			state = states.normal
+			image_index = 0;
+			sprite_index = spr_player_idle;
 		}
 		if sprite_index == spr_player_forkstart && image_index >= image_number - 1
 			sprite_index = spr_player_crouchslip;
@@ -416,7 +407,7 @@ switch state
 					input_buffer_jump = 0;
 					sound_play_3d(sfx_jump, x, y);
 					create_particle(x, y, spr_highjumpcloud2);
-				  
+				
 					jumpstop = false;
 					sprite_index = spr_player_longjump;
 					image_index = 0;
