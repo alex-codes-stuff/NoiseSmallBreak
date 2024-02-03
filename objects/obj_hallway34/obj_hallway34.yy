@@ -32,8 +32,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_hallway",
-    "path": "sprites/spr_hallway/spr_hallway.yy",
+    "name": "spr_shuttle",
+    "path": "sprites/spr_shuttle/spr_shuttle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

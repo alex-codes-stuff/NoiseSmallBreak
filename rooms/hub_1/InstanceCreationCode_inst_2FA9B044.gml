@@ -1,0 +1,1 @@
+text = "Tip: If you press jump while turning, you'll do a backwards summersault!"

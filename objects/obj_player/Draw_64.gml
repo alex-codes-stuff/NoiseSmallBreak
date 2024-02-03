@@ -8,9 +8,16 @@ draw_healthbar(32, 112 + 50, 288, 128 + 50, (global.collect / 20) * 100, c_black
 draw_set_font(Font2)
 if global.timeattack
 {
+if global.level == "junkbeach"
+{
 if timer >= 40
    draw_set_color(c_red)
 }
+else
+   if timer >= 150
+   draw_set_color(c_red)
+}
+
 if timerend == 1
    draw_set_color(c_green)
 draw_text(640, 10, timer);

@@ -1,1 +1,0 @@
-text = "Press CTRL+R (start on gamepad) to restart. Press T (select on gamepad) for time attack mode (beat the level in\nunder 50 seconds)."

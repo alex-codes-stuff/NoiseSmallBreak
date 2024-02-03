@@ -1,6 +1,7 @@
-live_auto_call;
+ live_auto_call;
 timer = 0
 tnt = 0
+global.level = "junkbeach"
 controllerfinished = 1
 //make it 1 when controller bugs are fixed.
 enum states
@@ -71,10 +72,11 @@ scr_hurtplayer = function()
 		alarm[5] = 150
 	}
 		
-	
-		    	gamepad_set_vibration(0, 1, 1);
+	 
+		   	gamepad_set_vibration(0, 1, 1);
 	if instance_exists(obj_player)
 	obj_camera.shake = 1
+	inv = 1
 	obj_camera.shakestrength = 7
 	obj_player.alarm[4] = 16
 	obj_player.alarm[3] = 16

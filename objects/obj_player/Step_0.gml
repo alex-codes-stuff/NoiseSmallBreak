@@ -1,4 +1,4 @@
-live_auto_call;
+  live_auto_call;
 
 if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 {
@@ -8,12 +8,17 @@ if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 	//audio_stop_all();
 	room_restart();
 }
+if room == hub_1
+{
+   timer = 0
+   timerend = 0
+}
 if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
    global.timeattack = 1
 if room == testroom_1 && targetDoor = "X"
    timerend = 1
 //controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
-if !gamepad_is_connected(0)
+if !gamepad_is_connected(0) || os_type == os_android
 {
 var key_left = -keyboard_check(vk_left);
 var key_right = keyboard_check(vk_right);
@@ -441,9 +446,17 @@ switch state
 		if grounded && vsp >= 0
 		{
 			state = states.normal;
-			movespeed = 0;
+			movespeed = 0;  
+			if global.level == "junkbeach"
+			{ 
 			if !(global.timeattack && timer >= 49.99)
 				inv = 80;
+			}
+			else
+			{
+ 			   	if !(global.timeattack && timer >= 160)
+				inv = 80;
+			}
 		}
 		break;
 }

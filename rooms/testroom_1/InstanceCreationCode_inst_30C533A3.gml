@@ -1,1 +1,0 @@
-text = "fuck you mariuigi"

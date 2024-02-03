@@ -6,18 +6,23 @@ switch state
    case 0:
    if (abs((x - obj_player.x)) > 30)
     image_xscale = sign((obj_player.x - x))
+	if !(place_meeting(x, y+vspeed, obj_solid) || place_meeting(x, y+vspeed, obj_platform))
+	   vspeed += 1
+	else  
+	   vspeed = 0
 	if distance_to_object(obj_player) <250 && thingy == 0
 	{
-	   alarm[0] = 25
+	   alarm[0] = 25 
 	   thingy = 1
 	}
         break
 	case 1:
 	 if (abs((x - obj_player.x)) > 30)
     image_xscale = sign((obj_player.x - x))
-	if ds_queue_size(queue) >= 70
+	if ds_queue_size(queue) >= queuerandom
 	{
-		interp = Approach(interp, 1, 0.03);
+		vspeed = 0
+		interp = Approach(interp, 1, _speed);
 		x = lerp(x, ds_queue_dequeue(queue), interp);
 		y = lerp(y, ds_queue_dequeue(queue), interp);
 	}
