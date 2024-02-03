@@ -74,7 +74,7 @@ scr_hurtplayer = function()
 		
 	 
 		   	gamepad_set_vibration(0, 1, 1);
-	if instance_e xists(obj_player)
+	if instance_exists(obj_player)
 	obj_camera.shake = 1
 	inv = 1
 	obj_camera.shakestrength = 7
