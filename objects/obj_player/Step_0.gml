@@ -11,7 +11,7 @@ if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 if room == hub_1
 {
    timer = 0
-   timerend = 0
+   timerend = 0  
 }
 if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
    global.timeattack = 1
