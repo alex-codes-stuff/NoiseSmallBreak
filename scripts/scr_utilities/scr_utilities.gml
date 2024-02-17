@@ -71,5 +71,8 @@ function concat()
 }
 function instance_create(x, y, obj, var_struct = {})
 {
+	if obj != -1
+	{
 	return instance_create_depth(x, y, 0, obj, var_struct);
+	}
 }

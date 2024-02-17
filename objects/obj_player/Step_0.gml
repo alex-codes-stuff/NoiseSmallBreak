@@ -1,5 +1,11 @@
   live_auto_call;
-
+if room == room_editor && global.play != 1
+{
+	visible = false
+	return;
+}
+else
+   visible = true
 if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 {
 	ds_list_clear(global.saveroom);

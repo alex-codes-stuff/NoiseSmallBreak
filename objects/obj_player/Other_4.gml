@@ -53,5 +53,7 @@ if door_obj
 		}
 	}
 }
-
+if global.coop == 0
+{
 instance_create(x, y, obj_noisette);
+}

@@ -101,12 +101,21 @@ function scr_solid_slope(_x, _y)
 	if (check_slope(obj_slope))
 	{
 		var inst = instance_place(x, y, obj_slope);
+		if object_index != obj_noisette
+		{
 		if (sign(inst.image_xscale) != xscale)
 		{
 			x = old_x;
 			y = old_y;
 			return true;
 		}
+		}
+		else
+		   {
+			 x = old_x;
+			y = old_y;
+			return true;  
+		   }
 	}
 	x = old_x;
 	y = old_y;

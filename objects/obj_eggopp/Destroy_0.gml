@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
+if room == room_editor && global.play == 0
+   return;
 with instance_create(x+32, y+32, obj_debris)
 {
    sprite_index = spr_eggopp_idle

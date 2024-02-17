@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
+if room == room_editor && global.play == 0
+   return;
 if instance_exists(obj_player)
 switch state
 {

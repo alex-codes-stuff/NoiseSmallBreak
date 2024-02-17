@@ -20,6 +20,7 @@ enum states
 
 depth = -6;
 alarm[0] = room_speed * 0.1
+global.coop = 1
 timerend = 0
 hp = 4;
 losehp = 0
