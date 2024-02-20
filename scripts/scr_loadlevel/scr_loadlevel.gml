@@ -3,7 +3,7 @@
 function scr_loadlevel(){
 	with (all)
 	{
-		if object_index != obj_camera && object_index != obj_player && object_index != obj_noisette && object_index != obj_editor && object_index != obj_screensizer && object_index != obj_particlesystem  && object_index != obj_savehitbox  && object_index != obj_testhitbox  && object_index != obj_objecttab
+		if object_index != obj_camera && object_index != obj_player && object_index != obj_noisette && object_index != obj_editor && object_index != obj_screensizer && object_index != obj_particlesystem  && object_index != obj_savehitbox  && object_index != obj_testhitbox  && object_index != obj_objecttab && object_index != obj_roomsizehitbox
 		   instance_destroy()
 	}
 if file_exists(filename)
@@ -28,7 +28,7 @@ if file_exists(filename)
 				image_xscale = _map[? "image_xscale"]
 					image_yscale = _map[? "image_yscale"]
 				if variable_instance_exists(id, "targetDoor")
-				   targetDoor = _map[? "targetDoor"]
+				   targetDoorIndex = _map[? "targetDoorIndex"]
 					
 			}
 			}

@@ -11,7 +11,7 @@ if room == room_editor
 	     targetDoor = "B"
 		 break
 		  case 2:
-	     targetDoor = "X"
+	     targetDoor = "C"
 		 break
 		  case 3:
 	     targetDoor = "A"

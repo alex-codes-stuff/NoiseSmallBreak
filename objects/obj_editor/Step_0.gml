@@ -5,6 +5,10 @@ var bg_id = layer_background_get_id(bg)
 layer_background_blend(bg_id, background_tint)
 var xx = mouse_x div 32
 var yy =mouse_y div 32
+if global.play == 1
+   audio_pause_sound(mu_secret)
+if global.play == 0
+   audio_resume_sound(mu_secret)
 if global.play == 0
 {
 if keyboard_check(ord("X"))
@@ -133,8 +137,11 @@ if keyboard_check_pressed(ord("R"))
 	      inst = id;
 	   }
 	}
-    if inst != noone && object_get_parent(inst.object_index) != obj_editorobject
+    if inst != noone && object_get_parent(inst.object_index) != obj_editorobject && inst.object_index != obj_doorA
+	{
 	   instance_destroy(inst)
+	   selected = noone
+	}
 	}
 
 if keyboard_check_pressed(ord("D"))
@@ -192,15 +199,17 @@ if selectnumber = 7
 }
 if selectnumber = 8
 {
-   select = obj_doorX
-   selectsprite = spr_doorX
+   select = obj_doorC
+   selectsprite = spr_doorC
 }
-if selectnumber = 8
+if selectnumber = 9
 {
    select = obj_spike
    selectsprite = spr_plug
 }
 } 
+if room != room_customlevel
+{
 if keyboard_check_pressed(vk_enter)
 {
 	
@@ -220,7 +229,7 @@ if keyboard_check_pressed(vk_escape)
    filename = "Backup.sav"
    scr_loadlevel()
 }
-
+}
 if keyboard_check_pressed(ord("U"))
 {
 	filename = get_string("Level Name?", "")
@@ -250,6 +259,12 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
     selected = noone
    obj_player.x = obj_doorA.x
      obj_player.y = obj_doorA.y - 40
+  }
+if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_roomsizehitbox))
+  {
+  
+	room_width = real(get_string("Room width?", string(room_width)))
+	room_height = real(get_string("Room height?", string(room_height)))
   }
  if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_objecttab))
   {

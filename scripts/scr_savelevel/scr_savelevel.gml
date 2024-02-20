@@ -11,7 +11,7 @@ function scr_savelevel(){
         "image_xscale", "image_yscale"] // please ensure each variable does exist in each object if you add any custom variables (not gm builtin obj vars)
         
     var specific_variables_to_save = {
-        "obj_hallway34": ["targetDoor"]
+        "obj_hallway34": ["targetDoorIndex"]
        
     }
     

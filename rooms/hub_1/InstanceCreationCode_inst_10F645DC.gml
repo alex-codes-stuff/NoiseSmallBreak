@@ -1,1 +1,1 @@
-targetRoom = room_editor
+targetRoom = room_minimenu

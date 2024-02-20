@@ -1,5 +1,5 @@
 live_auto_call;
-if !hp <= 0 && !(room == room_editor && global.play == 0)
+if !hp <= 0 && !(room == room_editor && global.play == 0) && room != room_minimenu
 {
 for(var i = 0; i < max(hp, 4); i++)
 	draw_sprite_ext(spr_healthHUD, 0, 32 + 78 * i, 16, 1, 1, 0, i >= hp ? c_black : c_white, 1);

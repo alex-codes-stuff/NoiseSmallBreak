@@ -25,10 +25,10 @@ if fadeout
 			}
 		
 		
-		if obj_player.targetDoor == "X"
+		if obj_player.targetDoor == "C"
 		    {
-			obj_player.x = obj_doorX.x	
-				obj_player.y = obj_doorX.y - 30
+			obj_player.x = obj_doorC.x	
+				obj_player.y = obj_doorC.y - 30
 			}
 		
 		}
