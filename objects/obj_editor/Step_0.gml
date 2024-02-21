@@ -26,8 +26,47 @@ else
    flipped = 1
 xx = xx*32
 yy = yy*32
+/*
+with all
+{
+	if object_get_parent(object_index) == obj_editorobject
+	{
+		if !(position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), id))
+		{
+			if other.touching != 0
+				other.touching = 0
+			
+		}
+	    else
+		    other.touching = 1
+	}
+}
+*/
+
+var objects2 = ["obj_musichitbox","obj_testhitbox","obj_savehitbox", "obj_roomsizehitbox", "obj_objecttab"]
+for (var i = 0; i < 5; i += 1)
+{
+    if i == 0
+	   other.touching = 0
+	var i2 = objects2[@ i]
+	var object = asset_get_index(i2)
+	with object
+	{
+		if (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), id))
+		{
+		   other.touching = 1
+		   break;
+		}
+		
+	}
+	    
+	
+}
+
 if mouse_check_button(mb_left) && !keyboard_check(vk_alt)
 {
+	if !touching
+	{
 	
      with instance_create(xx, yy , select)
 	 {
@@ -40,7 +79,7 @@ if mouse_check_button(mb_left) && !keyboard_check(vk_alt)
 		    x += 32
 	 
 	}
-	
+	}
 }
 if keyboard_check_pressed(vk_right)
 {

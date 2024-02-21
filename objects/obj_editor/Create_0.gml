@@ -5,6 +5,7 @@ background_tint = c_gray
 background_tint2 = c_gray
 selectnumber = 0
 selectsprite = spr_wall
+touching =  0
 global.play = 0
 song = "mu_placeholder"
 flipped = 0
