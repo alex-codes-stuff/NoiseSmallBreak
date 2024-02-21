@@ -481,8 +481,8 @@ if spike && abs(distance_to_object(spike)) < 1
 		vsp = -14;
 		grounded = false;
 	}
-	else
-		scr_hurtplayer();
+	//else
+	//	scr_hurtplayer();
 }
 if place_meeting(x, y, obj_player) && hitbuffer <= 0
 	{

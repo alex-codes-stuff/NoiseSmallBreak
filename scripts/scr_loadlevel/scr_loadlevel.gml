@@ -29,6 +29,7 @@ if file_exists(filename)
 					image_yscale = _map[? "image_yscale"]
 				if variable_instance_exists(id, "targetDoor")
 				   targetDoorIndex = _map[? "targetDoorIndex"]
+		
 					
 			}
 			}
@@ -42,6 +43,10 @@ if file_exists(filename)
 			room_width = _test
 			var _test2 = _map[? "room_height"];
 			room_height = _test2
+			var _test3 = _map[? "background_tint"];
+			background_tint = _test3
+			var _test4 = _map[? "song"];
+			song = _test4
 			
 			
 	       

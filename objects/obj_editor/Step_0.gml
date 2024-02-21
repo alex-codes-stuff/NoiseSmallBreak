@@ -6,9 +6,18 @@ layer_background_blend(bg_id, background_tint)
 var xx = mouse_x div 32
 var yy =mouse_y div 32
 if global.play == 1
+{
    audio_pause_sound(mu_secret)
+   if !audio_is_playing(asset_get_index(song))
+   audio_play_sound(asset_get_index(song), 0, 1)
+}
 if global.play == 0
+{
+	
+		 audio_stop_sound(asset_get_index(song))
    audio_resume_sound(mu_secret)
+  
+}
 if global.play == 0
 {
 if keyboard_check(ord("X"))
@@ -121,6 +130,11 @@ if keyboard_check_pressed(ord("E"))
 {
 	background_tint2 = get_string("Backgrounde Color", background_tint)
 	background_tint = background_tint2
+}
+if keyboard_check_pressed(ord("Q"))
+{
+	song = get_string("Song?", song)
+	
 }
 if keyboard_check_pressed(ord("R"))
 {
@@ -269,6 +283,12 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
  if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_objecttab))
   {
   obj_objecttab.open *= -1
+ 
+ 
+  }
+  if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_musichitbox))
+  {
+song = get_string("Song?", song)
  
  
   }

@@ -12,6 +12,7 @@ function scr_savelevel(){
         
     var specific_variables_to_save = {
         "obj_hallway34": ["targetDoorIndex"]
+		
        
     }
     
@@ -53,6 +54,8 @@ function scr_savelevel(){
 
 	ds_map_add(map, "room_width", room_width)
 	ds_map_add(map, "room_height", room_height)
+	ds_map_add(map, "background_tint", background_tint)
+	ds_map_add(map, "song", song)
 	
     wrapper = ds_map_create()
     ds_map_add_list(wrapper, "root", dslisttest)

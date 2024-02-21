@@ -6,6 +6,7 @@ background_tint2 = c_gray
 selectnumber = 0
 selectsprite = spr_wall
 global.play = 0
+song = "mu_placeholder"
 flipped = 0
 selected = noone
 //testin
