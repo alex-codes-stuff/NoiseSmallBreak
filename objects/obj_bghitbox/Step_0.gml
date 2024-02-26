@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-if room == room_editor
-	draw_text(x, y-150, targetDoor)
+if global.play == 1
+    visible = 0
+else
+   visible = 1
 
-draw_self()
 
 
 

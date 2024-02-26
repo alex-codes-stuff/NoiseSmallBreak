@@ -188,6 +188,7 @@
     {"id":{"name":"spr_player_backflipfall","path":"sprites/spr_player_backflipfall/spr_player_backflipfall.yy",},},
     {"id":{"name":"scr_collide","path":"scripts/scr_collide/scr_collide.yy",},},
     {"id":{"name":"spr_ctrlr","path":"sprites/spr_ctrlr/spr_ctrlr.yy",},},
+    {"id":{"name":"obj_bghitbox","path":"objects/obj_bghitbox/obj_bghitbox.yy",},},
     {"id":{"name":"spr_down","path":"sprites/spr_down/spr_down.yy",},},
     {"id":{"name":"obj_solid","path":"objects/obj_solid/obj_solid.yy",},},
     {"id":{"name":"spr_highjumpcloud2","path":"sprites/spr_highjumpcloud2/spr_highjumpcloud2.yy",},},

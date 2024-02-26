@@ -43,8 +43,8 @@ with all
 }
 */
 
-var objects2 = ["obj_musichitbox","obj_testhitbox","obj_savehitbox", "obj_roomsizehitbox", "obj_objecttab"]
-for (var i = 0; i < 5; i += 1)
+var objects2 = ["obj_musichitbox","obj_testhitbox","obj_savehitbox", "obj_roomsizehitbox", "obj_objecttab", "obj_bghitbox"]
+for (var i = 0; i < 6; i += 1)
 {
     if i == 0
 	   other.touching = 0
@@ -208,7 +208,7 @@ if selectnumber >= 0
 else
     selectnumber = 0
 	
-	
+	/*
 if selectnumber = 0
 {
    select = obj_solid
@@ -260,6 +260,30 @@ if selectnumber = 9
    select = obj_spike
    selectsprite = spr_plug
 }
+*/
+
+var objects = ["obj_solid", "obj_slope", "obj_eggopp", "obj_convexslope", "obj_collect", "obj_destroyable", "obj_hallway34", "obj_doorB", "obj_doorC", "obj_spike"]
+//var objectsprites = ["spr_wall", "spr_slope", "spr_eggopp_idle", "spr_convexslope", "spr_collect", "spr_destroyable", "spr_shuttle", "spr_doorB", "spr_doorC", "spr_plug"]
+
+for (var i = 0; i < array_length(objects)+1; i += 1)
+{
+	if selectnumber == i
+	{
+		select = asset_get_index(objects[i])
+		selectsprite = object_get_sprite(select)
+	}
+	
+}
+/*
+for (var i = 0; i < array_length(objectsprites)+1; i += 1)
+{
+	if selectnumber == i
+	{
+		selectsprite = asset_get_index(objectsprites[i])
+	}
+	
+}
+*/
 } 
 if room != room_customlevel
 {
@@ -329,6 +353,12 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
   {
 song = get_string("Song?", song)
  
+ 
+  }
+  if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_bghitbox))
+  {
+background_tint2 = get_string("Backgrounde Color", background_tint)
+	background_tint = background_tint2
  
   }
 }

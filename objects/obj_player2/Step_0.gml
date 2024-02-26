@@ -1,4 +1,6 @@
   live_auto_call;
+if global.coop == 0
+  instance_destroy()
 if room == room_editor && global.play != 1
 {
 	visible = false

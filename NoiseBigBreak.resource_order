@@ -146,6 +146,7 @@
     {"name":"spr_player_backflipfall","order":26,"path":"sprites/spr_player_backflipfall/spr_player_backflipfall.yy",},
     {"name":"scr_collide","order":2,"path":"scripts/scr_collide/scr_collide.yy",},
     {"name":"spr_ctrlr","order":16,"path":"sprites/spr_ctrlr/spr_ctrlr.yy",},
+    {"name":"obj_bghitbox","order":8,"path":"objects/obj_bghitbox/obj_bghitbox.yy",},
     {"name":"spr_down","order":18,"path":"sprites/spr_down/spr_down.yy",},
     {"name":"obj_solid","order":4,"path":"objects/obj_solid/obj_solid.yy",},
     {"name":"scr_jsonthing","order":9,"path":"scripts/scr_jsonthing/scr_jsonthing.yy",},
