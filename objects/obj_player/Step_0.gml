@@ -24,15 +24,55 @@ if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
 if room == testroom_1 && targetDoor = "X"
    timerend = 1
 //controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
+ini_open("keybinds.ini")
 if !gamepad_is_connected(0) || os_type == os_android
 {
-var key_left = -keyboard_check(vk_left);
-var key_right = keyboard_check(vk_right);
-var key_up = keyboard_check(vk_up);
-var key_down = keyboard_check(vk_down);
-var key_down2 = keyboard_check_pressed(vk_down);
-var key_jump = keyboard_check_pressed(ord("Z"));
-var key_jump2 = keyboard_check(ord("Z"));
+	//left
+	var check = global.keys[? ini_read_string("keybinds", "key_left", "vk_left")]
+	if !is_undefined(check)
+		var key_left = -keyboard_check(global.keys[? ini_read_string("keybinds", "key_left", "vk_left")])
+	else
+	    	var key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
+			//right
+var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
+	if !is_undefined(check)
+		var key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
+	else
+	    	var key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
+			//up
+var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
+	if !is_undefined(check)
+		var key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
+	else
+	    	var key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
+			//down
+var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
+	if !is_undefined(check)
+	{
+		var key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		var key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		
+	}
+	else
+	{
+	    	var key_down = keyboard_check(ord(ini_read_string("keybinds", "key_down", "S")))
+			var key_down2 = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_down", "S")))
+	}
+//var key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+//jump
+var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
+	if !is_undefined(check)
+	{
+		var key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		var key_jump2 = keyboard_check(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		
+	}
+	else
+	{
+	    	var key_jump = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_jump", "Z")))
+			var key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
+	}
+//var key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
 var move = key_left + key_right;
 var forward = gamepad_button_check(0, gp_shoulderrb)
 }
@@ -46,18 +86,18 @@ else if controllerfinished == 1
 	_key_right = key_up
 	_key_left = key_down
 	var key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
-	var key_jump = gamepad_button_check_pressed(0, gp_face1)
-	var key_jump2 = gamepad_button_check(0, gp_face1)
+	var key_jump = gamepad_button_check_pressed(0, global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
+	var key_jump2 = gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
 	
-	var key_forward = gamepad_button_check(0, gp_shoulderrb) * xscale
-	if !gamepad_button_check(0, gp_shoulderrb)
+	var key_forward = gamepad_button_check(0, global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")]) * xscale
+	if !gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")])
 	var move = key_left + key_right
 	else
 	var move = key_forward
 	_move = move
 
 }
-
+ini_close()
 if key_jump
 	input_buffer_jump = 10;
 if input_buffer_jump > 0

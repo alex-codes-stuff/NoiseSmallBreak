@@ -37,6 +37,7 @@ else
 draw_set_color(c_white)
 draw_text(300,distance, "SETTINGS")
 break
+
 case 2:
 draw_set_alpha(1)
 distance = 125
@@ -46,16 +47,100 @@ else
 draw_set_color(c_white)
 draw_text(300,distance, "BACK")
 distance+=distanceamount
+draw_set_alpha(0.5)
 if index == 2
 draw_set_color(c_yellow)
 else
 draw_set_color(c_white)
 draw_text(300,distance, "COOP MODE: " + string(global.coop))
 distance+=distanceamount
+draw_set_alpha(1)
+if index == 3
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "KEY REMAPPING")
+distance+=distanceamount
    
+   break
+ case 3:
+draw_set_alpha(1)
+distance = 125
+if index == 1
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "BACK")
+distance+=distanceamount
+
+if index == 2
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "KEYBOARD")
+distance+=distanceamount
+draw_set_alpha(0.5)
+if index == 3
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "CONTROLLER  (COMING IN 2.5)")
+distance+=distanceamount
+draw_set_alpha(1)
+break
+case 4:
+draw_set_alpha(1)
+distance = 125
+if index == 1
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "BACK")
+distance+=distanceamount
+//ini_read_string("keybinds", "key_left", "vk_left")
+
+ini_open("keybinds.ini")
+
+if index == 2
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "LEFT   " + ini_read_string("keybinds", "key_left", "vk_left"))
+distance+=distanceamount
+
+if index == 3
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "RIGHT   " + ini_read_string("keybinds", "key_right", "vk_right"))
+distance+=distanceamount
+
+if index == 4
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "UP   " + ini_read_string("keybinds", "key_up", "vk_up"))
+distance+=distanceamount
+
+if index == 5
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "DOWN  " + ini_read_string("keybinds", "key_down", "vk_down"))
+distance+=distanceamount
+
+if index == 6
+draw_set_color(c_yellow)
+else
+draw_set_color(c_white)
+draw_text(300,distance, "JUMP  " + ini_read_string("keybinds", "key_jump", "Z"))
+distance+=distanceamount
+
+ini_close()
+break
 }
 
 
-
+draw_text(x, y, controllerup)
 
 draw_set_color(c_white)

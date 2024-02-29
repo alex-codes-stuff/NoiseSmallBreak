@@ -10,26 +10,28 @@ if room == room_editor && global.play != 1
 	var camx = target.x - CAMW / 2 + _camx;
 	var camy = target.y - CAMH / 2 + _camy;
 }
-	
-	if keyboard_check(ord("L"))
-	   _camx += 7
-	if keyboard_check(ord("J"))
-	   _camx -= 7
-	if keyboard_check(ord("I"))
-	   _camy -= 7
-	if keyboard_check(ord("K"))
-	   _camy += 7
+   var camspeed = 0
+	if keyboard_check(vk_shift)
+	    camspeed = 4
+	if keyboard_check(ord("D"))
+	   _camx += 7+camspeed
+	if keyboard_check(ord("A"))
+	   _camx -= 7+camspeed
+	if keyboard_check(ord("W"))
+	   _camy -= 7+camspeed
+	if keyboard_check(ord("S"))
+	   _camy += 7+camspeed
 	if keyboard_check(ord("O"))
 		{
-	   _camh += 7.5
-	   _camw += 15
+	   _camh += 7.4+camspeed
+	   _camw += 15+camspeed
 	   
 		}
 	  
 	if keyboard_check(ord("P"))
 		{
-	   _camh -= 7.5
-	   _camw -= 15
+	   _camh -= 7.4+camspeed
+	   _camw -= 15+camspeed
 	   
 		}
 		if instance_exists(target)

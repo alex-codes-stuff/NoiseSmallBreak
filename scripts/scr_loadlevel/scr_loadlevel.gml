@@ -3,7 +3,7 @@
 function scr_loadlevel(){
 	with (all)
 	{
-		if object_index != obj_camera && object_index != obj_player && object_index != obj_noisette && object_index != obj_editor && object_index != obj_screensizer && object_index != obj_particlesystem  && object_index != obj_savehitbox  && object_index != obj_testhitbox  && object_index != obj_objecttab && object_index != obj_roomsizehitbox
+		if object_index != obj_camera && object_index != obj_player && object_index != obj_noisette && object_index != obj_editor && object_get_parent(object_index) != obj_editorobject && object_index != obj_screensizer
 		   instance_destroy()
 	}
 if file_exists(filename)

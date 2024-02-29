@@ -15,4 +15,5 @@ dslisttest = ds_list_create()
 dslisttest2 = ds_list_create()
 filename = "MyLevel"
 audio_play_sound(mu_secret, 0, 1)
+touching2 = 0
 

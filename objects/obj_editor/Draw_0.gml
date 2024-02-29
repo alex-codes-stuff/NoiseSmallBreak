@@ -29,8 +29,10 @@ var yy =mouse_y div 32
 xx = xx*32
 yy = yy*32
 draw_set_alpha(0.5)
-
-draw_sprite(selectsprite, 0, xx, yy)
+if flipped == 1
+	draw_sprite_ext(selectsprite, 0, xx, yy, flipped, 1, image_angle, image_blend, 0.5)
+else
+   draw_sprite_ext(selectsprite, 0, xx+32, yy, flipped, 1, image_angle, image_blend, 0.5)
 draw_set_alpha(1)
 }
 

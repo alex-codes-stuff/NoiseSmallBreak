@@ -1,6 +1,8 @@
  live_auto_call;
 timer = 0
 tnt = 0
+scr_initinput()
+scr_keycodetokeyname()
 global.level = "junkbeach"
 controllerfinished = 1
 //make it 1 when controller bugs are fixed.

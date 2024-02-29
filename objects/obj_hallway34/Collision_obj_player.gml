@@ -2,7 +2,7 @@ if keyboard_check_pressed(vk_up) || (gamepad_axis_value(0, gp_axislv) < -0.5) &&
 with other
 {
 	if room == moonlight_4
-	   edtimerend = 1
+	   timerend = 1
 	sprite_index = spr_player_idle
 	targetRoom = other.targetRoom;
 	targetDoor = other.targetDoor;

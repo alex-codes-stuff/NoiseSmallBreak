@@ -1,2 +1,2 @@
 keycode = ord("R")
-sprite_index = spr_ctrlr
+sprite_index = spr_mobile_reset

@@ -43,7 +43,7 @@ with all
 }
 */
 
-var objects2 = ["obj_musichitbox","obj_testhitbox","obj_savehitbox", "obj_roomsizehitbox", "obj_objecttab", "obj_bghitbox"]
+var objects2 = ["obj_musichitbox","obj_testhitbox","obj_savehitbox", "obj_roomsizehitbox", "obj_objecttab", "obj_bghitbox", "obj_loadhitbox"]
 for (var i = 0; i < 6; i += 1)
 {
     if i == 0
@@ -62,12 +62,15 @@ for (var i = 0; i < 6; i += 1)
 	    
 	
 }
-
+  if ((point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),obj_objecttab.x, obj_objecttab.y+50, obj_objecttab.xx, obj_objecttab.yy+576)) || (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),obj_objecttab.x+64, obj_objecttab.y+50+64*obj_objecttab.thingy2, obj_objecttab.xx+64, obj_objecttab.yy+64*obj_objecttab.thingy2))) && obj_objecttab.open == 1
+     touching2 = 1
+else
+   touching2=0
 if mouse_check_button(mb_left) && !keyboard_check(vk_alt)
 {
-	if !touching
+	if !touching && !touching2
 	{
-	
+	 selected = noone
      with instance_create(xx, yy , select)
 	 {
 		// if other.select == obj_eggopp
@@ -75,6 +78,7 @@ if mouse_check_button(mb_left) && !keyboard_check(vk_alt)
 		 if place_meeting(x, y, other.select)
 		     instance_destroy()
 		 image_xscale = other.flipped
+		
 		 if other.flipped == -1
 		    x += 32
 	 
@@ -196,13 +200,13 @@ if keyboard_check_pressed(ord("R"))
 	   selected = noone
 	}
 	}
-
-if keyboard_check_pressed(ord("D"))
-if selectnumber <= 8
+var objects = ["obj_solid", "obj_slope", "obj_eggopp", "obj_convexslope", "obj_collect", "obj_destroyable", "obj_hallway34", "obj_doorB", "obj_doorC", "obj_spike", "obj_levelfinish"]
+if keyboard_check_pressed(ord("L"))
+if selectnumber <= array_length(objects) - 2
      selectnumber+=1
 else
     selectnumber = 0
-if keyboard_check_pressed(ord("A"))
+if keyboard_check_pressed(ord("J"))
 if selectnumber >= 0
      selectnumber-=1
 else
@@ -262,7 +266,7 @@ if selectnumber = 9
 }
 */
 
-var objects = ["obj_solid", "obj_slope", "obj_eggopp", "obj_convexslope", "obj_collect", "obj_destroyable", "obj_hallway34", "obj_doorB", "obj_doorC", "obj_spike"]
+
 //var objectsprites = ["spr_wall", "spr_slope", "spr_eggopp_idle", "spr_convexslope", "spr_collect", "spr_destroyable", "spr_shuttle", "spr_doorB", "spr_doorC", "spr_plug"]
 
 for (var i = 0; i < array_length(objects)+1; i += 1)
@@ -296,20 +300,34 @@ if keyboard_check_pressed(vk_enter)
 	 scr_savelevel()
 	// scr_loadlevel()
    global.play = 1
+   obj_player.timer = 0
+   obj_player.timerend = 0
    selected = noone
    obj_player.x = obj_doorA.x
      obj_player.y = obj_doorA.y - 40
 }
 if keyboard_check_pressed(vk_escape)
 {
+	if global.play == 1
+	{
    global.play = 0
    filename = "Backup.sav"
    scr_loadlevel()
+	}
+	else
+	{
+		with instance_create_depth(obj_player.x, obj_player.y, 100, obj_hallway)
+{
+	targetRoom = room_minimenu
+	targetDoor = "A"
+	visible = false
+}
+	}
 }
 }
 if keyboard_check_pressed(ord("U"))
 {
-	filename = get_string("Level Name?", "")
+	filename = get_string("Level Name?", "Level.sav")
     scr_savelevel()
 }
 
@@ -320,7 +338,7 @@ if global.play == 0
 if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_savehitbox))
   {
   
-	   filename = get_string("Level Name?", "")
+	   filename = get_string("Level Name?", "Level.sav")
       scr_savelevel()
    
   }
@@ -333,6 +351,8 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
 	 scr_savelevel()
 	// scr_loadlevel()
    global.play = 1
+   obj_player.timer = 0
+    obj_player.timerend = 0
     selected = noone
    obj_player.x = obj_doorA.x
      obj_player.y = obj_doorA.y - 40
@@ -351,14 +371,26 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
   }
   if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_musichitbox))
   {
-song = get_string("Song?", song)
+song = get_string("Song? (see Editor Guide for refrence)", song)
  
  
   }
   if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_bghitbox))
   {
-background_tint2 = get_string("Backgrounde Color", background_tint)
+background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", background_tint)
 	background_tint = background_tint2
+ 
+  }
+  /*
+  filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.sav)");
+ 
+	scr_loadlevel()
+  */
+   if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_loadhitbox))
+  {
+filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.sav)");
+ 
+	scr_loadlevel()
  
   }
 }

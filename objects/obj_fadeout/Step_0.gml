@@ -4,13 +4,19 @@ if fadeout
 	if image_alpha >= 1
 	{
 		fadeout = false;
-		if room != room_editor
+		if room != room_editor 
 		{
 		with obj_player
+		{
 			room_goto(targetRoom);
+			timerend = 0
+		}
+			
 		}
 		else
 		{
+			if obj_player.targetRoom != room_minimenu
+			{
 		if obj_player.targetDoor == "A"
 		    {
 			obj_player.x = obj_doorA.x	
@@ -29,6 +35,13 @@ if fadeout
 		    {
 			obj_player.x = obj_doorC.x	
 				obj_player.y = obj_doorC.y - 30
+			}
+			}
+			else
+			{
+				with obj_player
+			room_goto(targetRoom);
+			audio_stop_all()
 			}
 		
 		}

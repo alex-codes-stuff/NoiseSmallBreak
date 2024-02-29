@@ -1,0 +1,76 @@
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+function scr_initinput(){
+global.keys = ds_map_create();
+global.keys[?"vk_nokey"] = vk_nokey;
+global.keys[?"vk_anykey"] = vk_anykey;
+global.keys[?"vk_left"] = vk_left;
+global.keys[?"vk_right"] = vk_right;
+global.keys[?"vk_up"] = vk_up;
+global.keys[?"vk_down"] = vk_down;
+global.keys[?"vk_enter"] = vk_enter;
+global.keys[?"vk_escape"] = vk_escape;
+global.keys[?"vk_space"] = vk_space;
+global.keys[?"vk_shift"] = vk_shift;
+global.keys[?"vk_control"] = vk_control;
+global.keys[?"vk_alt"] = vk_alt;
+global.keys[?"vk_backspace"] = vk_backspace;
+global.keys[?"vk_tab"] = vk_tab;
+global.keys[?"vk_home"] = vk_home;
+global.keys[?"vk_end"] = vk_end;
+global.keys[?"vk_delete"] = vk_delete;
+global.keys[?"vk_insert"] = vk_insert;
+global.keys[?"vk_pageup"] = vk_pageup;
+global.keys[?"vk_pagedown"] = vk_pagedown;
+global.keys[?"vk_pause"] = vk_pause;
+global.keys[?"vk_printscreen"] = vk_printscreen;
+global.keys[?"vk_f1"] = vk_f1;
+global.keys[?"vk_f2"] = vk_f2;
+global.keys[?"vk_f3"] = vk_f3;
+global.keys[?"vk_f4"] = vk_f4;
+global.keys[?"vk_f5"] = vk_f5;
+global.keys[?"vk_f6"] = vk_f6;
+global.keys[?"vk_f7"] = vk_f7;
+global.keys[?"vk_f8"] = vk_f8;
+global.keys[?"vk_f9"] = vk_f9;
+global.keys[?"vk_f10"] = vk_f10;
+global.keys[?"vk_f11"] = vk_f11;
+global.keys[?"vk_f12"] = vk_f12;
+global.keys[?"vk_numpad0"] = vk_numpad0;
+global.keys[?"vk_numpad1"] = vk_numpad1;
+global.keys[?"vk_numpad2"] = vk_numpad2;
+global.keys[?"vk_numpad3"] = vk_numpad3;
+global.keys[?"vk_numpad4"] = vk_numpad4;
+global.keys[?"vk_numpad5"] = vk_numpad5;
+global.keys[?"vk_numpad6"] = vk_numpad6;
+global.keys[?"vk_numpad7"] = vk_numpad7;
+global.keys[?"vk_numpad8"] = vk_numpad8;
+global.keys[?"vk_numpad9"] = vk_numpad9;
+global.keys[?"vk_multiply"] = vk_multiply;
+global.keys[?"vk_divide"] = vk_divide;
+global.keys[?"vk_add"] = vk_add;
+global.keys[?"vk_subtract"] = vk_subtract;
+global.keys[?"vk_decimal"] = vk_decimal;
+global.keys[?"vk_lshift"] = vk_lshift;
+global.keys[?"vk_lcontrol"] = vk_lcontrol;
+global.keys[?"vk_lalt"] = vk_lalt;
+global.keys[?"vk_rshift"] = vk_rshift;
+global.keys[?"vk_rcontrol"] = vk_rcontrol;
+global.keys[?"vk_ralt"] = vk_ralt;
+
+global.keys[?"gp_face1"] = gp_face1;
+global.keys[?"gp_face2"] = gp_face2;
+global.keys[?"gp_face3"] = gp_face3;
+global.keys[?"gp_face4"] = gp_face4;
+global.keys[?"gp_shoulderrb"] = gp_shoulderrb;
+global.keys[?"gp_shoulderl"] = gp_shoulderl;
+global.keys[?"gp_shoulderr"] = gp_shoulderr;
+global.keys[?"gp_shoulderlb"] = gp_shoulderlb;
+global.keys[?"gp_stickl"] = gp_stickl;
+global.keys[?"gp_stickr"] = gp_stickr;
+global.keys[?"gp_padu"] = gp_padu;
+global.keys[?"gp_padd"] = gp_padd;
+global.keys[?"gp_padl"] = gp_padl;
+global.keys[?"gp_padr"] = gp_padr;
+
+}

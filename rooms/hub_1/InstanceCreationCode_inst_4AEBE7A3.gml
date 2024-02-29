@@ -1,2 +1,2 @@
 keycode = ord("Z")
-sprite_index = spr_z
+sprite_index = spr_mobile_jump

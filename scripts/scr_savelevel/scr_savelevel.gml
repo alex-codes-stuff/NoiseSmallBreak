@@ -5,7 +5,7 @@ function scr_savelevel(){
 	ds_list_clear(dslisttest2)
 
     var objects_to_save = [obj_solid, obj_slope, obj_convexslope, 
-        obj_collect, obj_destroyable, obj_doorA, obj_hallway34, obj_doorB, obj_doorX, obj_eggopp, obj_spike] // write your extra objects here
+        obj_collect, obj_destroyable, obj_doorA, obj_hallway34, obj_doorB, obj_doorX, obj_eggopp, obj_spike, obj_levelfinish] // write your extra objects here
 
     var variables_to_save = ["x", "y", 
         "image_xscale", "image_yscale"] // please ensure each variable does exist in each object if you add any custom variables (not gm builtin obj vars)
