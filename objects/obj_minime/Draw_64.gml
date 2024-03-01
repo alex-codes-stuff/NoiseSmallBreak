@@ -52,7 +52,7 @@ if index == 2
 draw_set_color(c_yellow)
 else
 draw_set_color(c_white)
-draw_text(300,distance, "COOP MODE: " + string(global.coop))
+draw_text(300,distance, "COOP MODE: " + string(global.coop) + " (COMING IN 2.5)")
 distance+=distanceamount
 draw_set_alpha(1)
 if index == 3
@@ -72,12 +72,18 @@ else
 draw_set_color(c_white)
 draw_text(300,distance, "BACK")
 distance+=distanceamount
-
+if gamepad_is_connected(0)
+  draw_set_alpha(0.5)
+else
+  draw_set_alpha(1)
 if index == 2
 draw_set_color(c_yellow)
 else
 draw_set_color(c_white)
-draw_text(300,distance, "KEYBOARD")
+if gamepad_is_connected(0)
+  draw_text(300,distance, "KEYBOARD (UNPLUG CONTROLLER TO REMAP)")
+else
+	draw_text(300,distance, "KEYBOARD")
 distance+=distanceamount
 draw_set_alpha(0.5)
 if index == 3
@@ -141,6 +147,6 @@ break
 }
 
 
-draw_text(x, y, controllerup)
+//draw_text(x, y, controllerdown)
 
 draw_set_color(c_white)

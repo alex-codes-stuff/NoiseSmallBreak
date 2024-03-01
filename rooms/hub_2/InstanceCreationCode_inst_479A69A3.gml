@@ -1,0 +1,1 @@
+text = "Also, I'll let you know that the impressive stuff you see here is not made by me.\nLike it says on the itch.io page, this is a MOD.\nSpecifically, a mod of Loypoll's NBB Recreation.\nThe rooms, levels, etc. are by me but Noise's moveset for example is by him."

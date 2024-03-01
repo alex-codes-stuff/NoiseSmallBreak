@@ -1,19 +1,37 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-
-
+controllerdown = 0
+controllerup = 0
+if delaydown > 0
+   delaydown--
+if delayup > 0
+   delayup--
+if delayright > 0
+   delayright--
+if delayleft > 0
+   delayleft--
+   
+if gamepad_axis_value(0, gp_axislv) > 0.9 && delaydown == 0
+{
+	delaydown = 10
+	controllerdown = 1
+}
+if gamepad_axis_value(0, gp_axislv) < -0.9 && delayup == 0
+{
+	delayup = 10
+	controllerup = 1
+}
 switch menu
 {
 	case 1:
-if keyboard_check_pressed(vk_down) 
+if keyboard_check_pressed(vk_down) || controllerdown
 {
    index += 1
    audio_play_sound(sfx_select2, 0 ,0)
 }
 
 
-if keyboard_check_pressed(vk_up) 
+if keyboard_check_pressed(vk_up)   || controllerup
 {
    index += -1
     audio_play_sound(sfx_select2, 0 ,0)
@@ -25,12 +43,12 @@ if index <= 0.9
 break 
 case 2:
      	
-if keyboard_check_pressed(vk_down) 
+if keyboard_check_pressed(vk_down) || controllerdown
 {
    index += 1
    audio_play_sound(sfx_select2, 0 ,0)
 }
-if keyboard_check_pressed(vk_up)
+if keyboard_check_pressed(vk_up) || controllerup
 {
    index += -1
     audio_play_sound(sfx_select2, 0 ,0)
@@ -55,12 +73,12 @@ if index == 2 && keyboard_check_pressed(vk_left)
 break
 
  case 3:
- if keyboard_check_pressed(vk_down) 
+ if keyboard_check_pressed(vk_down)|| controllerdown
 {
    index += 1
    audio_play_sound(sfx_select2, 0 ,0)
 }
-if keyboard_check_pressed(vk_up) 
+if keyboard_check_pressed(vk_up)  || controllerup
 {
    index += -1
     audio_play_sound(sfx_select2, 0 ,0)
@@ -71,12 +89,12 @@ if index >= 3.1
  case 4:
  if setkey == 0
  {
- if keyboard_check_pressed(vk_down) 
+ if keyboard_check_pressed(vk_down) || controllerdown
 {
    index += 1
    audio_play_sound(sfx_select2, 0 ,0)
 }
-if keyboard_check_pressed(vk_up) 
+if keyboard_check_pressed(vk_up)  || controllerup
 {
    index += -1
     audio_play_sound(sfx_select2, 0 ,0)
@@ -145,7 +163,7 @@ if keyboard_check_pressed(vk_enter) && setkey == 0
 }
  break
 }
-if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))
+if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1)
 {
 	
 	switch menu
@@ -208,8 +226,11 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))
 			index = 3
 			break
 			case 2:
+			if !gamepad_is_connected(0)
+			{
 			   menu = 4
 			   index = 1
+			}
 			   break
 			   //controller remap
 			   /*

@@ -1,0 +1,1 @@
+text = "Hi Arcanino! So, unfortunately, as I probably told you, I couldn't get 2.5 out in\ntime for you to play it. However, I managed to polish what IS done in this\nnice little build (2.25). The only real thing it adds is the Level Editor though.\nI hope you have fun!"

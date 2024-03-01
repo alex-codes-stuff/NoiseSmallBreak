@@ -13,9 +13,8 @@ controllerright = 0
 controllerleft = 0
 controllerup = 0
 controllerdown = 0
-thing = 0
-delay = 0
-
-
-
+delaydown = 0
+delayup = 0
+delayleft = 0
+delayright = 0
 
