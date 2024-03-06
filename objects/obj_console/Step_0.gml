@@ -10,16 +10,27 @@ if (con.open)
 		{
 			var _cur_output_size = ds_list_size(con.output) + 1;
 			con_log(con.enums.logtype.none, $">{keyboard_string}");
-			var args = string_split(keyboard_string, " ");
-			var _ret = struct_get(con.commands, args[0])(args);
+			_cmdargs = string_split(string_lower(keyboard_string), " "); // Defining this as a temp object variable so we can use it in struct_foreach
+			//var _ret = struct_get(con.commands, _args[0])(_args);
+			struct_foreach(con.commands.aliases, function(_key, _value)
+			{
+				//show_message($"{_cmdargs[0]} = {_key}");
+				if (string_lower(_cmdargs[0]) == string_lower(_key))
+				{
+					_cmdargs[0] = string_lower(_value);
+				}
+			});
+			var _args = _cmdargs;
+			_cmdargs = undefined; // Undefine _cmdargs as _args replaces it
+			var _ret = con.commands.data[$ _args[0]].func(_args);
 			if _cur_output_size == ds_list_size(con.output) { con_log(con.enums.logtype.log, "Command did not print anything"); }
 			// Feather disable once GM1100
 			con_log(con.enums.logtype.log, $"Command returned {(string_pos(typeof(_ret), "string|number|int32|int64|bool") != 0 ? $"{typeof(_ret)}: {string(_ret)}" : typeof(_ret))}");
 		}
 		catch (e)
 		{
-			var _invalid_cmd = e.message == "Invalid callv target #2"
-			con_log(con.enums.logtype.err, $"Couldn't execute command: {_invalid_cmd ? "Invalid command. You can see a list of commands with `cmds`" : $"{e.message} @ {e.script}"}");
+			var _invalid_cmd = string_ends_with(e.message, "cannot be resolved.");
+			con_log(con.enums.logtype.err, $"Couldn't execute command: {_invalid_cmd ? "Invalid command. You can see a list of commands with `cmds`" : $"{e.message} @ {e.script} line {e.line}"}");
 		}
 		keyboard_string = ""
 	}

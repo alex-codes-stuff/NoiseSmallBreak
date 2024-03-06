@@ -39,11 +39,13 @@ if (con.open)
 	draw_text(SCREEN_WIDTH, string_height("a"), build_type_txt);
 	// End (Cleanup)
 	draw_set_color(con.ui.separator.col);
-	draw_set_alpha(1);
+	draw_set_alpha(con.ui.separator.opacity);
 	var _h = string_height("a\na") + con.ui.separator.width;
 	draw_line_width(0, _h, SCREEN_WIDTH, _h, con.ui.separator.width);
+	draw_set_alpha(con.ui.separator.opacity);
 	#endregion
 	#region console output
+	draw_set_alpha(con.ui.text.output.opacity);
 	var _ypos = string_height("a\na") + 8 + con.ui.separator.width;
 	draw_set_font(fnt_console_small);
 	var _startat = 0;
@@ -96,22 +98,22 @@ if (con.open)
 		switch (_arr[0])
 		{
 			case (con.enums.logtype.log):
-				_col = con.ui.text.colors.log;
+				_col = con.ui.text.output.colors.log;
 				_type_fmt = "log";
 			break;
 			
 			case (con.enums.logtype.warn):
-				_col = con.ui.text.colors.warn;
+				_col = con.ui.text.output.colors.warn;
 				_type_fmt = "warn";
 			break;
 			
 			case (con.enums.logtype.error):
-				_col = con.ui.text.colors.error;
+				_col = con.ui.text.output.colors.error;
 				_type_fmt = "error"
 			break;
 			
 			case (con.enums.logtype.debug):
-				_col = con.ui.text.colors.debug;
+				_col = con.ui.text.output.colors.debug;
 				_type_fmt = "debug"
 			break;
 		}
@@ -128,17 +130,21 @@ if (con.open)
 	#endregion
 	#region cmdbar
 	draw_set_color(con.ui.separator.col);
+	draw_set_alpha(con.ui.separator.opacity);
 	draw_set_font(fnt_console);
 	var _h = SCREEN_HEIGHT - string_height("a\na") + con.ui.separator.width;
 	draw_line_width(0, _h, SCREEN_WIDTH, _h, con.ui.separator.width);
+	draw_set_alpha(con.ui.text.opacity)
 	draw_set_align(fa_left, fa_bottom);
 	draw_set_color(con.ui.text.colors.def);
 	draw_set_alpha(keyboard_string == "" ? 0.5 : 1);
 	draw_text(0, SCREEN_HEIGHT - 4, $">{keyboard_string}");
+	draw_set_alpha(1);
 	#endregion
 	#region deinit
 	draw_set_font(prevfnt);
 	draw_set_color(c_white);
 	draw_set_align(fa_left, fa_top);
+	draw_set_alpha(1);
 	#endregion
 }

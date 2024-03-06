@@ -9,3 +9,7 @@ moonlight:
 
 junk beach:
 -refine basically the entire level to teach the mechanics better and be easier
+
+console:
+- fix the fuckin trim bug so we can add proper newline handling
+- add some actually useful commands
