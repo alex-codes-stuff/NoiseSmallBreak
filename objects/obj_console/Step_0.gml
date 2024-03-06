@@ -25,12 +25,16 @@ if (con.open)
 			var _ret = con.commands.data[$ _args[0]].func(_args);
 			if _cur_output_size == ds_list_size(con.output) { con_log(con.enums.logtype.log, "Command did not print anything"); }
 			// Feather disable once GM1100
-			con_log(con.enums.logtype.log, $"Command returned {(string_pos(typeof(_ret), "string|number|int32|int64|bool") != 0 ? $"{typeof(_ret)}: {string(_ret)}" : typeof(_ret))}");
+			// Feather disable once GM1063
+			// Feather disable once GM1012
+			con_log(con.enums.logtype.log, $"{con.strings.cmdbar.returned} {(string_pos(typeof(_ret), "string|number|int32|int64|bool|struct|array") != 0 ? $"{con.strings.cmdbar.types[$ typeof(_ret)]}: {string(_ret)}" : (typeof(_ret) == "undefined" ? con.strings.cmdbar.types.undefined : typeof(_ret)))}"); // Woah this line is atrociously long
 		}
 		catch (e)
 		{
 			var _invalid_cmd = string_ends_with(e.message, "cannot be resolved.");
-			con_log(con.enums.logtype.err, $"Couldn't execute command: {_invalid_cmd ? "Invalid command. You can see a list of commands with `cmds`" : $"{e.message} @ {e.script} line {e.line}"}");
+			// Feather disable once GM1063
+			// Feather disable once GM1100
+			con_log(con.enums.logtype.err, $"{con.strings.cmdbar.couldnt_exec} {_invalid_cmd ? $"{con.strings.cmdbar.invalid} {con.strings.cmdbar.invalid_cmds}" : $"{e.message} @ {e.script} {con.strings.cmdbar.line} {e.line}"}");
 		}
 		keyboard_string = ""
 	}

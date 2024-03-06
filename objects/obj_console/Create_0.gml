@@ -15,7 +15,7 @@ con = {}; // This is our console's stuff! Yay!
 #region Console variables
 #region Others
 con.open = false;
-con.version = "0.15"
+con.version = "0.2"
 con.build = {
 	release: GM_build_type == "exe", // false = test run
 	compiled: code_is_compiled(),
@@ -52,6 +52,47 @@ con.ui = {
 		width: 2,
 		col: c_white,
 		opacity: 0.5,
+	},
+};
+#endregion
+#region Strings n stuff
+con.strings = {
+	game: "NBB",
+	top: {
+		console: "Console",
+		on: "on",
+		gm: "GameMaker",
+		builddate: "Build date",
+	},
+	build: {
+		test: "TEST",
+		release: "RELEASE/VM",
+		compiled: "COMPILED/YYC",
+		build: "BUILD",
+	},
+	output: {
+		log: "log",
+		warn: "warn",
+		error: "error",
+		err: "error",
+		debug: "debug",
+	},
+	cmdbar: {
+		returned: "Command returned",
+		couldnt_exec: "Couldn't execute command:",
+		invalid: "Invalid command.",
+		invalid_cmds: "You can see a list of commands with `cmds`.",
+		line: "line",
+		types: {
+			string: "string",
+			number: "number",
+			int32: "int32",
+			int64: "int64",
+			bool: "boolean",
+			struct: "struct",
+			array: "array",
+			undefined: "nothing",
+		},
 	},
 };
 #endregion

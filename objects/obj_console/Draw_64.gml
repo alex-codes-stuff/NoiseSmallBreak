@@ -28,11 +28,12 @@ if (con.open)
 	// Text
 	draw_set_align(fa_left, fa_top);
 	draw_set_color(con.ui.text.colors.def);
-	draw_text(0, 0, $"NBB Console v{con.version} on NBB v{global.gamever}");
-	draw_text(0, string_height("a"), $"GameMaker v{GM_runtime_version}"); // Console font is monospace so any character will be the same height
+	draw_text(0, 0, $"{con.strings.game} {con.strings.top.console} v{con.version} {con.strings.top.on} {con.strings.game} v{global.gamever}");
+	draw_text(0, string_height("a"), $"{con.strings.top.gm} v{GM_runtime_version}"); // Console font is monospace so any character will be the same height
 	draw_set_halign(fa_right);
-	var build_date_txt = $"Build date {date_datetime_string(GM_build_date)}";
-	var build_type_txt = (con.build.release ? (con.build.compiled ? "COMPILED/YYC BUILD" : "RELEASE BUILD") : "TEST BUILD");
+	var build_date_txt = $"{con.strings.top.builddate} {date_datetime_string(GM_build_date)}";
+	var build_type_txt = (con.build.release ? (con.build.compiled ? con.strings.build.compiled : con.strings.build.release) : con.strings.build.test);
+	build_type_txt += $" {con.strings.build.build}"
 	var build_type_clr = (con.build.release ? (con.build.compiled ? c_green : c_white) : c_red);
 	draw_text(SCREEN_WIDTH, 0, build_date_txt);
 	draw_set_color(build_type_clr);
@@ -99,22 +100,22 @@ if (con.open)
 		{
 			case (con.enums.logtype.log):
 				_col = con.ui.text.output.colors.log;
-				_type_fmt = "log";
+				_type_fmt = con.strings.output.log;
 			break;
 			
 			case (con.enums.logtype.warn):
 				_col = con.ui.text.output.colors.warn;
-				_type_fmt = "warn";
+				_type_fmt = con.strings.output.warn;
 			break;
 			
 			case (con.enums.logtype.error):
 				_col = con.ui.text.output.colors.error;
-				_type_fmt = "error"
+				_type_fmt = con.strings.output.error;
 			break;
 			
 			case (con.enums.logtype.debug):
 				_col = con.ui.text.output.colors.debug;
-				_type_fmt = "debug"
+				_type_fmt = con.strings.output.debug;
 			break;
 		}
 		draw_set_color(_col);
