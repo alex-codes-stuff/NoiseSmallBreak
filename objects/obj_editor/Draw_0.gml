@@ -14,7 +14,7 @@ repeat (r)
 
 var yy = 0
 
-var r = room_height div 32
+r = room_height div 32
 repeat (r) 
 {
 	draw_line_color(0, yy, room_width, yy, c_white, c_white)
@@ -24,8 +24,8 @@ repeat (r)
 draw_set_alpha(1)
 
 
-var xx = mouse_x div 32
-var yy =mouse_y div 32
+xx = mouse_x div 32
+yy =mouse_y div 32
 xx = xx*32
 yy = yy*32
 draw_set_alpha(0.5)

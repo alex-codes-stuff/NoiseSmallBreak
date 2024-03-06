@@ -1,4 +1,6 @@
- live_auto_call;
+// Feather disable once GM1034
+// Feather disable once GM1033
+live_auto_call;
 
 
 if room == room_editor && global.play != 1

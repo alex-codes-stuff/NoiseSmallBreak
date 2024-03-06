@@ -137,14 +137,16 @@ if (con.open)
 	draw_set_color(con.ui.separator.col);
 	draw_set_alpha(con.ui.separator.opacity);
 	draw_set_font(fnt_console);
-	var _h = con.guisize[1] - string_height("a\na") + con.ui.separator.width;
+	_h = con.guisize[1] - string_height("a\na") + con.ui.separator.width;
 	draw_line_width(0, _h, con.guisize[0], _h, con.ui.separator.width);
-	draw_set_alpha(con.ui.text.opacity)
 	draw_set_align(fa_left, fa_bottom);
 	draw_set_color(con.ui.text.colors.def);
-	draw_set_alpha(keyboard_string == "" ? 0.5 : 1);
+	draw_set_alpha(keyboard_string == "" ? con.ui.cmdbar.opacity_empty : con.ui.cmdbar.opacity);
 	draw_text(0, con.guisize[1] - 4, $">{keyboard_string}");
-	draw_set_alpha(1);
+	// Input bar
+	draw_set_alpha(con.ui.cmdbar.input_bar.opacity);
+	// We add 1 extra character because of the ">"
+	draw_line_width(string_width($"{keyboard_string}a") + con.ui.cmdbar.input_bar.width, con.guisize[1] - 8, string_width($"{keyboard_string}a") + con.ui.cmdbar.input_bar.width, con.guisize[1] - 8 - string_height("a"), con.ui.cmdbar.input_bar.width);
 	#endregion
 	#region deinit
 	draw_set_font(prevfnt);

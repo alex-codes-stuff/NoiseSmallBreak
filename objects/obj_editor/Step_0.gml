@@ -1,5 +1,6 @@
  /// @description Insert description here
 // You can write your code in this editor
+// Feather disable GM1017
 var bg = layer_get_id("Background")
 var bg_id = layer_background_get_id(bg)
 layer_background_blend(bg_id, background_tint)

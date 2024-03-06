@@ -16,7 +16,7 @@ con = {}; // This is our console's stuff! Yay!
 #region Console variables
 #region Others
 con.open = false;
-con.version = "0.2.3"
+con.version = "0.2.4"
 con.build = {
 	release: GM_build_type == "exe", // false = test run
 	compiled: code_is_compiled(),
@@ -56,6 +56,16 @@ con.ui = {
 		width: 2,
 		col: c_white,
 		opacity: 0.5,
+	},
+	
+	cmdbar: {
+		input_bar: {
+			show: true,
+			width: 3,
+			opacity: 1,
+		},
+		opacity_empty: 0.5,
+		opacity: 1,
 	},
 };
 #endregion
@@ -311,9 +321,10 @@ con_add_command("speed", "Get or adjust game speed.", function(_args)
 	if (is_undefined(_mode)) { return; }
 	if (string_pos(_mode, "fps|us") == 0) { con_log(con.enums.logtype.err, "Invalid argument 2"); return; }
 	_mode = _mode == "fps" ? gamespeed_fps : gamespeed_microseconds;
+	var _to = undefined; // Ironically defining as undefined
 	if (_type == "set")
 	{
-		var _to = con_get_arg_safe(_args, 3);
+		_to = con_get_arg_safe(_args, 3);
 		if (is_undefined(_to)) { return; }
 		_to = string_to_number(_to);
 		if (_to == false) { con_log(con.enums.logtype.err, "Invalid argument 3"); return; }

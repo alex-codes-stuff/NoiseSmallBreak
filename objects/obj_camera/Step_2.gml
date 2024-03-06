@@ -1,4 +1,6 @@
 /// @description audio listener
+// Feather disable once GM1034
+// Feather disable once GM1033
 live_auto_call;
 
 audio_falloff_set_model(audio_falloff_exponent_distance);

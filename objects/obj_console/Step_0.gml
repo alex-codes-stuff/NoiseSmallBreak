@@ -11,6 +11,7 @@ if (con.open)
 		{
 			var _cur_output_size = ds_list_size(con.output) + 1;
 			con_log(con.enums.logtype.none, $">{keyboard_string}");
+			// Feather disable once GM2016
 			_cmdargs = string_split(string_lower(keyboard_string), " "); // Defining this as a temp object variable so we can use it in struct_foreach
 			//var _ret = struct_get(con.commands, _args[0])(_args);
 			struct_foreach(con.commands.aliases, function(_key, _value)
@@ -21,9 +22,7 @@ if (con.open)
 					_cmdargs[0] = string_lower(_value);
 				}
 			});
-			var _args = _cmdargs;
-			_cmdargs = undefined; // Undefine _cmdargs as _args replaces it
-			var _ret = con.commands.data[$ _args[0]].func(_args);
+			var _ret = con.commands.data[$ _cmdargs[0]].func(_cmdargs);
 			if _cur_output_size == ds_list_size(con.output) { con_log(con.enums.logtype.log, $"{con.strings.cmdbar.no_print}"); }
 			// Feather disable once GM1100
 			// Feather disable once GM1063
@@ -39,4 +38,6 @@ if (con.open)
 		}
 		keyboard_string = ""
 	}
+	// Feather disable once GM2016
+	_cmdargs = undefined;
 }
