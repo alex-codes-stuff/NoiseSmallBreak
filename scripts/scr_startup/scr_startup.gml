@@ -10,12 +10,12 @@ global.collect = 0;
 // Custom exception handler
 function _exception_unhandled_handler(_e)
 {
-	show_debug_message("EXCEPTION!");
-	show_debug_message("----------");
-	show_debug_message(_e.message);
-	show_debug_message(_e.stacktrace);
+	__show_debug_message_base("EXCEPTION!");
+	__show_debug_message_base("----------");
+	__show_debug_message_base(_e.message);
+	__show_debug_message_base(_e.stacktrace);
 	var _file_name = working_directory + $"crash-{date_current_datetime()}.txt";
-	show_debug_message($"Attempting to write crash to file at {_file_name}.");
+	__show_debug_message_base($"Attempting to write crash to file at {_file_name}.");
 	if file_exists(_file_name) { file_delete(_file_name) }
 	var _f = file_text_open_write(_file_name);
 	if instance_exists(obj_console)

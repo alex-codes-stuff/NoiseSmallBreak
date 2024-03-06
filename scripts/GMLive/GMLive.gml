@@ -419,7 +419,7 @@ function compile_gml_compile_args_proc(l_actions, l_nodes, l_start, l_end) {
 	// compile_gml_compile_args_proc(actions:gml_action_list, nodes:array<ast_GmlNode>, start:int = 0, ?end:int)->bool
 	/// @ignore
 	if (l_start == undefined) l_start = 0;
-	if (false) show_debug_message(argument[3]);
+	if (false) __show_debug_message_base(argument[3]);
 	if (l_end == undefined) l_end = array_length(l_nodes);
 	var l_i = l_start;
 	while (l_i < l_end) {
@@ -475,7 +475,7 @@ if (live_enabled)
 function gml_func_copy(l_to, l_from, l_note) {
 	// gml_func_copy(to:string, from:string, ?note:string)
 	/// @ignore
-	if (false) show_debug_message(argument[2]);
+	if (false) __show_debug_message_base(argument[2]);
 	var l_f0 = gml_func_map[$ l_from];
 	if (l_f0 == undefined) throw gml_std_haxe_Exception_thrown("Can't find " + l_from + " to add an alias for.");
 	gml_func_map[$ l_to] = l_f0.h_copy(l_to);
@@ -1831,7 +1831,7 @@ function gml_std_string_pos_ext_haxe(l_this, l_needle, l_startPos) {
 	// gml_std_string_pos_ext_haxe(this:string, needle:string, startPos:int = 0)->int
 	/// @ignore
 	if (l_startPos == undefined) l_startPos = 0;
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	if (l_startPos <= 0) return string_pos(l_needle, l_this) - 1;
 	return string_pos_ext(l_needle, l_this, l_startPos) - 1;
 }
@@ -1840,7 +1840,7 @@ if (live_enabled)
 function gml_std_string_last_pos_haxe(l_this, l_needle, l_startPos) {
 	// gml_std_string_last_pos_haxe(this:string, needle:string, ?startPos:int)->int
 	/// @ignore
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	if (l_startPos == undefined || l_startPos >= string_length(l_this)) return string_last_pos(l_needle, l_this) - 1;
 	return string_last_pos_ext(l_needle, l_this, l_startPos) - 1;
 }
@@ -1865,7 +1865,7 @@ if (live_enabled)
 function gml_std_string_substr(l_this, l_pos, l_len) {
 	// gml_std_string_substr(this:string, pos:int, ?len:int)->string
 	/// @ignore
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	if (l_pos < 0) l_pos += string_length(l_this);
 	if (l_len == undefined) return string_delete(l_this, 1, l_pos); else return string_copy(l_this, 1 + l_pos, l_len);
 }
@@ -1874,7 +1874,7 @@ if (live_enabled)
 function gml_std_string_substring(l_this, l_start, l_end) {
 	// gml_std_string_substring(this:string, start:int, ?end:int)->string
 	/// @ignore
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	if (l_end == undefined) {
 		if (l_start > 0) return string_delete(l_this, 1, l_start); else return l_this;
 	}
@@ -4050,7 +4050,7 @@ function gml_source(l_name, l_code, l_main, l_opt) constructor {
 		return "GmlSource(\"" + self.h_name + "\")";
 	}
 	if (l_opt == undefined) l_opt = false;
-	if (false) show_debug_message(argument[3]);
+	if (false) __show_debug_message_base(argument[3]);
 	self.h_version = undefined;
 	self.h___eof = undefined;
 	self.h_index = -1;
@@ -4462,7 +4462,7 @@ function gml_std_haxe_enum(l_id, l_name, l_constructors, l_functions) constructo
 	static h_marker = undefined; /// @is {any}
 	static h_index = undefined; /// @is {int}
 	static h_name = undefined; /// @is {string}
-	if (false) show_debug_message(argument[3]);
+	if (false) __show_debug_message_base(argument[3]);
 	self.h_marker = gml_std_haxe_type_markerValue;
 	self.h_index = l_id;
 	self.h_name = l_name;
@@ -4984,7 +4984,7 @@ function gml_std_gml_internal_ArrayImpl_indexOf(l_arr, l_v, l_i) {
 	// gml_std_gml_internal_ArrayImpl_indexOf(arr:array<T>, v:T, i:int = 0)->int
 	/// @ignore
 	if (l_i == undefined) l_i = 0;
-	if (false) show_debug_message(argument[2]);
+	if (false) __show_debug_message_base(argument[2]);
 	var l_len = array_length(l_arr);
 	if (l_i < 0) {
 		l_i += l_len;
@@ -5071,7 +5071,7 @@ if (live_enabled)
 function gml_std_haxe_Exception_new(l_message, l_previous, l_native) {
 	// gml_std_haxe_Exception_new(message:string, ?previous:gml_std_haxe_Exception, ?native:any)
 	/// @ignore
-	if (false) show_debug_message(argument[2]);
+	if (false) __show_debug_message_base(argument[2]);
 	self.h_message = l_message;
 	self.h_previous = l_previous;
 	if (l_native == undefined) {
@@ -5418,7 +5418,7 @@ function gml_thread_method_script() {
 	/// gml_thread_method_script(...rest:any)->any
 	/// @param {any} ...rest
 	/// @returns {any}
-	if (false) show_debug_message(argument[argument_count - 1]);
+	if (false) __show_debug_message_base(argument[argument_count - 1]);
 	if (live_enabled) {
 		var l_argc = argument_count;
 		var l_args1 = array_create(l_argc);
@@ -6014,10 +6014,10 @@ function gml_type_ref(l_name, l_path1) constructor {
 	static h_name = undefined; /// @is {string}
 	static h_path = undefined; /// @is {string}
 	if (l_path1 == undefined) l_path1 = "";
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	self.h_name = l_name;
 	self.h_path = l_path1;
-	self[$""] = gml_type_ref_root;
+	self[$" "] = gml_type_ref_root;
 	static __class__ = mt_gml_type_ref;
 }
 
@@ -6027,7 +6027,7 @@ function gml_type_ref_init() {
 	/// @ignore
 	gml_type_ref_root = undefined;
 	var l_t = new gml_type_ref("typeref");
-	l_t[$""] = l_t;
+	l_t[$" "] = l_t;
 	return l_t;
 }
 

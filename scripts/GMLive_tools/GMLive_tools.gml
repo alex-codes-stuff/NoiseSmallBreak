@@ -134,7 +134,7 @@ function animcurve_set_live(l_curve_id, l_live1, l_bezierIterations) {
 	/// @param {int} [bezierIterations=16]
 	/// @returns {void}
 	if (l_bezierIterations == undefined) l_bezierIterations = 16;
-	if (false) show_debug_message(argument[2]);
+	if (false) __show_debug_message_base(argument[2]);
 	if (live_enabled) {
 		var l_val = (l_live1 ? l_bezierIterations : undefined);
 		var l_map = live_live_anim_curves;
@@ -169,7 +169,7 @@ function file_set_live(l_path1, l_callback, l_kind) {
 	/// @param {function<any;string;void>} ?callback
 	/// @param {string} ?kind
 	/// @returns {void}
-	if (false) show_debug_message(argument[2]);
+	if (false) __show_debug_message_base(argument[2]);
 	if (live_enabled) {
 		var l_i;
 		if (l_callback != undefined) {
@@ -432,7 +432,8 @@ if (live_enabled)
 function live_log_impl(l_text, l_level) {
 	// live_log_impl(text:string, level:live_GMLiveLogLevel)
 	/// @ignore
-	if (l_level == 0) show_debug_message("[GMLive][" + date_datetime_string(gml_std_Date_now().h_date) + "] " + l_text); else show_debug_message("[GMLive][" + date_datetime_string(gml_std_Date_now().h_date) + "][" + live_log_impl_levels[l_level] + "] " + l_text);
+	if (
+	if (l_level == 0) __show_debug_message_base("[GMLive][" + date_datetime_string(gml_std_Date_now().h_date) + "] " + l_text); else __show_debug_message_base("[GMLive][" + date_datetime_string(gml_std_Date_now().h_date) + "][" + live_log_impl_levels[l_level] + "] " + l_text);
 }
 
 if (live_enabled) 
@@ -549,7 +550,7 @@ function live_execute_string(l_gml_code) {
 	/// @param {string} gml_code
 	/// @param {any} ...args
 	/// @returns {bool}
-	if (false) show_debug_message(argument[argument_count - 1]);
+	if (false) __show_debug_message_base(argument[argument_count - 1]);
 	if (live_enabled) {
 		var l_pg = new gml_program([new gml_source("execute_string", l_gml_code, "execute_string")]);
 		var l_ok;
@@ -588,7 +589,7 @@ function live_snippet_create(l_gml_code, l_name) {
 	/// @param {string} [name="snippet"]
 	/// @returns {gml_program}
 	if (l_name == undefined) l_name = "snippet";
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	if (live_enabled) {
 		var l_pg = new gml_program([new gml_source(l_name, l_gml_code, "snippet")]);
 		if (l_pg.h_error_text == undefined) {
@@ -615,7 +616,7 @@ function live_snippet_call(l_snippet) {
 	/// @param {gml_program} snippet
 	/// @param {any} ...args
 	/// @returns {bool}
-	if (false) show_debug_message(argument[argument_count - 1]);
+	if (false) __show_debug_message_base(argument[argument_count - 1]);
 	if (live_enabled) {
 		var l_argc = (argument_count - 1);
 		var l_argv = array_create(l_argc);
@@ -657,7 +658,7 @@ function live_update() {
 					if (current_time > live_init_timeout * 1000) {
 						if (!live_warned_about_init_timeout) {
 							live_warned_about_init_timeout = true;
-							show_debug_message("Didn't receive a response from the server in " + string(live_init_timeout) + "s (live_init_timeout) - no longer retrying a connection");
+							__show_debug_message_base("Didn't receive a response from the server in " + string(live_init_timeout) + "s (live_init_timeout) - no longer retrying a connection");
 						}
 						exit;
 					}

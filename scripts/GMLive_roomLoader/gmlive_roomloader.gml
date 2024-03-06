@@ -71,7 +71,7 @@ function live_room_loader_add_layer(l_ql) {
 	var l_ql_sublayer_index, l_rl, l_i, l_n, l_f, l_s, l_aval, l_rx, l_ry;
 	var l__g = l_ql[?"modelName"];
 	if (l__g == undefined) {
-		show_debug_message("Unknown layer type " + gml_std_Std_stringify(l_ql[?"modelName"]));
+		__show_debug_message_base("Unknown layer type " + gml_std_Std_stringify(l_ql[?"modelName"]));
 	} else switch (l__g) {
 		case "GMRLayer":
 			l_rl = layer_get_id(l_ql_name);
@@ -344,7 +344,7 @@ function live_room_loader_add_layer(l_ql) {
 			}
 			break;
 		case "GMRPathLayer": break;
-		default: show_debug_message("Unknown layer type " + gml_std_Std_stringify(l_ql[?"modelName"]));
+		default: __show_debug_message_base("Unknown layer type " + gml_std_Std_stringify(l_ql[?"modelName"]));
 	}
 }
 

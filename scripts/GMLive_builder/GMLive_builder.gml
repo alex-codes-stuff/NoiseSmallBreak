@@ -1116,7 +1116,7 @@ function gml_builder(l_pg, l_src) constructor {
 	}
 	static h_build_line = function(l_reqStatement) {
 		if (l_reqStatement == undefined) l_reqStatement = true;
-		if (false) show_debug_message(argument[0]);
+		if (false) __show_debug_message_base(argument[0]);
 		if (self.h_build_line_inner(l_reqStatement)) return true;
 		while (self.h_offset < self.h_length) {
 			if (self.h_tokens[self.h_offset][0]/* gml_token */ == gml_token.semico) {
@@ -1366,7 +1366,7 @@ function gml_builder(l_pg, l_src) constructor {
 			for (var l__g3 = l_n; l_i1 < l__g3; l_i1++) {
 				l_r += ", " + gml_std_Std_stringify(gml_std_haxe_enum_tools_getParameter(l_q, l_i1));
 			}
-			show_debug_message(l_tmp + (l_r + ")"));
+			__show_debug_message_base(l_tmp + (l_r + ")"));
 		}
 	}
 	self.h_build_inherit_parent = undefined;

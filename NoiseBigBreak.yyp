@@ -49,6 +49,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sprites/player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"EditorCrypt","folderPath":"folders/Extensions/EditorCrypt.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
@@ -106,6 +107,7 @@
     {"id":{"name":"spr_doorB","path":"sprites/spr_doorB/spr_doorB.yy",},},
     {"id":{"name":"spr_eggblock","path":"sprites/spr_eggblock/spr_eggblock.yy",},},
     {"id":{"name":"sfx_hurt","path":"sounds/sfx_hurt/sfx_hurt.yy",},},
+    {"id":{"name":"scr_overwrite","path":"scripts/scr_overwrite/scr_overwrite.yy",},},
     {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},},
     {"id":{"name":"spr_load","path":"sprites/spr_load/spr_load.yy",},},
     {"id":{"name":"sfx_jump","path":"sounds/sfx_jump/sfx_jump.yy",},},
@@ -203,6 +205,7 @@
     {"id":{"name":"obj_explosion","path":"objects/obj_explosion/obj_explosion.yy",},},
     {"id":{"name":"spr_spikehurt","path":"sprites/spr_spikehurt/spr_spikehurt.yy",},},
     {"id":{"name":"mu_menu","path":"sounds/mu_menu/mu_menu.yy",},},
+    {"id":{"name":"scr_editor_encrypt","path":"scripts/scr_editor_encrypt/scr_editor_encrypt.yy",},},
     {"id":{"name":"spr_player_backflipfall","path":"sprites/spr_player_backflipfall/spr_player_backflipfall.yy",},},
     {"id":{"name":"scr_collide","path":"scripts/scr_collide/scr_collide.yy",},},
     {"id":{"name":"spr_ctrlr","path":"sprites/spr_ctrlr/spr_ctrlr.yy",},},

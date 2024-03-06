@@ -39,7 +39,7 @@ function gml_parser(l_src) constructor {
 		return "GmlParser(src:\"" + self.h_source.h_name + "\")";
 	}
 	static h_error = function(l_text, l_pos) {
-		if (false) show_debug_message(argument[1]);
+		if (false) __show_debug_message_base(argument[1]);
 		if (l_pos == undefined) l_pos = gml_pos_create(self.h_pos_source, self.h_row, self.h_pos - self.h_row_start, self.h_pos);
 		gml_parser_error_text = gml_pos_to_string_in(l_pos, self.h_source) + ": " + l_text;
 		gml_parser_error_pos = l_pos;
@@ -435,7 +435,7 @@ function gml_parser(l_src) constructor {
 	}
 	static h_run = function(l_temStart) {
 		if (l_temStart == undefined) l_temStart = -1;
-		if (false) show_debug_message(argument[0]);
+		if (false) __show_debug_message_base(argument[0]);
 		var l__gthis = self;
 		var l_ver = self.h_source.h_version;
 		if (l_ver == undefined) {

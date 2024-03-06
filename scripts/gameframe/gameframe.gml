@@ -29,7 +29,7 @@ function gameframe_log(_args1) {
 		__g++;
 		_s += " " + gameframe_std_Std_stringify(_arg);
 	}
-	show_debug_message(_s);
+	__show_debug_message_base(_s);
 }
 
 function gameframe_update() {
@@ -551,7 +551,7 @@ function gameframe_tools_rect__new(_x, _y, _w, _h) {
 	if (_y == undefined) _y = 0;
 	if (_w == undefined) _w = 0;
 	if (_h == undefined) _h = 0;
-	if (false) show_debug_message(argument[3]);
+	if (false) __show_debug_message_base(argument[3]);
 	return [/* x: */_x, /* y: */_y, /* width: */_w, /* height: */_h];
 }
 
@@ -670,7 +670,7 @@ function gameframe_restore(__force) {
 	/// @param {bool} [_force=false]
 	/// @returns {void}
 	if (__force == undefined) __force = false;
-	if (false) show_debug_message(argument[0]);
+	if (false) __show_debug_message_base(argument[0]);
 	if (window_get_fullscreen()) {
 		window_set_fullscreen(false);
 		gameframe_delayed_call_impl(function() {
@@ -710,7 +710,7 @@ function gameframe_is_fullscreen_window() {
 function gameframe_set_fullscreen_1(__mode, __wasFullscreen) {
 	// gameframe_set_fullscreen_1(_mode:int, _wasFullscreen:bool = false)
 	if (__wasFullscreen == undefined) __wasFullscreen = false;
-	if (false) show_debug_message(argument[1]);
+	if (false) __show_debug_message_base(argument[1]);
 	if (gameframe_debug) gameframe_log("setFullscreen(mode:", __mode, ", wasfs:", __wasFullscreen, ")");
 	if (__mode == 1 || __mode == 2) {
 		gameframe_button_reset();

@@ -2,8 +2,7 @@
   "FolderOrderSettings": [
     {"name":"Animation Curves","order":20,"path":"folders/Animation Curves.yy",},
     {"name":"Extensions","order":22,"path":"folders/Extensions.yy",},
-    {"name":"gameframe","order":4,"path":"folders/Extensions/gameframe.yy",},
-    {"name":"GMLive","order":1,"path":"folders/Extensions/GMLive.yy",},
+    {"name":"gameframe","order":1,"path":"folders/Extensions/gameframe.yy",},
     {"name":"Internal","order":1,"path":"folders/Extensions/GMLive/Internal.yy",},
     {"name":"Compiler","order":1,"path":"folders/Extensions/GMLive/Internal/Compiler.yy",},
     {"name":"Misc","order":2,"path":"folders/Extensions/GMLive/Internal/Misc.yy",},
@@ -35,6 +34,7 @@
     {"name":"player","order":2,"path":"folders/Sprites/player.yy",},
     {"name":"Tile Sets","order":10,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":16,"path":"folders/Timelines.yy",},
+    {"name":"EditorCrypt","order":2,"path":"folders/Extensions/EditorCrypt.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sfx_select","order":18,"path":"sounds/sfx_select/sfx_select.yy",},
@@ -72,6 +72,7 @@
     {"name":"spr_doorB","order":4,"path":"sprites/spr_doorB/spr_doorB.yy",},
     {"name":"spr_eggblock","order":26,"path":"sprites/spr_eggblock/spr_eggblock.yy",},
     {"name":"sfx_hurt","order":7,"path":"sounds/sfx_hurt/sfx_hurt.yy",},
+    {"name":"scr_overwrite","order":16,"path":"scripts/scr_overwrite/scr_overwrite.yy",},
     {"name":"GMLiveAPI","order":3,"path":"scripts/GMLiveAPI/GMLiveAPI.yy",},
     {"name":"spr_load","order":1,"path":"sprites/spr_load/spr_load.yy",},
     {"name":"obj_virtualkey","order":7,"path":"objects/obj_virtualkey/obj_virtualkey.yy",},

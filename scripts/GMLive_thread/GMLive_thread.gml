@@ -192,7 +192,7 @@ function gml_thread(l_program, l_actions, l_args1, l_locals, l_self1, l_other1, 
 		return l_r;
 	}
 	if (l_offset == undefined) l_offset = 0;
-	if (false) show_debug_message(argument[6]);
+	if (false) __show_debug_message_base(argument[6]);
 	self.h_error_pos = undefined;
 	self.h_error_text = undefined;
 	self.h_time_tag = undefined;

@@ -71,8 +71,8 @@ con.ui = {
 #endregion
 #region Strings n stuff
 con.strings = {
-	game: "Game",
-	game_version: "1.0",
+	game: "NBB",
+	game_version: "2.25",
 	top: {
 		console: "Console",
 		on: "on",

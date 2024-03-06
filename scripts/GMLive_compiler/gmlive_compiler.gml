@@ -44,7 +44,7 @@ function gml_compile_set_handlers(l_fn, l_defNames) {
 		l__g++;
 		var l_i = gml_compile_def_indexes.h_obj[$ l_defName];
 		if (l_i == undefined) throw gml_std_haxe_Exception_thrown("Couldn't find " + l_defName);
-		if (gml_compile_handlers[l_i] != undefined) show_debug_message(("Handler re-definition for " + l_defName));
+		if (gml_compile_handlers[l_i] != undefined) __show_debug_message_base(("Handler re-definition for " + l_defName));
 		gml_compile_handlers[@l_i] = l_fn;
 	}
 }

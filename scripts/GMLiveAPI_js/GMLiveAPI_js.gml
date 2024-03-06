@@ -360,8 +360,8 @@ function live_preinit_js_func_320(l_ind) {
 		case 324: return event_user;
 		case 325: return event_perform_object;
 		case 326: return event_inherited;
-		case 327: return show_debug_message;
-		case 328: return show_debug_message_ext;
+		case 327: return __show_debug_message_base;
+		case 328: return __show_debug_message_base_ext;
 		case 329: return show_debug_overlay;
 		case 330: return debug_event;
 		case 331: return debug_get_callstack;

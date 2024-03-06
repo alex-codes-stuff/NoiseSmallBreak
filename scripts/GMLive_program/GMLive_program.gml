@@ -122,7 +122,7 @@ function gml_program(l_sources) constructor {
 	}
 	static h_call_v = function(l_name, l_args1, l_copy) {
 		if (l_copy == undefined) l_copy = true;
-		if (false) show_debug_message(argument[2]);
+		if (false) __show_debug_message_base(argument[2]);
 		var l_scr = self.h_script_map[$ l_name];
 		if (l_scr != undefined) {
 			var l_locals = array_create(l_scr.h_locals);
@@ -160,7 +160,7 @@ function gml_program(l_sources) constructor {
 	}
 	static h_seek = function(l_f, l_st) {
 		if (l_st == undefined) l_st = false;
-		if (false) show_debug_message(argument[1]);
+		if (false) __show_debug_message_base(argument[1]);
 		var l_w = (l_st ? ds_list_create() : undefined);
 		gml_program_seek_func = l_f;
 		var l_m = self.h_script_array;

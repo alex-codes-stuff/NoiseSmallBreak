@@ -288,7 +288,7 @@ function live_async_http(l_e) {
 	/// live_async_http(?e:live_GMLiveAsyncMap<any>)
 	/// @param {live_GMLiveAsyncMap<any>} ?e
 	/// @returns {void}
-	if (false) show_debug_message(argument[0]);
+	if (false) __show_debug_message_base(argument[0]);
 	if (live_enabled) {
 		if (l_e == undefined) l_e = async_load;
 		if (!live_async_http_check(l_e)) exit;

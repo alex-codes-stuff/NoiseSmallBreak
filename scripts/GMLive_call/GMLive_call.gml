@@ -56,7 +56,7 @@ function live_call() {
 	/// live_call(...args:any)->bool
 	/// @param {any} ...args
 	/// @returns {bool}
-	if (false) show_debug_message(argument[argument_count - 1]);
+	if (false) __show_debug_message_base(argument[argument_count - 1]);
 	if (live_enabled) {
 		var l_def = undefined;
 		var l_origin;
@@ -103,7 +103,7 @@ function live_defcall() {
 	/// live_defcall(...args:any)->bool
 	/// @param {any} ...args
 	/// @returns {bool}
-	if (false) show_debug_message(argument[argument_count - 1]);
+	if (false) __show_debug_message_base(argument[argument_count - 1]);
 	if (live_enabled) {
 		var l_argc = argument_count - 1;
 		var l_def = argument[l_argc];
