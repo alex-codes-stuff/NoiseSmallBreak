@@ -201,7 +201,8 @@ con_add_command("mycommand", "Example command!", function(_args)
 {
 	show_message("I'm such a silly function!");
 	con_log(con.enums.logtype.log, string(_args)); // Prints out all arguments including command
-}, function(_e)
+}, ["alias1", "alias2"], // You can now call "mycommand" using "alias1" or "alias2"
+function(_e) // Optional argument, error handler.
 {
 	show_message("This is a custom error handler!");
 	show_message($"Exception: {string(_e)}");
