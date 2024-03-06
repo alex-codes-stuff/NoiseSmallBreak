@@ -1,8 +1,4 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_jsonthing(){
-   var _filename = argument0
-   
+function scr_jsonthing(_filename){
    var _buffer = buffer_load(_filename)
    var _string = buffer_read(_buffer, buffer_string)
    
