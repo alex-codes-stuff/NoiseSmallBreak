@@ -1,3 +1,4 @@
+/// @description Open console and execute commands
 if keyboard_check_pressed(vk_f5)
 	if (con.open) { keyboard_string = con.previous_keyboard_string; con_close(); } 
 	else { con.previous_keyboard_string = keyboard_string; con_open(); keyboard_string = ""; }
@@ -23,7 +24,7 @@ if (con.open)
 			var _args = _cmdargs;
 			_cmdargs = undefined; // Undefine _cmdargs as _args replaces it
 			var _ret = con.commands.data[$ _args[0]].func(_args);
-			if _cur_output_size == ds_list_size(con.output) { con_log(con.enums.logtype.log, "Command did not print anything"); }
+			if _cur_output_size == ds_list_size(con.output) { con_log(con.enums.logtype.log, $"{con.strings.cmdbar.no_print}"); }
 			// Feather disable once GM1100
 			// Feather disable once GM1063
 			// Feather disable once GM1012

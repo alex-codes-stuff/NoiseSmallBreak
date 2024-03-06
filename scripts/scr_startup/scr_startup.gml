@@ -4,7 +4,7 @@
 global.saveroom = ds_list_create();
 global.instancelist = ds_list_create();
 global.collect = 0;
-global.gamever = $"2.25{DEBUG ? "+TEST" : ""}";
+// Game ver is now obj_console.con.strings.game_version
 
 
 // Custom exception handler
