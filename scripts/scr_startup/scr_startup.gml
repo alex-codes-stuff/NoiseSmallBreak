@@ -34,7 +34,7 @@ function _exception_unhandled_handler(_e)
 		_console_output += "---";
 		file_text_write_string(_f, $"{_console_output}\n");
 	}
-	file_text_write_string(_f, $"{string(_e)}\nNSB {global.gamever}; GameMaker {GM_runtime_version}; Build Date {date_datetime_string(GM_build_date)}\n{(DEBUG ? "TEST BUILD" : (code_is_compiled() ? "COMPILED/YYC BUILD" : "RELEASE/VM BUILD"))}");
+	file_text_write_string(_f, $"{string(_e)}\nNSB {instance_exists(obj_console) ? obj_console.con.strings.game_version : "N/A"}; GameMaker {GM_runtime_version}; Build Date {date_datetime_string(GM_build_date)}\n{(DEBUG ? "TEST BUILD" : (code_is_compiled() ? "COMPILED/YYC BUILD" : "RELEASE/VM BUILD"))}");
 	file_text_close(_f);
 	if (CRASH_SHOW_MESSAGEBOX)
 	{

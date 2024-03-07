@@ -432,7 +432,6 @@ if (live_enabled)
 function live_log_impl(l_text, l_level) {
 	// live_log_impl(text:string, level:live_GMLiveLogLevel)
 	/// @ignore
-	if (
 	if (l_level == 0) __show_debug_message_base("[GMLive][" + date_datetime_string(gml_std_Date_now().h_date) + "] " + l_text); else __show_debug_message_base("[GMLive][" + date_datetime_string(gml_std_Date_now().h_date) + "][" + live_log_impl_levels[l_level] + "] " + l_text);
 }
 

@@ -1,4 +1,9 @@
 /// @description Initialize `con` struct, Define functions
+if instance_exists(obj_console)
+{
+	instance_destroy(self); // Self destruct if a console already exists
+}
+
 con = {}; // This is our console's stuff! Yay!
 /*
 	Seriously though, if you modify the console,

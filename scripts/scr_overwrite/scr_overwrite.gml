@@ -10,7 +10,7 @@ function __show_debug_message_overwrite(str)
 	}
 	if (instance_exists(obj_console))
 	{
-		con_log(obj_console.con.enums.logtype.debug, _ret);
+		with (obj_console) { con_log(obj_console.con.enums.logtype.debug, _ret); }
 	}
 	
 	__show_debug_message_base(str);

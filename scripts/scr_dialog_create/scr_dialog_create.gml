@@ -2,12 +2,6 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_dialog_create(argument0, argument1, argument2, argument3) //gml_Script_dialog_create
 {
-    /*if (argument1 == undefined)
-        argument1 = -4
-    if (argument2 == undefined)
-        argument2 = -4
-    if (argument3 == undefined)
-        argument3 = -4*/
-    return [argument0,  argument1 == undefined ? -4 : argument1,  argument2 == undefined ? -4 : argument2, argument3 == undefined ? -4 : argument3];
+	// https://manual.gamemaker.io/monthly/en/index.htm#t=GameMaker_Language/GML_Overview/Expressions_And_Operators.htm&rhsearch=Nullish&rhhlterm=Nullish
+   return [argument0, argument1 ?? -4, argument2 ?? -4, argument3 ?? -4];
 }
-
