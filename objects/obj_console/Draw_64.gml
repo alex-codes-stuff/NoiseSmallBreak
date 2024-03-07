@@ -56,7 +56,25 @@ if (con.open)
 	var _startat = 0;
 	var _lnsize = string_height("a")
 	// If trim bug is fixed, init _lines as 0.
-	var _lines = ds_list_size(con.output);
+	var _conout = con.output;
+	var _rmlist = [];
+	#region filtering
+	if (!con.settings.show_debug_logs)
+	{
+		for (var i = 0; i < ds_list_size(con.output); i++)
+		{
+			if (con.output[| i][0] == con.enums.logtype.debug)
+			{
+				array_push(_rmlist, i);
+			}
+		}
+	}
+	for (var i = array_length(_rmlist) - 1; i >= 0; i--) // Reverse order because else we would need to offset every deletion
+	{
+		ds_list_delete(_conout, _rmlist[i]);
+	}
+	#endregion
+	var _lines = ds_list_size(_conout);
 	
 	#region Trim bug
 	/* 
@@ -66,9 +84,9 @@ if (con.open)
 	this, then do it, for now I'm commenting it out.
 	*/
 	/*
-	for (var i = 0; i < ds_list_size(con.output); i++)
+	for (var i = 0; i < ds_list_size(_conout); i++)
 	{
-		var _txt = con.output[| i][2]
+		var _txt = _conout[| i][2]
 		if (string_width(_txt) >= con.guisize[0])
 		{
 			for (var j = string_length(_txt); j > 0; i--)
@@ -92,10 +110,10 @@ if (con.open)
 	{
 		_startat++;
 	}
-	for (var i = _startat; i < ds_list_size(con.output); i++)
+	for (var i = _startat; i < ds_list_size(_conout); i++)
 	{
 		// TYPE - DATE - TEXT
-		var _arr = con.output[| i];
+		var _arr = _conout[| i];
 		var _col = con.ui.text.colors.def;
 		var _formatted = ""; // Formatted string
 		var _type_fmt = ""; // Formatted type

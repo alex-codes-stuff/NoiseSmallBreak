@@ -295,7 +295,7 @@ if room != room_customlevel
 if keyboard_check_pressed(vk_enter)
 {
 	
-	filename = "Backup.sav"
+	filename = "Backup.bblv"
 	if file_exists(filename)
 	   file_delete(filename)
 	 scr_savelevel()
@@ -312,7 +312,7 @@ if keyboard_check_pressed(vk_escape)
 	if global.play == 1
 	{
    global.play = 0
-   filename = "Backup.sav"
+   filename = "Backup.bblv"
    scr_loadlevel()
 	}
 	else
@@ -328,7 +328,7 @@ if keyboard_check_pressed(vk_escape)
 }
 if keyboard_check_pressed(ord("U"))
 {
-	filename = get_string("Level Name?", "Level.sav")
+	filename = get_string("Level Name?", "Level.bblv")
     scr_savelevel()
 }
 
@@ -339,14 +339,14 @@ if global.play == 0
 if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_savehitbox))
   {
   
-	   filename = get_string("Level Name?", "Level.sav")
+	   filename = get_string("Level Name?", "Level.bblv")
       scr_savelevel()
    
   }
 if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_testhitbox))
   {
   
-	filename = "Backup.sav"
+	filename = "Backup.bblv"
 	if file_exists(filename)
 	   file_delete(filename)
 	 scr_savelevel()

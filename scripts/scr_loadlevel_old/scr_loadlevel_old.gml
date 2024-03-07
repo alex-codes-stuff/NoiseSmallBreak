@@ -1,14 +1,14 @@
-// OLD FILE FORMAT: DS MAP: (root: DS LIST<struct>, room: DS LIST)
+// OLD FILE FORMAT: DS MAP: (root: DS LIST<struct>, room: DS MAP)
 function scr_loadlevel_old()
 {
 	with (all)
 	{
-		if object_index != obj_camera && object_index != obj_player && object_index != obj_noisette && object_index != obj_editor && object_get_parent(object_index) != obj_editorobject && object_index != obj_screensizer && object_index != obj_console
+		if object_index != obj_camera && object_index != obj_player && object_index != obj_noisette && object_index != obj_editor && object_get_parent(object_index) != obj_editorobject && object_index != obj_screensizer && object_index != obj_console && object_index != obj_debugloghahaha
 		   instance_destroy()
 	}
 if file_exists(filename)
 	{
-		var _wrapper = scr_editor_decrypt(filename);
+		var _wrapper = scr_jsonthing(filename);
 		var _list = _wrapper[? "root"];
 		
 		for (var i = 0; i < ds_list_size(_list); i++)

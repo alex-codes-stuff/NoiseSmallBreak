@@ -1,5 +1,5 @@
 /// @description Initialize `con` struct, Define functions
-if instance_exists(obj_console)
+if instance_number(obj_console) > 1
 {
 	instance_destroy(self); // Self destruct if a console already exists
 }
@@ -128,6 +128,11 @@ con.enums.logtype =
 	debug: 3, // Will only print in test runs
 	none: 4,
 }
+#endregion
+#region Console settings
+con.settings = {
+	show_debug_logs: con.build.release,
+};
 #endregion
 #endregion
 #region Console functions

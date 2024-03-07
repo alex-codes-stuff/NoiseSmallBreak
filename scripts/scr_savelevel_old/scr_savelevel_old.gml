@@ -63,7 +63,7 @@ function scr_savelevel_old(){
     ds_map_add_list(wrapper, "room", dslisttest2)
 
     var save = json_encode(wrapper)
-    scr_savescripttofile(filename, save)
+    scr_savestringtofile(filename, save)
 
     ds_map_destroy(wrapper)
     ds_map_destroy(map)

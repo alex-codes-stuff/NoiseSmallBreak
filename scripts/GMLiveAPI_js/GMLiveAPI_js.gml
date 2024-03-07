@@ -361,7 +361,8 @@ function live_preinit_js_func_320(l_ind) {
 		case 325: return event_perform_object;
 		case 326: return event_inherited;
 		case 327: return __show_debug_message_base;
-		case 328: return __show_debug_message_base_ext;
+		//case 328: return __show_debug_message_base_ext; //TODO: OVERWRITE show_debug_message_ext
+		case 328: return show_debug_message_ext;
 		case 329: return show_debug_overlay;
 		case 330: return debug_event;
 		case 331: return debug_get_callstack;
@@ -714,7 +715,8 @@ function live_preinit_js_func_640(l_ind) {
 		case 648: return audio_set_listener_mask;
 		case 649: return audio_get_listener_count;
 		case 650: return audio_get_listener_info;
-		case 651: return show_message;
+		//case 651: return show_message;
+		case 651: return __show_message_base;
 		case 652: return show_message_async;
 		case 653: return clickable_add;
 		case 654: return clickable_add_ext;
@@ -730,10 +732,14 @@ function live_preinit_js_func_640(l_ind) {
 		case 664: return get_integer_async;
 		case 665: return get_string_async;
 		case 666: return get_login_async;
-		case 667: return get_open_filename;
-		case 668: return get_save_filename;
-		case 669: return get_open_filename_ext;
-		case 670: return get_save_filename_ext;
+		//case 667: return get_open_filename;
+		//case 668: return get_save_filename;
+		//case 669: return get_open_filename_ext;
+		//case 670: return get_save_filename_ext;
+		case 667: return __get_open_filename_base;
+		case 668: return __get_save_filename_base;
+		case 669: return __get_ope_filename_ext_base;
+		case 670: return __get_save_filename_ext_base;
 		case 671: return show_error;
 		case 672: return highscore_clear;
 		case 673: return highscore_add;

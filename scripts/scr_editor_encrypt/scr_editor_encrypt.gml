@@ -1,17 +1,3 @@
-function string_to_bytes(_str)
-{
-	var _ret = [];
-	for (var i = 0; i < string_length(_str) < i; i++)
-	{
-		array_push(_ret, string_byte_at(_str, i));
-	}
-}
-
-function scr_editor_is_same_sample(sample)
-{
-	return sample == scr_editor_encrypt_get_sample();
-}
-
 /// @function							scr_editor_encrypt(data)
 /// @description						Encrypts the file. This actually works with any struct, but is made for the lvl editor.
 /// @param		{Struct}				data	Struct to encrypt.
@@ -47,12 +33,10 @@ function scr_editor_encrypt(data)
 	// Buffer creation & compression
 	var buff = buffer_create(1024, buffer_grow, 1);
 	buffer_write(buff, buffer_string, b64json_str);
-	buffer_write(buff, buffer_string, sha1_string_utf8(b64json_str));
 	var compressed_buff = buffer_compress(buff, 0, buffer_tell(buff));
 	
 	buffer_delete(buff);
-	
-	// TODO: FIX POTENTIAL MEMORY LEAK (non-deleted buffers)!
+
 	var _ret = compressed_buff == -1 ? undefined : compressed_buff;
 	return _ret;
 }

@@ -26,31 +26,31 @@ switch menu
 	case 1:
 if keyboard_check_pressed(vk_down) || controllerdown
 {
-   index += 1
+   index++
    audio_play_sound(sfx_select2, 0 ,0)
 }
 
 
 if keyboard_check_pressed(vk_up)   || controllerup
 {
-   index += -1
+   index--
     audio_play_sound(sfx_select2, 0 ,0)
 }
-if index >= 5.1
+if index > 6
     index = 1
-if index <= 0.9
-    index = 1
+if index < 1
+    index = 6
 break 
 case 2:
      	
 if keyboard_check_pressed(vk_down) || controllerdown
 {
-   index += 1
+   index++
    audio_play_sound(sfx_select2, 0 ,0)
 }
 if keyboard_check_pressed(vk_up) || controllerup
 {
-   index += -1
+   index--
     audio_play_sound(sfx_select2, 0 ,0)
 }
 if index >= 3.1
@@ -75,15 +75,15 @@ break
  case 3:
  if keyboard_check_pressed(vk_down)|| controllerdown
 {
-   index += 1
+   index++;
    audio_play_sound(sfx_select2, 0 ,0)
 }
 if keyboard_check_pressed(vk_up)  || controllerup
 {
-   index += -1
+   index--;
     audio_play_sound(sfx_select2, 0 ,0)
 }
-if index >= 3.1
+if index > 3
     index = 1
  break
  case 4:
@@ -91,16 +91,16 @@ if index >= 3.1
  {
  if keyboard_check_pressed(vk_down) || controllerdown
 {
-   index += 1
+   index++
    audio_play_sound(sfx_select2, 0 ,0)
 }
 if keyboard_check_pressed(vk_up)  || controllerup
 {
-   index += -1
+   index--
     audio_play_sound(sfx_select2, 0 ,0)
 }
  }
-if index >= 6.1
+if index > 6
     index = 1
 if keyboard_check_pressed(vk_anykey) && setkey == 1
 {
@@ -184,7 +184,7 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 		   	audio_stop_all()
 		   break
 	case 3:
-	global.filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.sav)");
+	global.filename = get_open_filename_ext(".bblv", "", game_save_id, "Select level file (.bblv)");
  
     if global.filename != noone
 	{
@@ -201,7 +201,39 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
     case 5:
 		menu = 2
 		index = 1
-		   break   
+		   break  
+		   
+	case 6:
+		try
+		{
+			var _file = get_open_filename_ext("Old level format (.sav)|*.sav", "", game_save_id, "Select old level (.sav)");
+			var _file_oldfmt = scr_jsonthing(_file);
+			var wrapper = {};
+			var _root = _file_oldfmt[? "root"];
+			wrapper.root = [];
+			for (var i = 0; i < ds_list_size(_root); i++)
+			{
+				wrapper.root[i] = _root[| i];
+			}
+			var _room = _file_oldfmt[? "room"];
+			wrapper.room = {};
+			var _values = ["room_width", "room_height", "background_tint", "song"];
+			for (var i = 0; i < array_length(_values); i++)
+			{
+				var _index = _values[i];
+				wrapper.room[$ _index] = _room[? _index];
+			}
+			var _outfile = get_save_filename_ext("New level format (.bblv)|*.bblv", "", game_save_id, "New level (.bblv)");
+			var _buff = scr_editor_encrypt(wrapper);
+			buffer_save(_buff, _outfile);
+			buffer_delete(_buff);
+		}
+		catch (_e)
+		{
+			show_debug_message($"Exception converting old level format: {string(_e)}");
+			show_message($"Couldn't convert level: {_e.message}.\nAn extended report will be available in the debug log.");
+		}
+	break;
    
 	}
 	break
