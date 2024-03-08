@@ -383,13 +383,13 @@ background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", ba
  
   }
   /*
-  filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.sav)");
+  filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
  
 	scr_loadlevel()
   */
    if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_loadhitbox))
   {
-filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.sav)");
+filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
  
 	scr_loadlevel()
  
@@ -400,7 +400,7 @@ filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.
 
 if keyboard_check_pressed(ord("T"))
 {
-filename = get_open_filename_ext(".sav", "", game_save_id, "Select level file (.sav)");
+filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
  
 	scr_loadlevel()
 }
