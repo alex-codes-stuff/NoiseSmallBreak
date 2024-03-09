@@ -6550,7 +6550,7 @@ if (live_enabled) live_result = "";
 globalvar live_allow_trailing_args; /// @is {bool}
 if (live_enabled) live_allow_trailing_args = true;
 globalvar live_init_timeout; /// @is {int}
-if (live_enabled) live_init_timeout = 30;
+if (live_enabled) live_init_timeout = 0;//30; // GRAH
 globalvar live_directory; /// @is {string}
 globalvar live_live_map; /// @is {tools_Dictionary<live_cache_data>}
 if (live_enabled) live_live_map = { }

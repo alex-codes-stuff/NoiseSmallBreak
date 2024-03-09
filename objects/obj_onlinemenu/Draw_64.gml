@@ -61,7 +61,7 @@ for (var i = 0; i < struct_names_count(buttons.metas); i++)
 	{
 		var _condition = (_btn.input_box[2] == "" && (is_undefined(selected_textbox) ? true : selected_textbox.meta.name != _btn.name));
 		var _txt = (_btn.input_box[2] == "" ? _btn.text : _btn.input_box[2])
-		var _col = (_btn.input_box[2] == "" ? c_gray : c_white);
+		var _col = (_btn.input_box[2] == "" ? c_gray : _btn.color[1]);
 		draw_set_color(_col); 
 		draw_set_font(_btn.input_box[1]);
 		draw_text(_middle[0], _middle[1], _txt);
@@ -74,6 +74,10 @@ for (var i = 0; i < struct_names_count(buttons.metas); i++)
 	draw_set_valign(_oldalign[1]);
 }
 
+#endregion
+
+#region THE ONLY HARDCODED THING IN THE DRAW EVENT
+draw_line_color(818, 0, 818, display_get_gui_height(), c_white, c_white); // Too lazy!
 #endregion
 
 #region popup

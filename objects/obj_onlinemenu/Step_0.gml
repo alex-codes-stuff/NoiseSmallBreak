@@ -2,39 +2,76 @@
 
 if (selected_textbox != undefined)
 {
-	selected_textbox.meta.input_box[2] = keyboard_string;
+	if (!struct_exists(selected_textbox, "meta") || !struct_exists(selected_textbox, "func")) { var _msg = "Invalid input box was selected"; throw({message: _msg, longMessage: _msg, stacktrace: debug_get_callstack(), line: -1}); }
+	if (is_undefined(selected_textbox[$ "meta"]) || is_undefined(selected_textbox[$ "func"])) { var _msg = "Invalid input box was selected"; throw({message: _msg, longMessage: _msg, stacktrace: debug_get_callstack(), line: -1}); } 
+	var _meta = selected_textbox.meta;
+	//selected_textbox.meta.input_box[2] = keyboard_string;
+	var _changed = (_meta.input_box[2] != keyboard_string);
+	
+	_meta.input_box[2] = keyboard_string;
 	var _ofnt = draw_get_font();
-	draw_set_font(selected_textbox.meta.input_box[1]);
-	var _cond = (string_width(selected_textbox.meta.input_box[2]) >= selected_textbox.meta.width);
+	//draw_set_font(selected_textbox.meta.input_box[1]);
+	draw_set_font(_meta.input_box[1]);
+	//var _cond = (string_width(selected_textbox.meta.input_box[2]) >= selected_textbox.meta.width);
+	
+	var _char_limit = _meta.input_box[4];
+	//if (_meta.input_box[3] > 0) { _meta.input_box[2] = string_copy(_meta.input_box[2], 1, _meta.input_box[3]); } // Character limit
+	if (_char_limit > 0 && string_length(_meta.input_box[2]) > _char_limit) // Character limit
+	{
+		var _newtxt = string_copy(_meta.input_box[2], 1, _char_limit);
+		show_debug_message($"{_meta.input_box[2]} capped to {_char_limit} chars. New text: `{_newtxt}`");
+		_meta.input_box[2] = _newtxt;
+	}
+	
+	var _cond = (string_width(_meta.input_box[2]) >= _meta.width);
 	if (_cond)
 	{
-		for (var i = 1; i <= string_length(selected_textbox.meta.input_box[2]); i++)
+		//for (var i = 1; i <= string_length(selected_textbox.meta.input_box[2]); i++)
+		for (var i = 1; i <= string_length(_meta.input_box[2]); i++)
 		{
-			var _str = string_copy(selected_textbox.meta.input_box[2], 1, i);
-			if (string_width(_str) < selected_textbox.meta.width) { continue; }
+			//var _str = string_copy(selected_textbox.meta.input_box[2], 1, i);
+			var _str = string_copy(_meta.input_box[2], 1, i);
+			//if (string_width(_str) < selected_textbox.meta.width) { continue; }
+			if (string_width(_str) < _meta.width) { continue; }
 			var _thingy = 1;
 			while (_cond)
 			{
-				selected_textbox.meta.input_box[2] = string_copy(selected_textbox.meta.input_box[2], 1, i - _thingy);
+				//selected_textbox.meta.input_box[2] = string_copy(selected_textbox.meta.input_box[2], 1, i - _thingy);
+				_meta.input_box[2] = string_copy(_meta.input_box[2], 1, i - _thingy);
 				_thingy++;
-				_cond = (string_width(selected_textbox.meta.input_box[2]) >= selected_textbox.meta.width);
+				//_cond = (string_width(selected_textbox.meta.input_box[2]) >= selected_textbox.meta.width);
+				_cond = (string_width(_meta.input_box[2]) >= _meta.width);
 				if (_thingy > 200)
 				{
 					show_debug_message("FAIL");
 					break; // Failsafe
 				}
 			}
-			keyboard_string = selected_textbox.meta.input_box[2];
+			//keyboard_string = selected_textbox.meta.input_box[2];
+			keyboard_string = _meta.input_box[2];
 			break;
 		}
 	}
 	draw_set_font(_ofnt);
 	
-	if keyboard_check_pressed(vk_enter)
+	if (!is_undefined(selected_textbox.changefunc) && _changed) 
 	{
-		var _txt = selected_textbox.meta.input_box[2];
-		selected_textbox.func(_txt);
-		selected_textbox.meta.input_box[2] = "";
+		var _ret = selected_textbox.changefunc(selected_textbox, _meta.input_box[2]);
+		_meta.input_box[2] = _ret;
+		keyboard_string = _ret;
+	}
+	
+	if (keyboard_check_pressed(vk_enter) && _meta.input_box[2] != "")
+	{
+		var _txt = _meta.input_box[2];
+		var _clear = selected_textbox.func(_txt);
+		if (is_undefined(_clear)) { _clear = true; }
+		if (_clear)
+		{
+			selected_textbox.meta.input_box[2] = "";
+			keyboard_string = "";
+		}
+		if (!is_undefined(selected_textbox.callback)) { selected_textbox.callback(selected_textbox); }
 	}
 }
 
@@ -43,6 +80,8 @@ if (mouse_check_button_pressed(mb_left))
 {
 	if (!popup.show)
 	{
+		var _undefine_box = true;
+		show_debug_message(struct_names_count(buttons.metas));
 		for (var i = 0; i < struct_names_count(buttons.metas); i++)
 		{
 			var _btn = buttons.metas[$ struct_get_names(buttons.metas)[i]];
@@ -61,7 +100,9 @@ if (mouse_check_button_pressed(mb_left))
 				{
 					prev_kbdstr = keyboard_string;
 					keyboard_string = _btn.input_box[2];
-					selected_textbox = {meta: _btn, func: buttons.funcs[$ _btn.name]};
+					//selected_textbox = {meta: _btn, func: buttons.funcs[$ _btn.name]};
+					selected_textbox = btn_get(_btn.name);
+					_undefine_box = false;
 					show_debug_message(selected_textbox);
 				}
 				else
@@ -70,17 +111,17 @@ if (mouse_check_button_pressed(mb_left))
 					try
 					{
 						_btn.func();
-						throw({message: "a"});
+						if (!is_undefined(_btn.callback)) { _btn.callback(_btn); }
 					} 
 					catch (_e)
 					{
 						var _msg = $"Exception pressing button {_btn.name}.";
-						show_popup(string_width(_msg) * 1.5, string_height(_msg) * 1.5, _msg);
+						show_popup(_msg);
 						show_debug_message($"{_msg}\n---\nDumping exception struct.\n{string(_e)}\n---");
 					}
 				}
 			}
-			else if (selected_textbox != undefined)
+			else if (selected_textbox != undefined && _undefine_box)
 			{
 				selected_textbox = undefined;
 				keyboard_string = prev_kbdstr;

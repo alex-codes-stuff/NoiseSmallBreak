@@ -26,6 +26,7 @@
     {"name":"Shaders","order":14,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":11,"path":"folders/Sounds.yy",},
     {"name":"Sprites","order":9,"path":"folders/Sprites.yy",},
+    {"name":"bgs","order":35,"path":"folders/Sprites/bgs.yy",},
     {"name":"DONT LOOK..,","order":30,"path":"folders/Sprites/DONT LOOK..,.yy",},
     {"name":"editor","order":29,"path":"folders/Sprites/editor.yy",},
     {"name":"noisette","order":7,"path":"folders/Sprites/editor/noisette.yy",},
@@ -35,7 +36,6 @@
     {"name":"player","order":2,"path":"folders/Sprites/player.yy",},
     {"name":"Tile Sets","order":10,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":16,"path":"folders/Timelines.yy",},
-    {"name":"bgs","order":35,"path":"folders/Sprites/bgs.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sfx_select","order":18,"path":"sounds/sfx_select/sfx_select.yy",},

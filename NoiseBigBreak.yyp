@@ -40,6 +40,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shaders","folderPath":"folders/Shaders.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sounds","folderPath":"folders/Sounds.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sprites.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bgs","folderPath":"folders/Sprites/bgs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"debug","folderPath":"folders/Sprites/debug.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"DONT LOOK..,","folderPath":"folders/Sprites/DONT LOOK..,.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"editor","folderPath":"folders/Sprites/editor.yy",},
@@ -50,7 +51,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sprites/player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bgs","folderPath":"folders/Sprites/bgs.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
