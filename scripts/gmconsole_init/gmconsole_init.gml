@@ -1,6 +1,7 @@
 #macro gmc obj_gmconsole // Shortcut to obj_gmconsole for the lazy people out there (you're just like me)
 #macro obj_console obj_gmconsole // Versions >0.3.00.00 had GMConsole's object named as "obj_console", this is for backwards compatibility, please use `obj_gmconsole`, or `gmc` in your code.
 
+
 /// @pure
 /// @returns {Bool}
 function is_debug()

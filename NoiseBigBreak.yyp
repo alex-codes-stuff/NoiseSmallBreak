@@ -6,7 +6,10 @@
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
   ],
   "configs": {
-    "children": [],
+    "children": [
+      {"children":[],"name":"RELEASE",},
+      {"children":[],"name":"TEST",},
+    ],
     "name": "Default",
   },
   "defaultScriptType": 1,
@@ -160,6 +163,7 @@
     {"id":{"name":"GMLive_vm_call","path":"scripts/GMLive_vm_call/GMLive_vm_call.yy",},},
     {"id":{"name":"moonlight_1","path":"rooms/moonlight_1/moonlight_1.yy",},},
     {"id":{"name":"spr_player_stopping","path":"sprites/spr_player_stopping/spr_player_stopping.yy",},},
+    {"id":{"name":"obj_onlinemenu","path":"objects/obj_onlinemenu/obj_onlinemenu.yy",},},
     {"id":{"name":"spr_player_mach2jump","path":"sprites/spr_player_mach2jump/spr_player_mach2jump.yy",},},
     {"id":{"name":"spr_baddie","path":"sprites/spr_baddie/spr_baddie.yy",},},
     {"id":{"name":"spr_mobile_timeattack","path":"sprites/spr_mobile_timeattack/spr_mobile_timeattack.yy",},},
@@ -256,6 +260,7 @@
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"spr_bg","path":"sprites/spr_bg/spr_bg.yy",},},
     {"id":{"name":"obj_gmlive","path":"objects/obj_gmlive/obj_gmlive.yy",},},
+    {"id":{"name":"room_upload","path":"rooms/room_upload/room_upload.yy",},},
     {"id":{"name":"spr_noisette_move","path":"sprites/spr_noisette_move/spr_noisette_move.yy",},},
     {"id":{"name":"Font3","path":"fonts/Font3/Font3.yy",},},
     {"id":{"name":"GMLive_new","path":"scripts/GMLive_new/GMLive_new.yy",},},
@@ -293,6 +298,7 @@
     {"id":{"name":"room_minimenu","path":"rooms/room_minimenu/room_minimenu.yy",},},
     {"id":{"name":"spr_doorX","path":"sprites/spr_doorX/spr_doorX.yy",},},
     {"id":{"name":"obj_fadeout","path":"objects/obj_fadeout/obj_fadeout.yy",},},
+    {"id":{"name":"spr_upload_parallax","path":"sprites/spr_upload_parallax/spr_upload_parallax.yy",},},
     {"id":{"name":"spr_gameframe_buttons","path":"sprites/spr_gameframe_buttons/spr_gameframe_buttons.yy",},},
     {"id":{"name":"obj_player2","path":"objects/obj_player2/obj_player2.yy",},},
     {"id":{"name":"obj_editorobject","path":"objects/obj_editorobject/obj_editorobject.yy",},},
@@ -320,6 +326,7 @@
     {"roomId":{"name":"room_minimenu","path":"rooms/room_minimenu/room_minimenu.yy",},},
     {"roomId":{"name":"room_customlevel","path":"rooms/room_customlevel/room_customlevel.yy",},},
     {"roomId":{"name":"hub_2","path":"rooms/hub_2/hub_2.yy",},},
+    {"roomId":{"name":"room_upload","path":"rooms/room_upload/room_upload.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

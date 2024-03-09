@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-controllerdown = 0
-controllerup = 0
+controllerdown = false;
+controllerup = false;
+controllera = false;
 if delaydown > 0
    delaydown--
 if delayup > 0
@@ -13,13 +14,17 @@ if delayleft > 0
    
 if gamepad_axis_value(0, gp_axislv) > 0.9 && delaydown == 0
 {
-	delaydown = 10
-	controllerdown = 1
+	delaydown = 10;
+	controllerdown = true;
 }
 if gamepad_axis_value(0, gp_axislv) < -0.9 && delayup == 0
 {
-	delayup = 10
-	controllerup = 1
+	delayup = 10;
+	controllerup = true;
+}
+if (gamepad_button_check_pressed(0, gp_face1))
+{
+	controllera = true;
 }
 switch menu
 {
@@ -36,10 +41,21 @@ if keyboard_check_pressed(vk_up)   || controllerup
    index--
     audio_play_sound(sfx_select2, 0 ,0)
 }
-if index > 6
+if index > 7
     index = 1
 if index < 1
-    index = 6
+    index = 7
+	
+if ((keyboard_check_pressed(vk_right) || controllerright) && index != 7)
+{
+	index = 7;
+}
+
+if ((keyboard_check_pressed(vk_left) || controllerleft) && index == 7)
+{
+	index = 3;
+}
+
 break 
 case 2:
      	
@@ -53,9 +69,9 @@ if keyboard_check_pressed(vk_up) || controllerup
    index--
     audio_play_sound(sfx_select2, 0 ,0)
 }
-if index >= 3.1
+if index > 4
     index = 1
-if index <= 0.9
+if index < 1
     index = 1
 	//coop
 	/*
@@ -70,6 +86,14 @@ if index == 2 && keyboard_check_pressed(vk_left)
     audio_play_sound(sfx_select2, 0 ,0)
 }
 */
+if (index == 4 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera))
+{
+	global.performance = !global.performance;
+	ini_open("settings.ini");
+	// Feather disable once GM1041 YOU FUCKING SUCK FEATHER HOLY SHIT
+	ini_write_real("Settings", "performance", global.performance);
+	ini_close();
+}
 break
 
  case 3:
@@ -233,6 +257,10 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 			show_debug_message($"Exception converting old level format: {string(_e)}");
 			show_message($"Couldn't convert level: {_e.message}.\nAn extended report will be available in the debug log.");
 		}
+	break;
+	
+	case 7:
+		room_goto(room_upload); //TODO: Make this
 	break;
    
 	}
