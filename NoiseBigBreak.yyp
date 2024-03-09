@@ -6,10 +6,7 @@
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
   ],
   "configs": {
-    "children": [
-      {"children":[],"name":"RELEASE",},
-      {"children":[],"name":"TEST",},
-    ],
+    "children": [],
     "name": "Default",
   },
   "defaultScriptType": 1,
@@ -53,6 +50,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sprites/player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bgs","folderPath":"folders/Sprites/bgs.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
@@ -149,6 +147,7 @@
     {"id":{"name":"GMLive_builder","path":"scripts/GMLive_builder/GMLive_builder.yy",},},
     {"id":{"name":"scr_savescripttofile","path":"scripts/scr_savescripttofile/scr_savescripttofile.yy",},},
     {"id":{"name":"GMLive_node","path":"scripts/GMLive_node/GMLive_node.yy",},},
+    {"id":{"name":"spr_minimenu_bg","path":"sprites/spr_minimenu_bg/spr_minimenu_bg.yy",},},
     {"id":{"name":"testroom_3","path":"rooms/testroom_3/testroom_3.yy",},},
     {"id":{"name":"spr_virtualkeyplaceholder","path":"sprites/spr_virtualkeyplaceholder/spr_virtualkeyplaceholder.yy",},},
     {"id":{"name":"obj_dialognpc","path":"objects/obj_dialognpc/obj_dialognpc.yy",},},
@@ -298,7 +297,7 @@
     {"id":{"name":"room_minimenu","path":"rooms/room_minimenu/room_minimenu.yy",},},
     {"id":{"name":"spr_doorX","path":"sprites/spr_doorX/spr_doorX.yy",},},
     {"id":{"name":"obj_fadeout","path":"objects/obj_fadeout/obj_fadeout.yy",},},
-    {"id":{"name":"spr_upload_parallax","path":"sprites/spr_upload_parallax/spr_upload_parallax.yy",},},
+    {"id":{"name":"spr_online_bg","path":"sprites/spr_online_bg/spr_online_bg.yy",},},
     {"id":{"name":"spr_gameframe_buttons","path":"sprites/spr_gameframe_buttons/spr_gameframe_buttons.yy",},},
     {"id":{"name":"obj_player2","path":"objects/obj_player2/obj_player2.yy",},},
     {"id":{"name":"obj_editorobject","path":"objects/obj_editorobject/obj_editorobject.yy",},},

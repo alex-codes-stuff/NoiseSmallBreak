@@ -1,14 +1,16 @@
 #region Define structs
-parallax = {
+bg = {
 	x: 0,
 	y: 0,
 	visible: true,
 	speed: 1,
-	spr: spr_upload_parallax,
+	spr: spr_online_bg,
 	index: 0,
 };
 
 buttons = {
+	metas: {},
+	funcs: {},
 }
 
 popup = {
@@ -18,6 +20,9 @@ popup = {
 changequeue = {
 }
 #endregion
+
+prev_kbdstr = keyboard_string;
+selected_textbox = undefined;
 
 /// @param	{Real}		_width
 /// @param	{Real}		_height
@@ -78,7 +83,7 @@ function btn_get_offset(_btn)
 }
 
 /// @param	{String}				_name		Internal name, spaces will be changed to underscores
-/// @param	{String}				_text
+/// @param	{String}				_text		If input box, 
 /// @param	{Real}					_x
 /// @param	{Real}					_y
 /// @param	{Real}					_width
@@ -87,9 +92,9 @@ function btn_get_offset(_btn)
 /// @param	{Array<Constant.Color>}	_color		Rectangle color, then text color
 /// @param	{Constant.HAlign}		_halign		Both text and rect use the same!
 /// @param	{Constant.VAlign}		_valign		Both text and rect use the same!
-/// @param	{Function}				_func
+/// @param	{Array}					_input_box	Yes/No; Font
 /// @pure
-function ButtonMeta(_name, _text, _x, _y, _width, _height, _outline, _color, _halign, _valign, _func) constructor
+function ButtonMeta(_name, _text, _x, _y, _width, _height, _outline, _color, _halign, _valign, _input_box = [false, Font3]) constructor
 {
 	name = string_letters(string_replace_all(string_lower(_name), " ", ""));
 	text = _text;
@@ -101,12 +106,28 @@ function ButtonMeta(_name, _text, _x, _y, _width, _height, _outline, _color, _ha
 	color = _color;
 	halign = _halign;
 	valign = _valign;
-	func = _func;
+	input_box = _input_box;
+	array_push(input_box, ""); // Text
 }
 
 /// @param	{Struct.ButtonMeta}	_btn_meta
-function btn_add(_btn_meta)
+/// @param	{Function}			_func
+function btn_add(_btn_meta, _func)
 {
-	buttons[$ _btn_meta.name] = _btn_meta;
+	for (var i = 0; i < struct_names_count(buttons.metas); i++)
+	{
+		var _k = buttons.metas[$ struct_get_names(buttons)[i]];
+		if (_k.name == _btn_meta.name)
+		{
+			var _msg = $"Tried to add button {_btn_meta.name} more than once";
+			throw({message: _msg, longMessage: _msg, stacktrace: debug_get_callstack(), line: -1});
+			return;
+		}
+	}
+	buttons.metas[$ _btn_meta.name] = _btn_meta;
+	buttons.funcs[$ _btn_meta.name] = _func;
 }
+
+
+//btn_add(new ButtonMeta("testsearch", "TEST SEARCH", 500, 300, 250, 100, true, [c_black, c_white], fa_center, fa_middle, [true, Font3]), function(_input) { show_debug_message(_input); });
 

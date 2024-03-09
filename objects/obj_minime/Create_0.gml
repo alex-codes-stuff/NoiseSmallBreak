@@ -1,5 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
+bg = {
+	x: 0,
+	y: 0,
+	visible: true,
+	speed: 1,
+	spr: spr_minimenu_bg,
+	index: 0,
+};
+
 index = 1
 //buttons = 3
 distance = 0
@@ -19,4 +28,3 @@ delaydown = 0;
 delayup = 0;
 delayleft = 0;
 delayright = 0;
-

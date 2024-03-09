@@ -1,3 +1,4 @@
+if (global.performance) { return; }
 for(var i = 0; i < array_length(particles); i++)
 {
 	var par = particles[i];

@@ -1,12 +1,51 @@
 /// @description Detect kliks, lik 3kliksphilip frfr ong
 
+if (selected_textbox != undefined)
+{
+	selected_textbox.meta.input_box[2] = keyboard_string;
+	var _ofnt = draw_get_font();
+	draw_set_font(selected_textbox.meta.input_box[1]);
+	var _cond = (string_width(selected_textbox.meta.input_box[2]) >= selected_textbox.meta.width);
+	if (_cond)
+	{
+		for (var i = 1; i <= string_length(selected_textbox.meta.input_box[2]); i++)
+		{
+			var _str = string_copy(selected_textbox.meta.input_box[2], 1, i);
+			if (string_width(_str) < selected_textbox.meta.width) { continue; }
+			var _thingy = 1;
+			while (_cond)
+			{
+				selected_textbox.meta.input_box[2] = string_copy(selected_textbox.meta.input_box[2], 1, i - _thingy);
+				_thingy++;
+				_cond = (string_width(selected_textbox.meta.input_box[2]) >= selected_textbox.meta.width);
+				if (_thingy > 200)
+				{
+					show_debug_message("FAIL");
+					break; // Failsafe
+				}
+			}
+			keyboard_string = selected_textbox.meta.input_box[2];
+			break;
+		}
+	}
+	draw_set_font(_ofnt);
+	
+	if keyboard_check_pressed(vk_enter)
+	{
+		var _txt = selected_textbox.meta.input_box[2];
+		selected_textbox.func(_txt);
+		selected_textbox.meta.input_box[2] = "";
+	}
+}
+
+
 if (mouse_check_button_pressed(mb_left))
 {
 	if (!popup.show)
 	{
-		for (var i = 0; i < struct_names_count(buttons); i++)
+		for (var i = 0; i < struct_names_count(buttons.metas); i++)
 		{
-			var _btn = buttons[$ struct_get_names(buttons)[i]];
+			var _btn = buttons.metas[$ struct_get_names(buttons.metas)[i]];
 			
 			var _mousepos = [device_mouse_x_to_gui(0), device_mouse_y_to_gui(0)];
 			var _check = [false, false];
@@ -18,18 +57,33 @@ if (mouse_check_button_pressed(mb_left))
 			show_debug_message($"{_mousepos[1]} between {_btn.y - _offset[1]} and {_btn.y - _offset[1] + _btn.height}");
 			if (_check[0] && _check[1])
 			{
-				show_debug_message($"Press: {_btn.name}");
-				try
+				if (_btn.input_box[0])
 				{
-					_btn.func();
-					throw({message: "a"});
-				} 
-				catch (_e)
-				{
-					var _msg = $"Exception pressing button {_btn.name}.";
-					show_popup(string_width(_msg) * 1.5, string_height(_msg) * 1.5, _msg);
-					show_debug_message($"{_msg}\n---\nDumping exception struct.\n{string(_e)}\n---");
+					prev_kbdstr = keyboard_string;
+					keyboard_string = _btn.input_box[2];
+					selected_textbox = {meta: _btn, func: buttons.funcs[$ _btn.name]};
+					show_debug_message(selected_textbox);
 				}
+				else
+				{
+					show_debug_message($"Press: {_btn.name}");
+					try
+					{
+						_btn.func();
+						throw({message: "a"});
+					} 
+					catch (_e)
+					{
+						var _msg = $"Exception pressing button {_btn.name}.";
+						show_popup(string_width(_msg) * 1.5, string_height(_msg) * 1.5, _msg);
+						show_debug_message($"{_msg}\n---\nDumping exception struct.\n{string(_e)}\n---");
+					}
+				}
+			}
+			else if (selected_textbox != undefined)
+			{
+				selected_textbox = undefined;
+				keyboard_string = prev_kbdstr;
 			}
 		}
 	}

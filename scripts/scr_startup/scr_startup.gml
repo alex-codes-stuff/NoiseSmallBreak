@@ -51,7 +51,7 @@ function _exception_unhandled_handler(_e)
 	if (CRASH_SHOW_MESSAGEBOX)
 	{
 		//show_message($"EXCEPTION!\n----------\n{_e.message}\n{_e.stacktrace}\n{(is_debug() ? "TEST BUILD" : (code_is_compiled() ? "COMPILED/YYC BUILD" : "RELEASE/VM BUILD"))}");
-		show_message($"EXCEPTION!\n----------\n{_e.message}\n{_e.stacktrace}\n{compile_type_tostring(get_compile_type())}");
+		__show_message_base($"EXCEPTION!\n----------\n{_e.message}\n{_e.stacktrace}\n{compile_type_tostring(get_compile_type())}");
 	}
 }
 

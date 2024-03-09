@@ -1,43 +1,48 @@
-/// @description Parallax & menu
+/// @description bg & menu
 
-#region parallax
+#region bg
 // We're doing this with a sprite for the people with low/mid end pcs
 // At the same time this would have made 9216*4 rects per frame
 // (1280 / 10) * (720 / 10) * 4 at 10px per rect
-if (global.performance)
+if (bg.visible)
 {
-	// Single sprite for performance mode
-	var spr = [parallax.spr, parallax.index];
-	draw_sprite(spr[0], spr[1], 0, 0);
-	parallax.index++;
-	parallax.index %= 11;
-}
-else
-{
-	if (parallax.visible)
+	if (global.performance)
+	{
+		// Single sprite for performance mode
+		var spr = [bg.spr, bg.index];
+		draw_sprite(spr[0], spr[1], 0, 0);
+		bg.index++;
+		bg.index %= 11;
+	}
+	else
 	{
 		var gw = display_get_gui_width();
 		var gh = display_get_gui_height(); // GH More like GitHub amirite
-		var spr = [parallax.spr, parallax.index];
-		draw_sprite(spr[0], spr[1], parallax.x, parallax.y);
-		draw_sprite(spr[0], spr[1], parallax.x - gw, parallax.y);
-		draw_sprite(spr[0], spr[1], parallax.x, parallax.y + gh);
-		draw_sprite(spr[0], spr[1], parallax.x - gw, parallax.y + gh);
-		parallax.x += floor(parallax.speed);
-		parallax.y -= floor(parallax.speed); //TODO: FIX Y, commented for now
-		if (parallax.x >= display_get_gui_width())
-			parallax.x = 0;
-		if (parallax.y <= -display_get_gui_height())
-			parallax.y = 0;
+		var spr = [bg.spr, bg.index];
+		draw_sprite(spr[0], spr[1], bg.x, bg.y);
+		draw_sprite(spr[0], spr[1], bg.x - gw, bg.y);
+		draw_sprite(spr[0], spr[1], bg.x, bg.y + gh);
+		draw_sprite(spr[0], spr[1], bg.x - gw, bg.y + gh);
+		bg.x += floor(bg.speed);
+		bg.y -= floor(bg.speed); //TODO: FIX Y, commented for now
+		if (bg.x >= display_get_gui_width())
+			bg.x = 0;
+		if (bg.y <= -display_get_gui_height())
+			bg.y = 0;
 	}
 }
+draw_set_color(c_black);
+draw_set_alpha(0.5);
+draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+draw_set_color(c_white);
+draw_set_alpha(1);
 #endregion
 
 #region menu
 
-for (var i = 0; i < struct_names_count(buttons); i++)
+for (var i = 0; i < struct_names_count(buttons.metas); i++)
 {
-	var _btn = buttons[$ struct_get_names(buttons)[i]];
+	var _btn = buttons.metas[$ struct_get_names(buttons.metas)[i]];
 	
 	var _offset = btn_get_offset(_btn);
 	
@@ -51,8 +56,20 @@ for (var i = 0; i < struct_names_count(buttons); i++)
 	var _oldalign = [draw_get_halign(), draw_get_valign()] // Just in case
 	draw_set_halign(_btn.halign);
 	draw_set_valign(_btn.valign);
-	draw_text(_middle[0], _middle[1], _btn.text);
+	var _ofnt = draw_get_font();
+	if (_btn.input_box[0] == true)
+	{
+		var _condition = (_btn.input_box[2] == "" && (is_undefined(selected_textbox) ? true : selected_textbox.meta.name != _btn.name));
+		var _txt = (_btn.input_box[2] == "" ? _btn.text : _btn.input_box[2])
+		var _col = (_btn.input_box[2] == "" ? c_gray : c_white);
+		draw_set_color(_col); 
+		draw_set_font(_btn.input_box[1]);
+		draw_text(_middle[0], _middle[1], _txt);
+	}
+	else { draw_text(_middle[0], _middle[1], _btn.text); }
 	
+	draw_set_color(c_white);
+	draw_set_font(_ofnt);
 	draw_set_halign(_oldalign[0]);
 	draw_set_valign(_oldalign[1]);
 }
