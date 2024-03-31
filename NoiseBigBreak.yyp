@@ -88,6 +88,7 @@
     {"id":{"name":"obj_convexslope","path":"objects/obj_convexslope/obj_convexslope.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
     {"id":{"name":"obj_hallway34","path":"objects/obj_hallway34/obj_hallway34.yy",},},
+    {"id":{"name":"obj_getlevel","path":"objects/obj_getlevel/obj_getlevel.yy",},},
     {"id":{"name":"spr_move","path":"sprites/spr_move/spr_move.yy",},},
     {"id":{"name":"sfx_punch","path":"sounds/sfx_punch/sfx_punch.yy",},},
     {"id":{"name":"spr_player_stop","path":"sprites/spr_player_stop/spr_player_stop.yy",},},

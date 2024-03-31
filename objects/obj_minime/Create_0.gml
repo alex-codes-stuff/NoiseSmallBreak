@@ -8,7 +8,7 @@ bg = {
 	spr: spr_minimenu_bg,
 	index: 0,
 };
-
+levelid = ""
 index = 1
 //buttons = 3
 distance = 0

@@ -380,7 +380,8 @@ song = get_string("Song? (see Editor Guide for refrence)", song)
   {
 background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", background_tint)
 	background_tint = background_tint2
- 
+  if background_tint = undefined
+     background_tint = 0
   }
   /*
   filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
@@ -389,9 +390,9 @@ background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", ba
   */
    if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_loadhitbox))
   {
-filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
- 
-	scr_loadlevel()
+	filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
+	if filename != undefined
+			scr_loadlevel()
  
   }
 }
@@ -400,7 +401,7 @@ filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file 
 
 if keyboard_check_pressed(ord("T"))
 {
-filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
- 
-	scr_loadlevel()
+	filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
+	if filename != undefined
+			scr_loadlevel()
 }

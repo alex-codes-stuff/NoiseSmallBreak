@@ -260,7 +260,15 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 	break;
 	
 	case 7:
-		room_goto(room_upload); //TODO: Make this
+		//room_goto(room_upload); //TODO: Make this
+		levelid = get_string("Level ID? (see editor guide for refrence", "123")
+		with instance_create(x, y, obj_getlevel)
+		{
+			levelid = other.levelid
+
+			link = http_get("https://www.googleapis.com/drive/v3/files/" + levelid + "?alt=media&key=AIzaSyBY9VVeA53pcdt0Nofa6VItE2K5r1gH9Zs")
+
+		}
 	break;
    
 	}

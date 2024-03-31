@@ -54,6 +54,7 @@
     {"name":"spr_player_hurt","order":18,"path":"sprites/spr_player_hurt/spr_player_hurt.yy",},
     {"name":"obj_convexslope","order":1,"path":"objects/obj_convexslope/obj_convexslope.yy",},
     {"name":"obj_hallway34","order":5,"path":"objects/obj_hallway34/obj_hallway34.yy",},
+    {"name":"obj_getlevel","order":12,"path":"objects/obj_getlevel/obj_getlevel.yy",},
     {"name":"spr_move","order":5,"path":"sprites/spr_move/spr_move.yy",},
     {"name":"sfx_punch","order":17,"path":"sounds/sfx_punch/sfx_punch.yy",},
     {"name":"spr_player_stop","order":20,"path":"sprites/spr_player_stop/spr_player_stop.yy",},

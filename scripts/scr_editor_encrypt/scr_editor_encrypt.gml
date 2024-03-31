@@ -47,8 +47,11 @@ function scr_editor_decrypt(filename_or_buff)
 {
 	var compressed_buff = (is_string(filename_or_buff) ? buffer_load($"{working_directory}{filename_or_buff}") : filename_or_buff);
 	var decomp_buff = buffer_decompress(compressed_buff);
+	
+		
 	var b64json_from_buff = buffer_read(decomp_buff, buffer_string);
 	var b64json = base64_decode(b64json_from_buff);
+	trace(b64json_from_buff)
 	var b64json_parsed = json_parse(b64json);
 	var json = undefined;
 	_json = {};
