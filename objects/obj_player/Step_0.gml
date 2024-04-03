@@ -35,74 +35,101 @@ if !gamepad_is_connected(0) || os_type == os_android
 	//left
 	var check = global.keys[? ini_read_string("keybinds", "key_left", "vk_left")]
 	if !is_undefined(check)
-		var key_left = -keyboard_check(global.keys[? ini_read_string("keybinds", "key_left", "vk_left")])
+		key_left = -keyboard_check(global.keys[? ini_read_string("keybinds", "key_left", "vk_left")])
 	else
-	    	var key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
+	    	key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
 			//right
 var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
 	if !is_undefined(check)
-		var key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
+		key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
 	else
-	    	var key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
+	    	key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
 			//up
 var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
 	if !is_undefined(check)
-		var key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
+		key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
 	else
-	    	var key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
+	    	key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
 			//down
 var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
 	if !is_undefined(check)
 	{
-		var key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
-		var key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
 		
 	}
 	else
 	{
-	    	var key_down = keyboard_check(ord(ini_read_string("keybinds", "key_down", "S")))
-			var key_down2 = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_down", "S")))
+	    	key_down = keyboard_check(ord(ini_read_string("keybinds", "key_down", "S")))
+			key_down2 = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_down", "S")))
 	}
-//var key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+//key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
 //jump
 var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
 	if !is_undefined(check)
 	{
-		var key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
-		var key_jump2 = keyboard_check(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		key_jump2 = keyboard_check(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
 		
 	}
 	else
 	{
-	    	var key_jump = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_jump", "Z")))
-			var key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
+	    	key_jump = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_jump", "Z")))
+			key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
 	}
-//var key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
-var move = key_left + key_right;
-var forward = gamepad_button_check(0, gp_shoulderrb)
+//key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
+
+with obj_joystickmove
+{
+	
+	if place_meeting(x-30, y, obj_joystick_right)
+	   obj_player.key_right = 1
+    if place_meeting(x+30, y, obj_joystick_left)
+	   obj_player.key_left = -1
+	if place_meeting(x, y+30, obj_joystick_up)
+	   obj_player.key_up = 1
+	 if !place_meeting(x, y-30, obj_joystick_down)
+	{
+	  obj_player.key_down2thing = 0
+	}
+	if place_meeting(x, y-30, obj_joystick_down)
+	{
+	   obj_player.key_down = 1
+	   if obj_player.key_down2thing == 0
+			 obj_player.key_down2 = 1
+	}
+
+	
+}
+move = key_left + key_right;
+ forward = gamepad_button_check(0, gp_shoulderrb)
 }
 else if controllerfinished == 1
 {
-	var key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
-	var key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
+	key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
+	key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
 	
-	var key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
-	var key_down = gamepad_axis_value(0, gp_axislv) > 0.5
+	key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
+	key_down = gamepad_axis_value(0, gp_axislv) > 0.5
 	_key_right = key_up
 	_key_left = key_down
-	var key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
-	var key_jump = gamepad_button_check_pressed(0, global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
-	var key_jump2 = gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
+	key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
+	key_jump = gamepad_button_check_pressed(0, global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
+	key_jump2 = gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
 	
-	var key_forward = gamepad_button_check(0, global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")]) * xscale
+	key_forward = gamepad_button_check(0, global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")]) * xscale
 	if !gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")])
-	var move = key_left + key_right
+	 move = key_left + key_right
 	else
-	var move = key_forward
+	 move = key_forward
 	_move = move
 
 }
 ini_close()
+
+//mobiler!!
+
+
 if key_jump
 	input_buffer_jump = 10;
 if input_buffer_jump > 0

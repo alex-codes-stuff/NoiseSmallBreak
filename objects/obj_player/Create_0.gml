@@ -98,6 +98,16 @@ machsnd_play = noone;
 part_time = 0;
 jumpclouds = 0;
 
+key_right = 0
+key_left = 0
+key_up = 0
+key_down = 0
+key_down2 = 0
+key_forward = 0
+move = 0
+
+key_down2thing = 0
+
 set_machsnd = function(sound)
 {
 	if machsnd == sound
