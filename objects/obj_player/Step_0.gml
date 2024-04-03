@@ -1,8 +1,12 @@
   live_auto_call;
 if y > room_height + 1000
 {
-   x = asset_get_index("obj_door"+targetDoor).x
-     y = asset_get_index("obj_door"+targetDoor).y
+	if !(hp <= 0)
+	{
+	   x = asset_get_index("obj_door"+targetDoor).x
+	   y = asset_get_index("obj_door"+targetDoor).y - 20
+	}
+	 
 }
 if room == room_editor && global.play != 1 || room == room_upload
 {
