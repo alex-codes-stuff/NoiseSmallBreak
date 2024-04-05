@@ -37,6 +37,9 @@
     "name": "spr_destroyable",
     "path": "sprites/spr_destroyable/spr_destroyable.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_virtualkeyplaceholder",
+    "path": "sprites/spr_virtualkeyplaceholder/spr_virtualkeyplaceholder.yy",
+  },
   "visible": true,
 }

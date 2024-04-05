@@ -224,6 +224,7 @@
     {"name":"obj_objecttab","order":3,"path":"objects/obj_objecttab/obj_objecttab.yy",},
     {"name":"GMLive_nodeTools","order":3,"path":"scripts/GMLive_nodeTools/GMLive_nodeTools.yy",},
     {"name":"room_customlevel","order":13,"path":"rooms/room_customlevel/room_customlevel.yy",},
+    {"name":"spr_destroyabledebris","order":42,"path":"sprites/spr_destroyabledebris/spr_destroyabledebris.yy",},
     {"name":"obj_destroyable","order":4,"path":"objects/obj_destroyable/obj_destroyable.yy",},
     {"name":"spr_donut","order":10,"path":"sprites/spr_donut/spr_donut.yy",},
     {"name":"sfx_land","order":9,"path":"sounds/sfx_land/sfx_land.yy",},

@@ -276,6 +276,7 @@
     {"id":{"name":"obj_objecttab","path":"objects/obj_objecttab/obj_objecttab.yy",},},
     {"id":{"name":"GMLive_nodeTools","path":"scripts/GMLive_nodeTools/GMLive_nodeTools.yy",},},
     {"id":{"name":"room_customlevel","path":"rooms/room_customlevel/room_customlevel.yy",},},
+    {"id":{"name":"spr_destroyabledebris","path":"sprites/spr_destroyabledebris/spr_destroyabledebris.yy",},},
     {"id":{"name":"obj_gmconsole","path":"objects/obj_gmconsole/obj_gmconsole.yy",},},
     {"id":{"name":"obj_destroyable","path":"objects/obj_destroyable/obj_destroyable.yy",},},
     {"id":{"name":"spr_donut","path":"sprites/spr_donut/spr_donut.yy",},},

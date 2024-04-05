@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_destroyable",
-  "bbox_bottom": 63,
+  "bbox_bottom": 67,
   "bbox_left": 0,
-  "bbox_right": 63,
+  "bbox_right": 74,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9d21b14c-3263-46e0-93ea-9d0df287496b",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"09966a9c-03ac-46bc-a859-02d1ad4392fb",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 64,
+  "height": 68,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"500f507a-a8e4-4e61-b422-e9442b1443ef","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5f14dd1b-76c6-4724-b417-0bdaaeaf2c2a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9d21b14c-3263-46e0-93ea-9d0df287496b","path":"sprites/spr_destroyable/spr_destroyable.yy",},},},"Disabled":false,"id":"141c6a78-f063-4776-aa30-3d60e9b7aa88","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"09966a9c-03ac-46bc-a859-02d1ad4392fb","path":"sprites/spr_destroyable/spr_destroyable.yy",},},},"Disabled":false,"id":"7312fd79-5a65-4191-8490-b8edc082d03b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 64,
+  "width": 75,
 }
