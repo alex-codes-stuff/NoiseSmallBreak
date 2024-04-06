@@ -37,7 +37,7 @@
   "origin": 4,
   "parent": {
     "name": "noisette",
-    "path": "folders/Sprites/editor/noisette.yy",
+    "path": "folders/Sprites/noisette.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -58,8 +58,8 @@
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
-    "playbackSpeed": 1.0,
-    "playbackSpeedType": 1,
+    "playbackSpeed": 17.0,
+    "playbackSpeedType": 0,
     "showBackdrop": true,
     "showBackdropImage": false,
     "timeUnits": 1,
