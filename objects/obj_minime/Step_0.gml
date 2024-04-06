@@ -11,7 +11,7 @@ if delayright > 0
    delayright--
 if delayleft > 0
    delayleft--
-   
+  /* 
 if gamepad_axis_value(0, gp_axislv) > 0.9 && delaydown == 0
 {
 	delaydown = 10;
@@ -22,6 +22,7 @@ if gamepad_axis_value(0, gp_axislv) < -0.9 && delayup == 0
 	delayup = 10;
 	controllerup = true;
 }
+*/
 if (gamepad_button_check_pressed(0, gp_face1))
 {
 	controllera = true;

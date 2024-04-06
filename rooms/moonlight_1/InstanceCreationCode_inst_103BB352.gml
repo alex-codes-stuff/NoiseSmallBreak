@@ -1,1 +1,1 @@
-targetRoom = moonlight_1
+targetRoom = hub_1

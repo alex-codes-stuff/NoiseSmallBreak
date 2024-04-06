@@ -34,6 +34,9 @@
     "name": "spr_noisette_idle",
     "path": "sprites/spr_noisette_idle/spr_noisette_idle.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_noisette_move",
+    "path": "sprites/spr_noisette_move/spr_noisette_move.yy",
+  },
   "visible": true,
 }

@@ -13,8 +13,11 @@
     "name": "joystick",
     "path": "folders/Objects/joystick.yy",
   },
-  "parentObjectId": null,
-  "persistent": false,
+  "parentObjectId": {
+    "name": "obj_joystickparent",
+    "path": "objects/obj_joystickparent/obj_joystickparent.yy",
+  },
+  "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
   "physicsFriction": 0.2,

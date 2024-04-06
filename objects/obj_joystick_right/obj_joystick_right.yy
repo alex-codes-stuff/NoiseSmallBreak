@@ -5,6 +5,7 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -12,8 +13,11 @@
     "name": "joystick",
     "path": "folders/Objects/joystick.yy",
   },
-  "parentObjectId": null,
-  "persistent": false,
+  "parentObjectId": {
+    "name": "obj_joystickparent",
+    "path": "objects/obj_joystickparent/obj_joystickparent.yy",
+  },
+  "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
   "physicsFriction": 0.2,

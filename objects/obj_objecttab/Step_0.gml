@@ -6,7 +6,26 @@ else
    visible = 1
 if open = 1
 {
+	
+	for (var i = 0; i <= objects; i++)
+	{
+		if i != 10
+		{
+			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),x, y+50+64*i, xx, yy+64*i)) && mouse_check_button(mb_left)
+				 obj_editor.selectnumber = i
+		}
+		else
+		{
+			if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),x+64, y+50+64*(i-1), xx+64, yy+64*(i-1))) && mouse_check_button(mb_left)
+				 obj_editor.selectnumber = i
+		}
+		
+		
+	   
+	}
+	
 //	wall
+/*
 thingy2 = 0
     if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),x, y+50, xx, yy)) && mouse_check_button(mb_left)
 	   obj_editor.selectnumber = 0
@@ -49,6 +68,7 @@ thingy2 = 0
 	   //(x+32, y+50+64*thingy, xx, yy+64*thingy
 	      if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),x+64, y+50+64*thingy2, xx+64, yy+64*thingy2)) && mouse_check_button(mb_left)
 	   obj_editor.selectnumber = 10
+	   */
 }
 
 

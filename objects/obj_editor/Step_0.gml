@@ -63,7 +63,8 @@ for (var i = 0; i < 6; i += 1)
 	    
 	
 }
-  if ((point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),obj_objecttab.x, obj_objecttab.y+50, obj_objecttab.xx, obj_objecttab.yy+576)) || (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),obj_objecttab.x+64, obj_objecttab.y+50+64*obj_objecttab.thingy2, obj_objecttab.xx+64, obj_objecttab.yy+64*obj_objecttab.thingy2))) && obj_objecttab.open == 1
+var ob = obj_objecttab
+  if ((point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_objecttab.x, obj_objecttab.y+50, obj_objecttab.xx, obj_objecttab.yy+576)) || (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),ob.x+64, ob.y+50+64*(10-1), ob.xx+64, ob.yy+64*(10-1)))) && obj_objecttab.open == 1
      touching2 = 1
 else
    touching2=0
@@ -172,12 +173,15 @@ if mouse_check_button(mb_left) && keyboard_check(vk_alt)
 }
 if keyboard_check_pressed(ord("E"))
 {
-	background_tint2 = get_string("Backgrounde Color", background_tint)
-	background_tint = background_tint2
+	background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", background_tint)
+	if background_tint2 != "" &&  background_tint2 != undefined &&  background_tint2 != noone
+		background_tint = background_tint2
 }
 if keyboard_check_pressed(ord("Q"))
 {
-	song = get_string("Song?", song)
+	var _song = get_string("Song?", song)
+	if asset_get_index(_song) != -1 && asset_get_index(_song) != noone
+	   song = _song
 	
 }
 if keyboard_check_pressed(ord("R"))
@@ -372,16 +376,18 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
   }
   if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_musichitbox))
   {
-song = get_string("Song? (see Editor Guide for refrence)", song)
+    var _song = get_string("Song?", song)
+	
+	if asset_get_index(_song) != -1 && asset_get_index(_song) != noone
+	   song = _song
  
  
   }
   if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_bghitbox))
   {
-background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", background_tint)
-	background_tint = background_tint2
-  if background_tint = undefined
-     background_tint = 0
+	background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", background_tint)
+	if background_tint2 != "" &&  background_tint2 != undefined &&  background_tint2 != noone
+		background_tint = background_tint2
   }
   /*
   filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
@@ -391,7 +397,7 @@ background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", ba
    if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_loadhitbox))
   {
 	filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
-	if filename != undefined
+	if filename != undefined && filename != ""
 			scr_loadlevel()
  
   }
@@ -402,6 +408,6 @@ background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", ba
 if keyboard_check_pressed(ord("T"))
 {
 	filename = get_open_filename_ext("*.bblv", "", game_save_id, "Select level file (.bblv)");
-	if filename != undefined
+	if filename != undefined && filename != ""
 			scr_loadlevel()
 }

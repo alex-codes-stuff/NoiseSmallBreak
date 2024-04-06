@@ -3,6 +3,7 @@ timer = 0
 tnt = 0
 scr_initinput()
 scr_keycodetokeyname()
+collectfont  = font_add_sprite_ext(spr_collectfont, "0123456789/", true, 0)
 global.level = "junkbeach"
 controllerfinished = 1
 //make it 1 when controller bugs are fixed.
@@ -77,6 +78,7 @@ scr_hurtplayer = function()
 		
 	 
 		   	gamepad_set_vibration(0, 1, 1);
+			Vibrate(10, 50)
 	if instance_exists(obj_player)
 	obj_camera.shake = 1
 	inv = 1

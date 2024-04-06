@@ -13,22 +13,24 @@ if losehp == 0
 {
 if global.level == "junkbeach"
 {
-if timer >= 49.9  
+if timer >= 59.9  
 	{
 	if global.timeattack
 	{
 		losehp = 1
+		inv = 0
 		alarm[1] = room_speed * 0.1
 	}
 	}
 }
 else 
 	{
-	if timer >= 160
+	if timer >= 170
 	{
 	if global.timeattack
 	{
 		losehp = 1
+		inv = 0
 		alarm[1] = room_speed * 0.1
 	}
 	}	

@@ -9,7 +9,7 @@ if fadeout
 		with obj_player
 		{
 			room_goto(targetRoom);
-			timerend = 0
+		
 		}
 			
 		}
@@ -52,5 +52,14 @@ else
 {
 	image_alpha = Approach(image_alpha, 0, 0.1);
 	if image_alpha <= 0
+	{
 		instance_destroy();
+		if room == hub_1
+		{
+			ds_list_clear(global.saveroom)
+			obj_player.hp = 4
+		    global.collect = 0
+			global.points = 0
+		}
+	}
 }

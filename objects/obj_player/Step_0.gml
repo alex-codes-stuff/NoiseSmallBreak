@@ -15,23 +15,26 @@ if room == room_editor && global.play != 1 || room == room_upload
 }
 else
    visible = true
+   /*
 if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 {
 	ds_list_clear(global.saveroom);
 	event_perform(ev_create, 0);
+	
 	targetDoor = "";
 	//audio_stop_all();
 	room_restart();
+	
 }
+*/
 if room == hub_1
 {
    timer = 0
    timerend = 0  
 }
-if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
+if (keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)) && room != room_customlevel  && room != room_editor
    global.timeattack = 1
-if room == testroom_1 && targetDoor = "X"
-   timerend = 1
+
 //controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
 ini_open("keybinds.ini")
 if !gamepad_is_connected(0) || os_type == os_android
@@ -90,9 +93,9 @@ with obj_joystickmove
 	   obj_player.key_right = 1
     if place_meeting(x+30, y, obj_joystick_left)
 	   obj_player.key_left = -1
-	if place_meeting(x, y+30, obj_joystick_up)
+	if place_meeting(x, y+25, obj_joystick_up)
 	   obj_player.key_up = 1
-	 if !place_meeting(x, y-30, obj_joystick_down)
+	 if !place_meeting(x, y-25, obj_joystick_down)
 	{
 	  obj_player.key_down2thing = 0
 	}
@@ -531,13 +534,17 @@ switch state
 			movespeed = 0;  
 			if global.level == "junkbeach"
 			{ 
-			if !(global.timeattack && timer >= 49.99)
+			if !(global.timeattack && timer >= 59.99)
 				inv = 80;
+		    else
+			   inv = 0
 			}
 			else
 			{
- 			   	if !(global.timeattack && timer >= 160)
+ 			   	if !(global.timeattack && timer >= 170)
 				inv = 80;
+				else
+				inv = 0
 			}
 		}
 		break;
@@ -614,3 +621,15 @@ if spike && abs(distance_to_object(spike)) < 1
 //	x = mouse_x;
 //	y = mouse_y;
 // }
+if input_buffer_jump && sprite_index == spr_player_longjump
+		{
+				input_buffer_jump = 0;
+			sound_play_3d(sfx_jump, x, y);
+			
+			//xscale *= -1;
+			movespeed += 1
+			state = states.jump;
+			audio_play_sound(sfx_boing, 0, false, 1.2)
+			sprite_index = spr_player_bounce;
+			vsp = -16;
+		}

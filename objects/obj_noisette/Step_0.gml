@@ -8,13 +8,26 @@ if state == 0
 		x = lerp(x, ds_queue_dequeue(queue), interp);
 		y = lerp(y, ds_queue_dequeue(queue), interp);
 	}
+	/*
+	if ds_queue_size(vspqueue) >= 80
+	{
+		interp2 = Approach(interp2, 1, 0.01);
+		vsp = ds_queue_dequeue(vspqueue)
+	}
+	*/
 	if instance_exists(obj_player)
+	{
 		ds_queue_enqueue(queue, obj_player.x, obj_player.y);
+		//ds_queue_enqueue(vspqueue, obj_player.vsp);
+	}
+    
 }
 else
 {
 	interp = 0;
+	interp2 = 0;
 	ds_queue_clear(queue);
+	ds_queue_clear(vspqueue);
 }
 
 // helping points
@@ -44,15 +57,82 @@ if instance_exists(point)
 }
 else
 	state = 0;
-
+grounded = scr_solid(x, y + 10);
 // sprite
+if helicoptertime > 0
+  helicoptertime--
+if particletime > 0
+  particletime--
 if x != xprevious or y != yprevious
-	sprite_index = spr_noisette_move;
+{
+	if helicopter == 0
+	{
+		sprite_index = spr_noisette_move;
+	}
+	else
+	{
+		if sprite_index != spr_noisette_helistart && sprite_index != spr_noisette_heli
+		{
+			sprite_index = spr_noisette_helistart
+			image_index = 0
+		}
+		if sprite_index == spr_noisette_helistart && image_index >= image_number - 1
+		{
+		    sprite_index = spr_noisette_heli
+			image_index = 0
+		}
+	}
+	if grounded
+	{
+		if helicopter == 1
+		{
+			sound_play_3d(sfx_land, x, y);
+		}
+	   helicopter = 0
+	   
+	}
+}
+
 else
+{
 	sprite_index = spr_noisette_idle;
+	helicopter = 0
+	helicoptertime = 0
+}
 
 if x != xprevious
 	image_xscale = sign(x - xprevious);
+if keyboard_check_pressed(ord("Q"))
+{
+	helicopter = 1
+}
+if !grounded && sprite_index != spr_noisette_helistart && sprite_index != spr_noisette_heli && !(helicoptertime > 0)
+{
+	helicoptertime = 30
+}
+if (yprevious) > y
+   vsp = -1
+if (yprevious) < y
+   vsp = 1
+if helicoptertime <= 3 && helicoptertime != 0
+{
+	if !grounded && !(scr_solid(x, y+110)) && vsp == -1
+		helicopter = 1
+}
+if helicopter == 1
+{
+	if !audio_is_playing(sfx_noisettefly)
+	sound_play_3d(sfx_noisettefly, x, y);
+	if particletime == 0
+	{
+		create_particle(x, y + 50, spr_cloudeffect);
+	    particletime = 10
+	}
+}
+else
+{
+	audio_stop_sound(sfx_noisettefly)
+}
 }
 //coop
 else

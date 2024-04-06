@@ -1,1 +1,1 @@
-text = "Main Menu"
+text = "Main Menu\n(PC Only)"

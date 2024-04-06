@@ -79,3 +79,5 @@ if instance_exists(target)
 	}
 }
 }
+view_wport[0] = 224;
+view_hport[0] = 160;
