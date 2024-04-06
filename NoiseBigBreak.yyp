@@ -67,7 +67,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.11.1.129",
+    "IDEVersion": "2023.6.0.92",
   },
   "resources": [
     {"id":{"name":"sfx_select","path":"sounds/sfx_select/sfx_select.yy",},},
@@ -252,7 +252,7 @@
     {"id":{"name":"GMLive_seekSetOp","path":"scripts/GMLive_seekSetOp/GMLive_seekSetOp.yy",},},
     {"id":{"name":"spr_doorA","path":"sprites/spr_doorA/spr_doorA.yy",},},
     {"id":{"name":"gamepad_key","path":"scripts/gamepad_key/gamepad_key.yy",},},
-    {"id":{"name":"spr_huh","path":"sprites/spr_huh/spr_huh.yy",},},
+    {"id":{"name":"spr_why_did_you_look","path":"sprites/spr_why_did_you_look/spr_why_did_you_look.yy",},},
     {"id":{"name":"spr_eggblozMask","path":"sprites/spr_eggblozMask/spr_eggblozMask.yy",},},
     {"id":{"name":"scr_savelevel","path":"scripts/scr_savelevel/scr_savelevel.yy",},},
     {"id":{"name":"gameframe","path":"scripts/gameframe/gameframe.yy",},},
@@ -262,7 +262,7 @@
     {"id":{"name":"GMLive_noDeactivate","path":"scripts/GMLive_noDeactivate/GMLive_noDeactivate.yy",},},
     {"id":{"name":"spr_destroyable","path":"sprites/spr_destroyable/spr_destroyable.yy",},},
     {"id":{"name":"GMLive_http","path":"scripts/GMLive_http/GMLive_http.yy",},},
-    {"id":{"name":"Sprite65","path":"sprites/Sprite65/Sprite65.yy",},},
+    {"id":{"name":"spr_moonlight","path":"sprites/spr_moonlight/spr_moonlight.yy",},},
     {"id":{"name":"spr_shuttle","path":"sprites/spr_shuttle/spr_shuttle.yy",},},
     {"id":{"name":"spr_obj","path":"sprites/spr_obj/spr_obj.yy",},},
     {"id":{"name":"GMLive_parser","path":"scripts/GMLive_parser/GMLive_parser.yy",},},
@@ -296,7 +296,7 @@
     {"id":{"name":"GMLive_tools","path":"scripts/GMLive_tools/GMLive_tools.yy",},},
     {"id":{"name":"scr_loadlevel_old","path":"scripts/scr_loadlevel_old/scr_loadlevel_old.yy",},},
     {"id":{"name":"spr_eggopp_move","path":"sprites/spr_eggopp_move/spr_eggopp_move.yy",},},
-    {"id":{"name":"sprite102611","path":"sprites/sprite102611/sprite102611.yy",},},
+    {"id":{"name":"spr_junkbeach","path":"sprites/spr_junkbeach/spr_junkbeach.yy",},},
     {"id":{"name":"Sprite92","path":"sprites/Sprite92/Sprite92.yy",},},
     {"id":{"name":"room_editor","path":"rooms/room_editor/room_editor.yy",},},
     {"id":{"name":"spr_player_mach3","path":"sprites/spr_player_mach3/spr_player_mach3.yy",},},
@@ -350,7 +350,6 @@
     {"roomId":{"name":"hub_2","path":"rooms/hub_2/hub_2.yy",},},
     {"roomId":{"name":"room_upload","path":"rooms/room_upload/room_upload.yy",},},
   ],
-  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],
