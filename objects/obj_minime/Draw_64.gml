@@ -57,9 +57,12 @@ switch menu
 		else
 			draw_set_color(c_white)
 		draw_text(300,distance, "LOAD LEVEL")
+		/*
 		draw_set_color(index == 7 ? c_yellow : c_white);
 		draw_text(600, distance, "LOAD ONLINE LEVEL");
+		*/
 		distance += distanceamount
+		
 		if index == 4
 			draw_set_color(c_yellow)
 		else

@@ -116,7 +116,7 @@ if (yprevious) < y
    vsp = 1
 if helicoptertime <= 3 && helicoptertime != 0
 {
-	if !grounded && !(scr_solid(x, y+110)) && vsp == -1
+	if !grounded && !(scr_solid(x, y+60)) && vsp == -1
 		helicopter = 1
 }
 if helicopter == 1

@@ -42,11 +42,11 @@ if keyboard_check_pressed(vk_up)   || controllerup
    index--
     audio_play_sound(sfx_select2, 0 ,0)
 }
-if index > 7
+if index > 6
     index = 1
 if index < 1
     index = 7
-	
+/*	
 if ((keyboard_check_pressed(vk_right) || controllerright) && index != 7)
 {
 	index = 7;
@@ -56,7 +56,7 @@ if ((keyboard_check_pressed(vk_left) || controllerleft) && index == 7)
 {
 	index = 3;
 }
-
+*/
 break 
 case 2:
      	
@@ -262,6 +262,7 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 	
 	case 7:
 		//room_goto(room_upload); //TODO: Make this
+		/*
 		levelid = get_string("Level ID? (see editor guide for refrence", "123")
 		with instance_create(x, y, obj_getlevel)
 		{
@@ -270,6 +271,7 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 			link = http_get("https://www.googleapis.com/drive/v3/files/" + levelid + "?alt=media&key=AIzaSyBY9VVeA53pcdt0Nofa6VItE2K5r1gH9Zs")
 
 		}
+		*/
 	break;
    
 	}

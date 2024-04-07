@@ -1,8 +1,7 @@
 live_auto_call;
 if room == moonlight_1 && targetDoor == "A"
 {
-    timer = 0
-	timerend = 0
+    
 	global.timeattack = 0
 }
 var door_obj = noone;

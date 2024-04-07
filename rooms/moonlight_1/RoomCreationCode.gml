@@ -8,4 +8,4 @@ if !audio_is_playing(mu_orange)
 	
 }
 if obj_player.timer == 0
-obj_player.alarm[0] = game_get_speed(gamespeed_fps) * 0.1
+	obj_player.alarm[0] = game_get_speed(gamespeed_fps) * 0.1

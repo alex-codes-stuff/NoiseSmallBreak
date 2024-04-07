@@ -1,2 +1,2 @@
-targetRoom = hub_1
+targetRoom = moonlight_1
 targetDoor = "A"
