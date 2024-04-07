@@ -30,7 +30,7 @@
   "origin": 4,
   "parent": {
     "name": "noisette",
-    "path": "folders/Sprites/editor/noisette.yy",
+    "path": "folders/Sprites/noisette.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
