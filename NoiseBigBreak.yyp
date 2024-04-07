@@ -24,6 +24,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Fonts","folderPath":"folders/Fonts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Notes","folderPath":"folders/Notes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"console 2 (shell)","folderPath":"folders/Objects/console 2 (shell).yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"editor","folderPath":"folders/Objects/editor.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"effects","folderPath":"folders/Objects/effects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GMConsole","folderPath":"folders/Objects/GMConsole.yy",},
@@ -45,14 +46,13 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"debug","folderPath":"folders/Sprites/debug.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"DONT LOOK..,","folderPath":"folders/Sprites/DONT LOOK..,.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"editor","folderPath":"folders/Sprites/editor.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"noisette","folderPath":"folders/Sprites/noisette.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameframe","folderPath":"folders/Sprites/gameframe.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mobile","folderPath":"folders/Sprites/mobile.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"noisette","folderPath":"folders/Sprites/noisette.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"particle","folderPath":"folders/Sprites/particle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sprites/player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"console 2 (shell)","folderPath":"folders/Objects/console 2 (shell).yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
@@ -68,7 +68,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.92",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"sfx_select","path":"sounds/sfx_select/sfx_select.yy",},},
@@ -354,6 +354,7 @@
     {"roomId":{"name":"hub_2","path":"rooms/hub_2/hub_2.yy",},},
     {"roomId":{"name":"room_upload","path":"rooms/room_upload/room_upload.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],
