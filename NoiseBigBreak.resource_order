@@ -271,6 +271,7 @@
     {"name":"obj_editorobject","order":4,"path":"objects/obj_editorobject/obj_editorobject.yy",},
     {"name":"spr_ico","order":92,"path":"sprites/spr_ico/spr_ico.yy",},
     {"name":"scr_dialog_create","order":6,"path":"scripts/scr_dialog_create/scr_dialog_create.yy",},
+    {"name":"Sprite102","order":16,"path":"sprites/Sprite102/Sprite102.yy",},
     {"name":"user_console_commands","order":1,"path":"scripts/user_console_commands/user_console_commands.yy",},
     {"name":"spr_doorC","order":5,"path":"sprites/spr_doorC/spr_doorC.yy",},
     {"name":"spr_gameframe_caption","order":93,"path":"sprites/spr_gameframe_caption/spr_gameframe_caption.yy",},

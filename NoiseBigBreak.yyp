@@ -329,6 +329,7 @@
     {"id":{"name":"obj_editorobject","path":"objects/obj_editorobject/obj_editorobject.yy",},},
     {"id":{"name":"spr_ico","path":"sprites/spr_ico/spr_ico.yy",},},
     {"id":{"name":"scr_dialog_create","path":"scripts/scr_dialog_create/scr_dialog_create.yy",},},
+    {"id":{"name":"Sprite102","path":"sprites/Sprite102/Sprite102.yy",},},
     {"id":{"name":"user_console_commands","path":"scripts/user_console_commands/user_console_commands.yy",},},
     {"id":{"name":"spr_doorC","path":"sprites/spr_doorC/spr_doorC.yy",},},
     {"id":{"name":"spr_gameframe_caption","path":"sprites/spr_gameframe_caption/spr_gameframe_caption.yy",},},
