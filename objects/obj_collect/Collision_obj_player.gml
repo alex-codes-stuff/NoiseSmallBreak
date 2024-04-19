@@ -1,4 +1,4 @@
-if ++global.collect >= 20 && obj_player.hp < 8
+if ++global.collect >= 30 && obj_player.hp < 7
 {
 	global.collect = 0;
 	other.hp++;

@@ -1,10 +1,9 @@
   live_auto_call;
-if y > room_height + 1000
+if y > room_height + 500 && !instance_exists(obj_technicaldifficulty)
 {
 	if !(hp <= 0)
 	{
-	   x = asset_get_index("obj_door"+targetDoor).x
-	   y = asset_get_index("obj_door"+targetDoor).y - 20
+	 instance_create(x, y, obj_technicaldifficulty)
 	}
 	 
 }
@@ -37,7 +36,10 @@ if (keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)) && r
 
 //controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
 ini_open("keybinds.ini")
-if !gamepad_is_connected(0) || os_type == os_android
+if global.coop == 0
+{
+
+if !gamepad_is_connected(0) || os_type == os_android 
 {
 	//left
 	var check = global.keys[? ini_read_string("keybinds", "key_left", "vk_left")]
@@ -99,7 +101,7 @@ with obj_joystickmove
 	{
 	  obj_player.key_down2thing = 0
 	}
-	if place_meeting(x, y-30, obj_joystick_down)
+	if place_meeting(x, y-25, obj_joystick_down)
 	{
 	   obj_player.key_down = 1
 	   if obj_player.key_down2thing == 0
@@ -108,11 +110,15 @@ with obj_joystickmove
 
 	
 }
+  debuggingthisfuckingshitiwannakillmyself = 0
 move = key_left + key_right;
  forward = gamepad_button_check(0, gp_shoulderrb)
 }
 else if controllerfinished == 1
 {
+  if global.coop == 0
+  {
+	  debuggingthisfuckingshitiwannakillmyself = 1
 	key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
 	key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
 	
@@ -130,7 +136,58 @@ else if controllerfinished == 1
 	else
 	 move = key_forward
 	_move = move
+  }
 
+}
+}
+else
+{
+	var check = global.keys[? ini_read_string("keybinds", "key_left", "vk_left")]
+	if !is_undefined(check)
+		key_left = -keyboard_check(global.keys[? ini_read_string("keybinds", "key_left", "vk_left")])
+	else
+	    	key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
+			//right
+var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
+	if !is_undefined(check)
+		key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
+	else
+	    	key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
+			//up
+var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
+	if !is_undefined(check)
+		key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
+	else
+	    	key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
+			//down
+var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
+	if !is_undefined(check)
+	{
+		key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		
+	}
+	else
+	{
+	    	key_down = keyboard_check(ord(ini_read_string("keybinds", "key_down", "S")))
+			key_down2 = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_down", "S")))
+	}
+//key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+//jump
+var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
+	if !is_undefined(check)
+	{
+		key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		key_jump2 = keyboard_check(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		
+	}
+	else
+	{
+	    	key_jump = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_jump", "Z")))
+			key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
+	}
+	move = key_left + key_right;
+	 forward = 0
 }
 ini_close()
 
@@ -270,7 +327,8 @@ switch state
 			{
 				sound_play_3d(sfx_highjump, x, y);
 				sprite_index = spr_player_glidejumpstart;
-				vsp = -16;
+				vsp = -16.2;
+				//junk beach skip pawsible?
 				jumpclouds = 10;
 			}
 			else
@@ -621,6 +679,57 @@ if spike && abs(distance_to_object(spike)) < 1
 //	x = mouse_x;
 //	y = mouse_y;
 // }
+if global.mainplayer == obj_player2
+{
+if distance_to_object(global.mainplayer)>= 1200
+{
+	toplayer = 1
+}
+if toplayer == 1
+{
+	if state != states.actor
+	{
+		
+		_xscale = global.mainplayer.xscale
+	}
+	_player1x = global.mainplayer.x
+		_player1y = global.mainplayer.y
+    state = states.actor
+	if distance_to_object(global.mainplayer)<= 1500
+	{
+		x = Approach(x, _player1x, 30)
+		y = Approach(y, _player1y, 30)
+	}
+	hsp = 0
+	vsp = 0
+	movespeed = 0
+	if _xscale == 1
+	{
+		if x >= _player1x  
+		{
+			speed = 0
+			toplayer = 0
+			state = states.normal
+			
+		}
+	}
+	if _xscale == -1
+	{
+		if x <= _player1x  
+		{
+			speed = 0
+			toplayer = 0
+			state = states.normal
+			
+		}
+	}
+}	
+if distance_to_object(global.mainplayer) >= 1500 || y > room_height+100
+{
+   x = global.mainplayer.x
+   y = global.mainplayer.y
+}
+}
 if input_buffer_jump && sprite_index == spr_player_longjump
 		{
 				input_buffer_jump = 0;
@@ -633,3 +742,7 @@ if input_buffer_jump && sprite_index == spr_player_longjump
 			sprite_index = spr_player_bounce;
 			vsp = -16;
 		}
+if keyboard_check_pressed(vk_rcontrol)
+{
+	global.mainplayer = (global.mainplayer == obj_player ? obj_player2 : obj_player)
+}

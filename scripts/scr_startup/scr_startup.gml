@@ -1,6 +1,6 @@
 #macro DEBUG (GM_build_type == "run")
 #macro CRASH_SHOW_MESSAGEBOX DEBUG // If you wanna make release builds show the crash as a message box then set this to true
-
+display_set_gui_size(SCREEN_WIDTH, SCREEN_HEIGHT); 
 global.saveroom = ds_list_create();
 global.instancelist = ds_list_create();
 global.collect = 0;

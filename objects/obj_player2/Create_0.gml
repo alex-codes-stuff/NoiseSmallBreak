@@ -3,6 +3,10 @@ timer = 0
 tnt = 0
 player = obj_player
 hitbuffer = 10
+toplayer = 0
+_player1x = 0
+_xscale = 0
+_player1y = 0
 global.level = "junkbeach"
 controllerfinished = 1
 //make it 1 when controller bugs are fixed.
@@ -44,6 +48,15 @@ _key_right = 0
 mach2 = 0;
 jumpstop = false;
 inv = 0;
+key_right = 0
+key_left = 0
+key_up = 0
+key_down = 0
+key_down2 = 0
+key_forward = 0
+move = 0
+
+key_down2thing = 0
 
 input_buffer_jump = 0;
 
@@ -80,6 +93,11 @@ scr_hurtplayer = function()
 	if instance_exists(obj_player)
 	obj_camera.shake = 1
 	inv = 1
+	if global.coop
+	{
+		
+		global.mainplayer = (global.mainplayer == obj_player ? obj_player2 : obj_player)
+	}
 	obj_camera.shakestrength = 7
 	obj_player.alarm[4] = 16
 	obj_player.alarm[3] = 16

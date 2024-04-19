@@ -11,4 +11,8 @@
 	
 	if !instance_exists(obj_fadeout)
 		instance_create(0, 0, obj_fadeout);
+	toplayer = 0
+	if instance_exists(obj_player2)
+	   with obj_player2
+	     toplayer = 0
 }

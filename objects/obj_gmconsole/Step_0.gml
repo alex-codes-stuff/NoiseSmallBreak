@@ -65,7 +65,7 @@ if (con.open)
 
 		if (con.easteregg.konami == 10)
 		{
-			instance_destroy(self); // Sorry anyone that expected something cool
+			game_end() // funny!
 		}
 	}
 }

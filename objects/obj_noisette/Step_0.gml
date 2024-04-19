@@ -95,6 +95,7 @@ if x != xprevious or y != yprevious
 
 else
 {
+	
 	sprite_index = spr_noisette_idle;
 	helicopter = 0
 	helicoptertime = 0
@@ -102,10 +103,7 @@ else
 
 if x != xprevious
 	image_xscale = sign(x - xprevious);
-if keyboard_check_pressed(ord("Q"))
-{
-	helicopter = 1
-}
+
 if !grounded && sprite_index != spr_noisette_helistart && sprite_index != spr_noisette_heli && !(helicoptertime > 0)
 {
 	helicoptertime = 30

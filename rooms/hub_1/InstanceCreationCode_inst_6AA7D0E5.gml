@@ -1,1 +1,1 @@
-text = "Moonlight\nMadness\n(NEW)"
+text = "Moonlight\nMadness"

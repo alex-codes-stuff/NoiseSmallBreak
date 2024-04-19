@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sfx_punch.wav",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.6,
 }

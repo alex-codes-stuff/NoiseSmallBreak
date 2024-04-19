@@ -199,7 +199,7 @@ if keyboard_check_pressed(ord("R"))
 	      inst = id;
 	   }
 	}
-    if inst != noone && object_get_parent(inst.object_index) != obj_editorobject && inst.object_index != obj_doorA
+    if inst != noone && object_get_parent(inst.object_index) != obj_editorobject && inst.object_index != obj_doorA && inst.object_index != obj_player && inst.object_index != obj_noisette && inst.object_index != obj_doorA
 	{
 	   instance_destroy(inst)
 	   selected = noone

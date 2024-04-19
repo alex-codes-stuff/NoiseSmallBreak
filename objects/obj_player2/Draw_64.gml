@@ -1,4 +1,5 @@
 live_auto_call;
+/*
 if !hp <= 0 && !(room == room_editor && global.play == 0)
 {
 for(var i = 0; i < max(hp, 4); i++)
@@ -26,3 +27,4 @@ draw_text(150, 145, global.points);
 if global.timeattack
 	draw_text(1100, 0, "TIME ATTACK");
 }
+*/

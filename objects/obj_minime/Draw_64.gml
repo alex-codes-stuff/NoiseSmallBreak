@@ -91,12 +91,12 @@ switch menu
 			draw_set_color(c_white)
 		draw_text(300,distance, "BACK")
 		distance += distanceamount
-		draw_set_alpha(0.5)
+		
 		if index == 2
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "COOP MODE: " + string(global.coop) + " (COMING IN 2.5)")
+		draw_text(300,distance, "COOP MODE: " + string(global.coop))
 		distance += distanceamount
 		draw_set_alpha(1)
 		if index == 3

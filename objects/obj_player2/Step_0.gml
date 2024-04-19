@@ -26,39 +26,107 @@ if keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)
 if room == testroom_1 && targetDoor = "X"
    timerend = 1
 //controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
-if !gamepad_is_connected(0) || os_type == os_android
+ini_open("keybinds.ini")
+if global.coop == 0
 {
-var key_left = -keyboard_check(ord("A"));
-var key_right = keyboard_check(ord("D"));
-var key_up = keyboard_check(ord("W"));
-var key_down = keyboard_check(ord("S"));
-var key_down2 = keyboard_check_pressed(ord("S"));
-var key_jump = keyboard_check_pressed(ord("J"));
-var key_jump2 = keyboard_check(ord("J"));
-var move = key_left + key_right;
-var forward = gamepad_button_check(0, gp_shoulderrb)
+if !gamepad_is_connected(0) || os_type == os_android 
+{
+	//left
+	var check = global.keys[? ini_read_string("keybinds", "key_left", "vk_left")]
+	if !is_undefined(check)
+		key_left = -keyboard_check(global.keys[? ini_read_string("keybinds", "key_left", "vk_left")])
+	else
+	    	key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
+			//right
+var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
+	if !is_undefined(check)
+		key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
+	else
+	    	key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
+			//up
+var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
+	if !is_undefined(check)
+		key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
+	else
+	    	key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
+			//down
+var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
+	if !is_undefined(check)
+	{
+		key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+		
+	}
+	else
+	{
+	    	key_down = keyboard_check(ord(ini_read_string("keybinds", "key_down", "S")))
+			key_down2 = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_down", "S")))
+	}
+//key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
+//jump
+var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
+	if !is_undefined(check)
+	{
+		key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		key_jump2 = keyboard_check(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
+		
+	}
+	else
+	{
+	    	key_jump = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_jump", "Z")))
+			key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
+	}
+//key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
+
+
+move = key_left + key_right;
+ forward = gamepad_button_check(0, gp_shoulderrb)
 }
 else if controllerfinished == 1
 {
-	var key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
-	var key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
+	key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
+	key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
 	
-	var key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
-	var key_down = gamepad_axis_value(0, gp_axislv) > 0.5
+	key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
+	key_down = gamepad_axis_value(0, gp_axislv) > 0.5
 	_key_right = key_up
 	_key_left = key_down
-	var key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
-	var key_jump = gamepad_button_check_pressed(0, gp_face1)
-	var key_jump2 = gamepad_button_check(0, gp_face1)
+	key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
+	key_jump = gamepad_button_check_pressed(0, global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
+	key_jump2 = gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
 	
-	var key_forward = gamepad_button_check(0, gp_shoulderrb) * xscale
-	if !gamepad_button_check(0, gp_shoulderrb)
-	var move = key_left + key_right
+	key_forward = gamepad_button_check(0, global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")]) * xscale
+	if !gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")])
+	 move = key_left + key_right
 	else
-	var move = key_forward
+	 move = key_forward
 	_move = move
 
 }
+}
+else
+{
+	key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
+	key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
+	
+	key_up =  (gamepad_axis_value(0, gp_axislv) < -0.5)
+	key_down = gamepad_axis_value(0, gp_axislv) > 0.5
+	_key_right = key_up
+	_key_left = key_down
+	key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
+	key_jump = gamepad_button_check_pressed(0, global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
+	key_jump2 = gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
+	
+	key_forward = gamepad_button_check(0, global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")]) * xscale
+	if !gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_forwardC", "gp_shoulderrb")])
+	 move = key_left + key_right
+	else
+	 move = key_forward
+	_move = move
+}
+ini_close()
+
+//mobiler!!
 
 if key_jump
 	input_buffer_jump = 10;
@@ -483,8 +551,8 @@ if spike && abs(distance_to_object(spike)) < 1
 		vsp = -14;
 		grounded = false;
 	}
-	//else
-	//	scr_hurtplayer();
+	else
+		scr_hurtplayer();
 }
 if place_meeting(x, y, obj_player) && hitbuffer <= 0
 	{
@@ -509,11 +577,55 @@ if place_meeting(x, y, obj_player) && hitbuffer <= 0
 	}
 if hitbuffer >= 0
    hitbuffer -= 0.1
-if distance_to_object(obj_player)>= 1200
+if global.mainplayer != obj_player2
 {
-   x = obj_player.x 
-   y = obj_player.y
-   hitbuffer = 10
+if distance_to_object(global.mainplayer)>= 1200 && distance_to_object(global.mainplayer)<= 1500
+{
+	toplayer = 1
+}
+if toplayer == 1
+{
+	if state != states.actor
+	{
+		
+		_xscale = global.mainplayer.xscale
+	}
+		hsp = 0
+	vsp = 0
+	movespeed = 0
+	_player1x = global.mainplayer.x
+		_player1y = global.mainplayer.y
+    state = states.actor
+	hitbuffer = 10
+	if distance_to_object(global.mainplayer)<= 1500
+	{
+		x = Approach(x, _player1x, 30)
+		y = Approach(y, _player1y, 30)
+	}
+	if _xscale == 1
+	{
+		if x >= _player1x  
+		{
+			speed = 0
+			toplayer = 0
+			state = states.normal
+			hitbuffer = 10
+			
+		}
+	}
+	if _xscale == -1
+	{
+		if x <= _player1x  
+		{
+			speed = 0
+			toplayer = 0
+			state = states.normal
+				hitbuffer = 10
+			
+		}
+	}
+}	
+
 }
 //*
 //if mouse_check_button_pressed(mb_left)

@@ -44,7 +44,7 @@ if room == room_editor && global.play != 1
 }
 else
 {
-	var target = obj_player;
+	var target = global.mainplayer;
 if instance_exists(target)
 {
 	var camx = target.x - CAMW / 2;
@@ -61,14 +61,11 @@ if instance_exists(target)
 		camx += chargecam;
 		camy += flycam;
 	}
-	if global.isandroid == 0
-	{
+	
+	
 	camx = clamp(camx, 0, room_width - CAMW);
-	}
-	if global.isandroid == 1
-	{
-	camx = clamp(camx, -200, room_width - CAMW);
-	}
+	
+	
 	camy = clamp(camy, 0, room_height - CAMH);
 	if !(obj_player.hp <= 0)
 	{
@@ -78,6 +75,39 @@ if instance_exists(target)
 	   camera_set_view_pos(view_camera[0], camx + random_range(shakestrength * -1, shakestrength), camy +random_range(shakestrength * -1, shakestrength));
 	}
 }
-}
+   if global.coop 
+   {
+	   camera_set_view_size(view_camera[0],1280 + _camw,720 )
+	   if global.mainplayer == obj_player
+	   {
+	   with obj_player2
+	   {
+		   other._camh = 0
+			   other._camw = 0
+		   if distance_to_object(obj_player) > 500 
+		   {
+			   
+			   other._camh = distance_to_object(obj_player) - 500
+			   other._camw = distance_to_object(obj_player) - 500
+		   }
+	   }
+	   }
+	   else
+	   {
+		     with obj_player
+	   {
+		   other._camh = 0
+			   other._camw = 0
+		   if distance_to_object(obj_player2) > 500 
+		   {
+			   
+			   other._camh = distance_to_object(obj_player2) - 500
+			   other._camw = distance_to_object(obj_player2) - 500
+		   }
+	   }
+	   }
+	   }
+   }
+
 view_wport[0] = 224;
 view_hport[0] = 160;

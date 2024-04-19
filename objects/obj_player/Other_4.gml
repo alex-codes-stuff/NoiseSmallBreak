@@ -1,4 +1,11 @@
 live_auto_call;
+toplayer = 0
+if global.coop
+	if global.mainplayer != obj_player2
+	{
+		x = obj_player.x
+		y = obj_player.y
+	}
 if room == moonlight_1 && targetDoor == "A"
 {
     

@@ -75,7 +75,7 @@ if index > 4
 if index < 1
     index = 1
 	//coop
-	/*
+	
 if index == 2 && keyboard_check_pressed(vk_right)
 {
    global.coop = 1
@@ -86,7 +86,7 @@ if index == 2 && keyboard_check_pressed(vk_left)
    global.coop = 0
     audio_play_sound(sfx_select2, 0 ,0)
 }
-*/
+
 if (index == 4 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera))
 {
 	global.performance = !global.performance;

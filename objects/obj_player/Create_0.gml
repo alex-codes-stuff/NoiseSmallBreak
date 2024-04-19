@@ -2,6 +2,10 @@
 timer = 0
 tnt = 0
 scr_initinput()
+toplayer = 0
+_player1x = 0
+_xscale = 0
+_player1y = 0
 scr_keycodetokeyname()
 collectfont  = font_add_sprite_ext(spr_collectfont, "0123456789/", true, 0)
 global.level = "junkbeach"
@@ -81,6 +85,11 @@ scr_hurtplayer = function()
 			Vibrate(10, 50)
 	if instance_exists(obj_player)
 	obj_camera.shake = 1
+	if global.coop
+	{
+		
+		global.mainplayer = (global.mainplayer == obj_player ? obj_player2 : obj_player)
+	}
 	inv = 1
 	obj_camera.shakestrength = 7
 	obj_player.alarm[4] = 16
@@ -99,7 +108,7 @@ machsnd = noone;
 machsnd_play = noone;
 part_time = 0;
 jumpclouds = 0;
-
+debuggingthisfuckingshitiwannakillmyself = 0
 key_right = 0
 key_left = 0
 key_up = 0

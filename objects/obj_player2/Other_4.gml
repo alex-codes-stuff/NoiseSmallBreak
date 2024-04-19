@@ -1,8 +1,14 @@
 live_auto_call;
+toplayer = 0
+if global.coop
+	if global.mainplayer != obj_player2
+	{
+		x = obj_player.x
+		y = obj_player.y
+	}
 if room == moonlight_1 && targetDoor == "A"
 {
-    timer = 0
-	timerend = 0
+    
 	global.timeattack = 0
 }
 var door_obj = noone;
@@ -53,4 +59,7 @@ if door_obj
 		}
 	}
 }
-
+if global.coop == 0
+{
+instance_create(x, y, obj_noisette);
+}

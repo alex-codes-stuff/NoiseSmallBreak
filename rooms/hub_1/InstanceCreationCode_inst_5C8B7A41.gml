@@ -1,1 +1,1 @@
-text = "Junk\nBeach\n(UPDATED)"
+text = "Junk\nBeach"
