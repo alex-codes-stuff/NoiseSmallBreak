@@ -32,5 +32,5 @@
     "path": "sprites/spr_doorX/spr_doorX.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

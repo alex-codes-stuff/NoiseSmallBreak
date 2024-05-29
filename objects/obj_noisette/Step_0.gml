@@ -95,8 +95,12 @@ if x != xprevious or y != yprevious
 
 else
 {
-	
+	if obj_player.sprite_index != spr_null
+	{
 	sprite_index = spr_noisette_idle;
+	}
+	else
+	sprite_index = spr_noisette_huh
 	helicopter = 0
 	helicoptertime = 0
 }
@@ -239,6 +243,7 @@ if distance_to_object(obj_player)>= 1200
    hitbuffer = 10
 }
 */
+
 instance_destroy()
 }
 

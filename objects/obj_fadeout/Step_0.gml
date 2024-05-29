@@ -4,6 +4,7 @@ if fadeout
 	if image_alpha >= 1
 	{
 		fadeout = false;
+		
 		if room != room_editor 
 		{
 		with obj_player
@@ -51,8 +52,18 @@ if fadeout
 else
 {
 	image_alpha = Approach(image_alpha, 0, 0.1);
+	if room == room_editor
+	{
+		with obj_player
+		{
+		  state = states.normal
+	 x = asset_get_index("obj_door" + targetDoor).x
+	  y = asset_get_index("obj_door" + targetDoor).y
+		}
+	}
 	if image_alpha <= 0
 	{
+		
 		instance_destroy();
 		if room == hub_1
 		{

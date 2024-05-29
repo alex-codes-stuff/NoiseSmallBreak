@@ -1,5 +1,22 @@
 live_auto_call;
 toplayer = 0
+if (room == hub_1 || room == room_editor) && state == states.actor
+{
+     state = states.normal
+	 x = asset_get_index("obj_door" + targetDoor).x
+	  y = asset_get_index("obj_door" + targetDoor).y
+}
+if (room == moonlight_1 || room == testroom_1) && targetDoor == "A"
+{
+	with instance_create(obj_doorA.x+30 ,obj_doorA.y-100, obj_hallway34)
+	{
+		sprite_index = spr_shuttle_move
+		backToShuttle = 1
+		sprite_index = spr_shuttle_move
+		image_yscale = -1
+		y -= 700
+	}
+}
 if global.coop
 	if global.mainplayer != obj_player2
 	{

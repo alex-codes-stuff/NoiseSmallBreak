@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_healthHUD",
-    "path": "sprites/spr_healthHUD/spr_healthHUD.yy",
+    "name": "spr_tnt",
+    "path": "sprites/spr_tnt/spr_tnt.yy",
   },
   "spriteMaskId": null,
   "visible": true,
