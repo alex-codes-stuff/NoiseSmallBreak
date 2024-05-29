@@ -1,2 +1,2 @@
-targetRoom = hub_2
-targetDoor = "B"
+targetRoom = smb11
+targetDoor = "A"

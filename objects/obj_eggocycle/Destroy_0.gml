@@ -13,7 +13,7 @@ obj_camera.shake = 1
 obj_player.alarm[3] = 5
 obj_player.alarm[4] = 5
 repeat eggopps
-   with instance_create(x+random_range(-20, 20), y -70  , obj_eggopp)
+   with instance_create(x+random_range(-20, 20), y -90  , obj_eggopp)
       state = 0
 
 audio_play_sound(sfx_punch, 0, 0)

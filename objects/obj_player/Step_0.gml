@@ -255,7 +255,7 @@ switch state
 			}
 			mach2 = 0;
 			
-			movespeed = Approach(movespeed, 0, 0.7);
+			movespeed = Approach(movespeed, 0, 0.8);
 			if movespeed == 0 && move != 0
 			{
 				xscale = move;
@@ -400,17 +400,19 @@ switch state
 			var spd = 0.4;
 			if move == 0
 				spd = 0.1;
-			
-			movespeed = Approach(movespeed, 0, move == 0 ? 0.1 : 0.4);
+			if sprite_index != spr_player_glidejump
+				movespeed = Approach(movespeed, 0, move == 0 ? 0.1 : 0.4);
+			else
+				movespeed = Approach(movespeed, 0, move == 0 ? 0.1 : 0.7);
 			if movespeed == 0 && move != 0 && sprite_index != spr_player_backflip && sprite_index != spr_player_backflipfall
 				xscale = move;
 		}
-		else if movespeed < 10
+		else if movespeed < 13
 		{
 			var spd = 0.4;
 			if sprite_index == spr_player_backflip
 				spd = 0.2;
-			movespeed = Approach(movespeed, 10, spd);
+			movespeed = Approach(movespeed, 13, spd);
 		}
 		
 		if sprite_index == spr_player_glidejump && vsp >= 0
@@ -582,6 +584,10 @@ switch state
 			
 			state = states.wallslide;
 			sprite_index = spr_player_wallslide;
+		}
+		if !grounded && sprite_index == spr_player_crouchslip
+		{
+			sprite_index = spr_player_dive
 		}
 		break;
 	

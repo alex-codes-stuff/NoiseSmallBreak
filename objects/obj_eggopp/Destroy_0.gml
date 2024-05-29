@@ -4,9 +4,19 @@ if room == room_editor && global.play == 0
    return;
 with instance_create(x+32, y+32, obj_debris)
 {
-   sprite_index = spr_eggopp_idle
+   sprite_index = spr_eggopp_dead
  
-   vspeed = random_range(-10, -8)
+   vspeed = random_range(-14, -12)
+   hspeed = obj_player.hsp* random_range(1, 1.2)
+   image_xscale = obj_player.xscale 
+}
+with instance_create(x+32, y+32, obj_debris)
+{
+   sprite_index = spr_eggopp_hat
+   image_speed = 0.3
+   vspeed = random_range(-16, -14)
+    hspeed = obj_player.hsp * random_range(1.2, 1.3)
+	 image_xscale = obj_player.xscale
 }
 instance_create(x, y, obj_explosion)
 with instance_create(x, y, obj_explosion)
