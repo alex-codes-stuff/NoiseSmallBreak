@@ -476,7 +476,7 @@ switch state
 			
 			state = states.slide;
 			sprite_index = spr_player_dive;
-			vsp = 10;
+			vsp = 11.4;
 			}
 			else if image_index >= 4
 			{
@@ -484,7 +484,7 @@ switch state
 			
 			state = states.slide;
 			sprite_index = spr_player_dive;
-			vsp = 10;
+			vsp = 11.4;
 			}
 		}
 		break;
@@ -525,7 +525,7 @@ switch state
 			state = states.jump;
 			audio_play_sound(sfx_boing, 0, false, 1.2)
 			sprite_index = spr_player_bounce;
-			vsp = -14;
+			vsp = -15.5;
 		}
 		break;
 	

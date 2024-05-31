@@ -3,6 +3,9 @@
 live_auto_call;
 
 
+window_set_fullscreen(global.fullscreen)
+
+   
 if room == room_editor && global.play != 1
 {
 	var target = obj_doorA;

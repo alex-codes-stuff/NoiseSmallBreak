@@ -34,7 +34,7 @@ draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 draw_set_color(c_white);
 draw_set_alpha(1);
 #endregion
-draw_set_font(Font2)
+draw_set_font(fnt_console_big)
 switch menu
 {
 	case 1:
@@ -96,6 +96,7 @@ switch menu
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
+		draw_set_alpha(0.5)
 		draw_text(300,distance, "COOP MODE: " + string(global.coop))
 		distance += distanceamount
 		draw_set_alpha(1)
@@ -110,6 +111,13 @@ switch menu
 		else
 			draw_set_color(c_white);
 		draw_text(300, distance, $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}");
+		distance += distanceamount;
+		
+		if index == 5
+			draw_set_color(c_yellow);
+		else
+			draw_set_color(c_white);
+		draw_text(300, distance, "FULLSCREEN: " + string(global.fullscreen));
 		distance += distanceamount;
 	break
 	
