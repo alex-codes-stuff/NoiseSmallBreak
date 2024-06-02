@@ -1,6 +1,7 @@
  /// @description Insert description here
 // You can write your code in this editor
-timer += 0.1
+if !instance_exists(obj_minime)
+	timer += 0.1
 if timerend == 0
 {
 	alarm[0] = room_speed * 0.1

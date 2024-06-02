@@ -14,7 +14,7 @@ index = 1
 distance = 0
 distanceamount = 100
 //audio_stop_sound(mu_secret)
-audio_stop_all();
+
 audio_play_sound(mu_menu, 1, true)
 setkey = 0
 global.filename = ""

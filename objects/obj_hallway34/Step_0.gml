@@ -55,7 +55,7 @@ if sprite_index = spr_shuttle_move && backToShuttle == 1 && scr_solid(x, y)
 	{
 		sprite_index = spr_shuttle_parts
 		image_index = 0
-		vspeed = random_range(-7, 7)
+		vspeed = random_range(-7, 3)
 		hspeed = random_range(-7, 7)
 		
 	}
@@ -71,7 +71,7 @@ if sprite_index = spr_shuttle_move && backToShuttle == 1 && scr_solid(x, y)
 	{
 		sprite_index = spr_shuttle_parts
 		image_index = 2
-		vspeed = random_range(-7, 7)
+		vspeed = random_range(-7, 3)
 		hspeed = random_range(-7, 7)
 		
 	}

@@ -4,6 +4,7 @@ live_auto_call;
 
 
 window_set_fullscreen(global.fullscreen)
+window_set_showborder(!global.fullscreen)
 
    
 if room == room_editor && global.play != 1

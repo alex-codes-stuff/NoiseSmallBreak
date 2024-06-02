@@ -206,10 +206,7 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 	switch index	
 	{
 		case 1:
-		
-		with instance_create(obj_player.x, obj_player.y, obj_hallway)
-		   targetRoom = hub_1
-		audio_stop_all()
+		instance_destroy()
 		break
 		case 2:
 		with instance_create(obj_player.x, obj_player.y, obj_hallway)
