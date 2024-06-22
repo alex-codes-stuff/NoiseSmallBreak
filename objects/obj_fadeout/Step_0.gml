@@ -7,18 +7,17 @@ if fadeout
 		
 		if room != room_editor 
 		{
-		with obj_player
-		{
-			room_goto(targetRoom);
+			with obj_player
+			{
+				room_goto(targetRoom);
 		
-		}
-			
+			}	
 		}
 		else
 		{
-			if obj_player.targetRoom != room_minimenu
+			if obj_player.targetRoom != hub_1
 			{
-		if obj_player.targetDoor == "A"
+			if obj_player.targetDoor == "A"
 		    {
 			obj_player.x = obj_doorA.x	
 				obj_player.y = obj_doorA.y - 30
@@ -52,7 +51,7 @@ if fadeout
 else
 {
 	image_alpha = Approach(image_alpha, 0, 0.1);
-	if room == room_editor
+	if room == room_editor && global.play == 1
 	{
 		with obj_player
 		{

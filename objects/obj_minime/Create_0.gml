@@ -7,6 +7,7 @@ bg = {
 	speed: 1,
 	spr: spr_minimenu_bg,
 	index: 0,
+	image_alpha: 1,
 };
 levelid = ""
 index = 1
@@ -28,3 +29,4 @@ delaydown = 0;
 delayup = 0;
 delayleft = 0;
 delayright = 0;
+pauseScreenshot = -4

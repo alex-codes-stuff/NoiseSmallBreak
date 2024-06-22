@@ -315,18 +315,22 @@ if keyboard_check_pressed(vk_escape)
 {
 	if global.play == 1
 	{
-   global.play = 0
-   filename = "Backup.bblv"
-   scr_loadlevel()
+	   global.play = 0
+	   filename = "Backup.bblv"
+	   scr_loadlevel()
 	}
 	else
 	{
-		with instance_create_depth(obj_player.x, obj_player.y, 100, obj_hallway)
-{
-	targetRoom = room_minimenu
-	targetDoor = "A"
-	visible = false
-}
+		with obj_player
+		{
+			targetRoom = hub_1
+			targetDoor = "A"
+		}
+			with instance_create(x, y, obj_fadeout)
+			{
+				
+				visible = false
+			}
 	}
 }
 }

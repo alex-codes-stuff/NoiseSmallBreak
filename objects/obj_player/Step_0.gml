@@ -18,7 +18,7 @@ else
 if !keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))
 {
 	ds_list_clear(global.saveroom);
-	event_perform(ev_create, 0);
+	event_perform(ev_create, 0);F
 	
 	targetDoor = "";
 	//audio_stop_all();
@@ -507,7 +507,7 @@ switch state
 			
 			state = states.slide;
 			sprite_index = spr_player_dive;
-			vsp = 11.4;
+			vsp = 13;
 			}
 			else if image_index >= 4
 			{
@@ -515,7 +515,7 @@ switch state
 			
 			state = states.slide;
 			sprite_index = spr_player_dive;
-			vsp = 11.4;
+			vsp = 13;
 			}
 		}
 		break;
@@ -624,6 +624,7 @@ switch state
 		if !grounded && sprite_index == spr_player_crouchslip
 		{
 			sprite_index = spr_player_dive
+			vsp = 13
 		}
 		break;
 	
@@ -788,16 +789,19 @@ if keyboard_check_pressed(vk_rcontrol)
 {
 	global.mainplayer = (global.mainplayer == obj_player ? obj_player2 : obj_player)
 }
-if keyboard_check_pressed(vk_escape) && !instance_exists(obj_minime)
+if keyboard_check_pressed(vk_escape) && !instance_exists(obj_minime) && room != room_editor
 {
 	audio_pause_all()
     with all 
 	{
 		if object_index != obj_solid && object_index != obj_slope && object_index != obj_platform && object_index != obj_camera
-		   instance_activate_object(self)
+		   instance_deactivate_object(self)
 	}
 	
-
 	instance_create(x, y, obj_minime)
-
+	with obj_minime
+	{
+		pauseScreenshot=sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), false, false, 0, 0);
+	}
+    
 }

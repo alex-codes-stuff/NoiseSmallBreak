@@ -207,8 +207,10 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 	{
 		case 1:
 		instance_destroy()
+		
 		break
 		case 2:
+		instance_destroy()
 		with instance_create(obj_player.x, obj_player.y, obj_hallway)
 		   targetRoom = room_editor
 		   	audio_stop_all()
@@ -218,7 +220,7 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
  
     if global.filename != noone
 	{
-		with instance_create(obj_player.x, obj_player.y, obj_hallway)
+		with instance_create(x, y, obj_fadeout)
 		   targetRoom = room_customlevel
 		 	audio_stop_all()
 	}
