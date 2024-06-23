@@ -3,6 +3,7 @@
 controllerdown = false;
 controllerup = false;
 controllera = false;
+_x += ((300 - _x) / 8)
 if delaydown > 0
    delaydown--
 if delayup > 0
@@ -198,90 +199,94 @@ if keyboard_check_pressed(vk_enter) && setkey == 0
 }
 if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1)
 {
-	
+	_menu = menu
 	switch menu
 	{
-		case 1:
+		case 1:	
+			switch index	
+			{
+				case 1:
+				instance_destroy()
 		
-	switch index	
-	{
-		case 1:
-		instance_destroy()
-		
-		break
-		case 2:
-		instance_destroy()
-		with instance_create(obj_player.x, obj_player.y, obj_hallway)
-		   targetRoom = room_editor
-		   	audio_stop_all()
-		   break
-	case 3:
-	global.filename = get_open_filename_ext(".bblv", "", game_save_id, "Select level file (.bblv)");
- 
-    if global.filename != noone
-	{
-		with instance_create(x, y, obj_fadeout)
-		   targetRoom = room_customlevel
-		 	audio_stop_all()
-	}
-	else
-	   global.filename = ""
-		   break
-    case 4:
-		url_open("https://docs.google.com/document/d/1D2BOrYJPYx0sE8uyUBOX8kDAFDcvoZg4rEiF2YgioUM/edit?usp=sharing")
-		   break
-    case 5:
-		menu = 2
-		index = 1
-		   break  
+				break
+				case 2:
+				instance_destroy()
+				with instance_create(obj_player.x, obj_player.y, obj_hallway)
+				   targetRoom = room_editor
+				   	audio_stop_all()
+				   break
+				case 3:
+				global.filename = get_open_filename_ext(".bblv", "", game_save_id, "Select level file (.bblv)");
+                
+			    if global.filename != noone
+				{
+					instance_destroy()
+					obj_player.targetRoom = room_customlevel
+					with instance_create(x, y, obj_fadeout)
+					   targetRoom = room_customlevel
+				 	audio_stop_all()
+				}
+				else
+				   global.filename = ""
+					   break
+			    case 4:
+					url_open("https://docs.google.com/document/d/1D2BOrYJPYx0sE8uyUBOX8kDAFDcvoZg4rEiF2YgioUM/edit?usp=sharing")
+					   break
+		        case 5:
+					menu = 2
+					index = 1
+					   break  
 		   
-	case 6:
-		try
-		{
-			var _file = get_open_filename_ext("Old level format (.sav)|*.sav", "", game_save_id, "Select old level (.sav)");
-			var _file_oldfmt = scr_jsonthing(_file);
-			var wrapper = {};
-			var _root = _file_oldfmt[? "root"];
-			wrapper.root = [];
-			for (var i = 0; i < ds_list_size(_root); i++)
-			{
-				wrapper.root[i] = _root[| i];
-			}
-			var _room = _file_oldfmt[? "room"];
-			wrapper.room = {};
-			var _values = ["room_width", "room_height", "background_tint", "song"];
-			for (var i = 0; i < array_length(_values); i++)
-			{
-				var _index = _values[i];
-				wrapper.room[$ _index] = _room[? _index];
-			}
-			var _outfile = get_save_filename_ext("New level format (.bblv)|*.bblv", "", game_save_id, "New level (.bblv)");
-			var _buff = scr_editor_encrypt(wrapper);
-			buffer_save(_buff, _outfile);
-			buffer_delete(_buff);
-		}
-		catch (_e)
-		{
-			show_debug_message($"Exception converting old level format: {string(_e)}");
-			show_message($"Couldn't convert level: {_e.message}.\nAn extended report will be available in the debug log.");
-		}
-	break;
+				case 6:
+				 /*
+					try
+					{
+						var _file = get_open_filename_ext("Old level format (.sav)|*.sav", "", game_save_id, "Select old level (.sav)");
+					var _file_oldfmt = scr_jsonthing(_file);
+					var wrapper = {};
+					var _root = _file_oldfmt[? "root"];
+					wrapper.root = [];
+					for (var i = 0; i < ds_list_size(_root); i++)
+					{
+						wrapper.root[i] = _root[| i];
+					}
+					var _room = _file_oldfmt[? "room"];
+					wrapper.room = {};
+					var _values = ["room_width", "room_height", "background_tint", "song"];
+					for (var i = 0; i < array_length(_values); i++)
+					{
+						var _index = _values[i];
+						wrapper.room[$ _index] = _room[? _index];
+					}
+					var _outfile = get_save_filename_ext("New level format (.bblv)|*.bblv", "", game_save_id, "New level (.bblv)");
+					var _buff = scr_editor_encrypt(wrapper);
+					buffer_save(_buff, _outfile);
+					buffer_delete(_buff);
+				}
+				catch (_e)
+				{
+					show_debug_message($"Exception converting old level format: {string(_e)}");
+					show_message($"Couldn't convert level: {_e.message}.\nAn extended report will be available in the debug log.");
+				}
+				*/
+				game_end()
+			break;
 	
-	case 7:
-		//room_goto(room_upload); //TODO: Make this
-		/*
-		levelid = get_string("Level ID? (see editor guide for refrence", "123")
-		with instance_create(x, y, obj_getlevel)
-		{
-			levelid = other.levelid
+			case 7:
+				//room_goto(room_upload); //TODO: Make this
+				/*
+				levelid = get_string("Level ID? (see editor guide for refrence", "123")
+				with instance_create(x, y, obj_getlevel)
+				{
+					levelid = other.levelid
 
-			link = http_get("https://www.googleapis.com/drive/v3/files/" + levelid + "?alt=media&key=AIzaSyBY9VVeA53pcdt0Nofa6VItE2K5r1gH9Zs")
+					link = http_get("https://www.googleapis.com/drive/v3/files/" + levelid + "?alt=media&key=AIzaSyBY9VVeA53pcdt0Nofa6VItE2K5r1gH9Zs")
 
-		}
-		*/
-	break;
+				}
+				*/
+			break;
    
-	}
+			}
 	break
 	case 2:
 	switch index{
@@ -330,12 +335,12 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamep
 				setkey = 0
 			break
 		}
-			break
-		
-	
+		break
 	}
-	
-	
+	if _menu != menu
+		_x = 0;
+	else
+	   _x = 200
 }
 
 

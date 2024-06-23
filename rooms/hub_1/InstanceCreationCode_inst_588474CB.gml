@@ -1,1 +1,1 @@
-text = "Main Menu\n(PC Only)"
+text = "Clocktower\nMountain"

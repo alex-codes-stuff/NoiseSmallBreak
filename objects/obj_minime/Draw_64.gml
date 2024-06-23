@@ -38,90 +38,46 @@ draw_set_color(c_white);
 draw_set_alpha(1);
 #endregion
 draw_set_font(fnt_console_big)
+var _menuitems = 0
+var _menuitemnames = [""]
 switch menu
 {
 	case 1:
-		draw_set_alpha(1)
+	    _menuitems = 6
+		_menuitemnames = ["BACK", "LEVEL EDITOR", "LOAD LEVEL", "EDITOR GUIDE", "SETTINGS", "EXIT"]
 		distance = 125
-		if index == 1
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "BACK")
-		distance += distanceamount
-		if index == 2
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "LEVEL EDITOR")
-		distance += distanceamount
-		if index == 3
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "LOAD LEVEL")
-		/*
-		draw_set_color(index == 7 ? c_yellow : c_white);
-		draw_text(600, distance, "LOAD ONLINE LEVEL");
-		*/
-		distance += distanceamount
+		draw_set_alpha(1)
+		for (var i = 1; i < (_menuitems+1); i += 1)
+		{
+			if (index == i)
+				draw_set_color(c_yellow)
+			else
+				draw_set_color(c_white)
+			draw_text(_x,distance, array_get(_menuitemnames, i-1))
+			distance += distanceamount
+		}
 		
-		if index == 4
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "EDITOR GUIDE")
-		distance += distanceamount
-		if index == 5
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "SETTINGS")
-		distance += distanceamount
-		if (index == 6)
-			draw_set_color(c_yellow);
-		else
-			draw_set_color(c_white);
-		draw_text(300, distance, "CONVERT LEVEL TO NEW FORMAT")
+		
 	break
 		
 	case 2:
-		draw_set_alpha(1)
+		_menuitems = 5
+		_menuitemnames = ["BACK", ("COOP MODE: " + string(global.coop)), "KEY REMAPPING",  $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}", ("FULLSCREEN: " + string(global.fullscreen))]
 		distance = 125
-		if index == 1
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "BACK")
-		distance += distanceamount
-		
-		if index == 2
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_set_alpha(0.5)
-		draw_text(300,distance, "COOP MODE: " + string(global.coop))
-		distance += distanceamount
 		draw_set_alpha(1)
-		if index == 3
-			draw_set_color(c_yellow)
-		else
-			draw_set_color(c_white)
-		draw_text(300,distance, "KEY REMAPPING")
-		distance += distanceamount
-		if index == 4
-			draw_set_color(c_yellow);
-		else
-			draw_set_color(c_white);
-		draw_text(300, distance, $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}");
-		distance += distanceamount;
+		for (var i = 1; i < (_menuitems+1); i += 1)
+		{
+			if (index == i)
+				draw_set_color(c_yellow)
+			else
+				draw_set_color(c_white)
+			if i == 2
+			  draw_set_alpha(0.5)
+			draw_text(_x,distance, array_get(_menuitemnames, i-1))
+			draw_set_alpha(1)
+			distance += distanceamount
+		}
 		
-		if index == 5
-			draw_set_color(c_yellow);
-		else
-			draw_set_color(c_white);
-		draw_text(300, distance, "FULLSCREEN: " + string(global.fullscreen));
-		distance += distanceamount;
 	break
 	
 	case 3:
@@ -131,7 +87,7 @@ switch menu
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "BACK")
+		draw_text(_x,distance, "BACK")
 		distance += distanceamount
 		if gamepad_is_connected(0)
 			draw_set_alpha(0.5)
@@ -142,16 +98,16 @@ switch menu
 		else
 			draw_set_color(c_white)
 		if gamepad_is_connected(0)
-			draw_text(300,distance, "KEYBOARD (UNPLUG CONTROLLER TO REMAP)")
+			draw_text(_x,distance, "KEYBOARD (UNPLUG CONTROLLER TO REMAP)")
 		else
-			draw_text(300,distance, "KEYBOARD")
+			draw_text(_x,distance, "KEYBOARD")
 		distance += distanceamount
 		draw_set_alpha(0.5)
 		if index == 3
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "CONTROLLER  (COMING IN 2.5)")
+		draw_text(_x,distance, "CONTROLLER  (COMING IN 2.5)")
 		distance += distanceamount
 		draw_set_alpha(1)
 	break
@@ -163,7 +119,7 @@ switch menu
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "BACK")
+		draw_text(_x,distance, "BACK")
 		distance += distanceamount
 		//ini_read_string("keybinds", "key_left", "vk_left")
 		
@@ -173,35 +129,35 @@ switch menu
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "LEFT   " + ini_read_string("keybinds", "key_left", "vk_left"))
+		draw_text(_x,distance, "LEFT   " + ini_read_string("keybinds", "key_left", "vk_left"))
 		distance += distanceamount
 		
 		if index == 3
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "RIGHT   " + ini_read_string("keybinds", "key_right", "vk_right"))
+		draw_text(_x,distance, "RIGHT   " + ini_read_string("keybinds", "key_right", "vk_right"))
 		distance += distanceamount
 		
 		if index == 4
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "UP   " + ini_read_string("keybinds", "key_up", "vk_up"))
+		draw_text(_x,distance, "UP   " + ini_read_string("keybinds", "key_up", "vk_up"))
 		distance += distanceamount
 		
 		if index == 5
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "DOWN  " + ini_read_string("keybinds", "key_down", "vk_down"))
+		draw_text(_x,distance, "DOWN  " + ini_read_string("keybinds", "key_down", "vk_down"))
 		distance += distanceamount
 		
 		if index == 6
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(300,distance, "JUMP  " + ini_read_string("keybinds", "key_jump", "Z"))
+		draw_text(_x,distance, "JUMP  " + ini_read_string("keybinds", "key_jump", "Z"))
 		distance += distanceamount
 		
 		ini_close()

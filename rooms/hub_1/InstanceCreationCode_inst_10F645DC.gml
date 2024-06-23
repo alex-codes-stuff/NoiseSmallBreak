@@ -1,1 +1,1 @@
-targetRoom = room_minimenu
+targetRoom = clocktower_1
