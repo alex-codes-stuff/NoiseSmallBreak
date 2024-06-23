@@ -80,6 +80,7 @@
     {"id":{"name":"spr_cloudeffect","path":"sprites/spr_cloudeffect/spr_cloudeffect.yy",},},
     {"id":{"name":"spr_player_forkstart","path":"sprites/spr_player_forkstart/spr_player_forkstart.yy",},},
     {"id":{"name":"sfx_stop","path":"sounds/sfx_stop/sfx_stop.yy",},},
+    {"id":{"name":"obj_changelog","path":"objects/obj_changelog/obj_changelog.yy",},},
     {"id":{"name":"obj_dialogbox","path":"objects/obj_dialogbox/obj_dialogbox.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"spr_player_clocktowerintro2","path":"sprites/spr_player_clocktowerintro2/spr_player_clocktowerintro2.yy",},},
@@ -228,6 +229,7 @@
     {"id":{"name":"spr_mobile_jump","path":"sprites/spr_mobile_jump/spr_mobile_jump.yy",},},
     {"id":{"name":"spr_plug","path":"sprites/spr_plug/spr_plug.yy",},},
     {"id":{"name":"obj_eggblock","path":"objects/obj_eggblock/obj_eggblock.yy",},},
+    {"id":{"name":"rm_changelog","path":"rooms/rm_changelog/rm_changelog.yy",},},
     {"id":{"name":"spr_player_dive","path":"sprites/spr_player_dive/spr_player_dive.yy",},},
     {"id":{"name":"GMLive","path":"scripts/GMLive/GMLive.yy",},},
     {"id":{"name":"gameframe_native","path":"extensions/gameframe_native/gameframe_native.yy",},},
@@ -406,6 +408,7 @@
     {"roomId":{"name":"clocktower_1","path":"rooms/clocktower_1/clocktower_1.yy",},},
     {"roomId":{"name":"clocktower_2","path":"rooms/clocktower_2/clocktower_2.yy",},},
     {"roomId":{"name":"smb11","path":"rooms/smb11/smb11.yy",},},
+    {"roomId":{"name":"rm_changelog","path":"rooms/rm_changelog/rm_changelog.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

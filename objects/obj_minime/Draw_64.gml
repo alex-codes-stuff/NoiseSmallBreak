@@ -107,7 +107,7 @@ switch menu
 			draw_set_color(c_yellow)
 		else
 			draw_set_color(c_white)
-		draw_text(_x,distance, "CONTROLLER  (COMING IN 2.5)")
+		draw_text(_x,distance, "CONTROLLER (UNFINISHED)")
 		distance += distanceamount
 		draw_set_alpha(1)
 	break

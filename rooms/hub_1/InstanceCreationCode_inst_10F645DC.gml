@@ -1,1 +1,1 @@
-targetRoom = clocktower_1
+targetRoom = rm_changelog

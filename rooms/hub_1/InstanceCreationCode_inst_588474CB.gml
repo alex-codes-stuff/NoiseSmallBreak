@@ -1,1 +1,1 @@
-text = "Clocktower\nMountain"
+text = "Changelog"
