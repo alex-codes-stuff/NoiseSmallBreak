@@ -33,7 +33,7 @@ if (bg.visible)
 }
 
 draw_set_alpha(0.75);
-draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+draw_sprite_stretched_ext(spr_BLACK, 0, 0, 0, display_get_gui_width(), display_get_gui_height(), c_white, _alpha);
 draw_set_color(c_white);
 draw_set_alpha(1);
 #endregion

@@ -794,7 +794,7 @@ if keyboard_check_pressed(vk_escape) && !instance_exists(obj_minime) && room != 
 	audio_pause_all()
     with all 
 	{
-		if object_index != obj_solid && object_index != obj_slope && object_index != obj_platform && object_index != obj_camera
+		if object_index != obj_solid && object_index != obj_slope && object_index != obj_platform && object_index != obj_camera && object_index != obj_screensizer
 		   instance_deactivate_object(self)
 	}
 	

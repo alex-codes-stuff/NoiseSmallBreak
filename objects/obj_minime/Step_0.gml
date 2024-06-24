@@ -4,6 +4,7 @@ controllerdown = false;
 controllerup = false;
 controllera = false;
 _x += ((300 - _x) / 8)
+_alpha += ((0.75 - _alpha) / 6)
 if delaydown > 0
    delaydown--
 if delayup > 0

@@ -10,6 +10,7 @@ bg = {
 	image_alpha: 1,
 };
 _x = 0
+_alpha = 0
 levelid = ""
 index = 1
 //buttons = 3
