@@ -1,5 +1,6 @@
  live_auto_call;
 timer = 0
+wallbounceCount = 0
 tnt = 0
 scr_initinput()
 toplayer = 0
@@ -72,7 +73,8 @@ scr_hurtplayer = function()
 {
 	if state == states.hurt or inv > 0
 		exit;
-	
+	if state == states.actor
+	    exit;
 	hp--;
 	if hp <= 0
 	{

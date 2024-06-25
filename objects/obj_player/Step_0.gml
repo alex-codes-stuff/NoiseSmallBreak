@@ -425,7 +425,10 @@ switch state
 		{
 			if obj_player.key_jump && scr_solid(x+(hsp), y)
 			{
-				vsp = -18
+				audio_play_sound(sfx_boing, 0, false, 1.2)
+				vsp = -18 + (wallbounceCount*2)
+				wallbounceCount += 1
+				image_index = 0
 			}
 			if move != xscale
 		{
@@ -503,19 +506,30 @@ switch state
 		{
 			if !(sprite_index = spr_player_longjump)
 			{
-			sound_play_3d(sfx_groundpound, x, y);
+				if sprite_index != spr_player_bounce
+				{
+					sound_play_3d(sfx_groundpound, x, y);
 			
-			state = states.slide;
-			sprite_index = spr_player_dive;
-			vsp = 13;
+					state = states.slide;
+					sprite_index = spr_player_dive;
+					vsp = 13;
+				}
+				else if !scr_solid(x+hsp, y)
+				{
+					sound_play_3d(sfx_groundpound, x, y);
+			
+					state = states.slide;
+					sprite_index = spr_player_dive;
+					vsp = 13;
+				}
 			}
 			else if image_index >= 4
 			{
 					sound_play_3d(sfx_groundpound, x, y);
 			
-			state = states.slide;
-			sprite_index = spr_player_dive;
-			vsp = 13;
+				state = states.slide;
+				sprite_index = spr_player_dive;
+				vsp = 13;
 			}
 		}
 		break;
@@ -773,6 +787,8 @@ if distance_to_object(global.mainplayer) >= 1500 || y > room_height+100
    y = global.mainplayer.y
 }
 }
+if sprite_index != spr_player_bounce
+   wallbounceCount = 0
 if input_buffer_jump && sprite_index == spr_player_longjump
 		{
 				input_buffer_jump = 0;

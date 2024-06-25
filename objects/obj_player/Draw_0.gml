@@ -8,7 +8,7 @@ if code_is_compiled()
 	draw_text(x-10, y - 60, movespeed);
 	draw_text(x, y - 100,debuggingthisfuckingshitiwannakillmyself);
 }
-//draw_text(x, y - 150, _move);
+draw_text(x, y - 150, wallbounceCount);
 // draw_text(x, y - 200,  hp)
 
 //gamepad_button_check(0, gp_shoulderrb)
