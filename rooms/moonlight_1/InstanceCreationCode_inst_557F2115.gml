@@ -1,2 +1,2 @@
 
-text = "These egg guys are called Eggops. They're part of Dr. Bad Breakfast's troops.\nIf they aren't chasing you, you can defeat them by running into them at Mach 3,\nsliding or diving. If they are, you can only defeat them by sliding, diving or\nbouncing."
+text = "These egg guys are called Eggopps. They're part of Dr. Bad Breakfast's troops. You can defeat them by running into them at Mach 3, sliding, diving or bouncing. Running into them won't work if they have their bats out."

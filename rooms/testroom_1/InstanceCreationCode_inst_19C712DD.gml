@@ -1,1 +1,1 @@
-text = "BACK"
+text = "BACK TO HUB"

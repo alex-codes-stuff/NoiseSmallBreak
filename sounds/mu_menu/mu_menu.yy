@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "mu_menu.mp3",
   "type": 0,
-  "volume": 0.26,
+  "volume": 0.3,
 }

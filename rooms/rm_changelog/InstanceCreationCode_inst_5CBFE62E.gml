@@ -1,0 +1,1 @@
+text = "Tip: You can press jump while longjumping to do a bounce!"

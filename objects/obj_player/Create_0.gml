@@ -4,12 +4,20 @@ wallbounceCount = 0
 tnt = 0
 scr_initinput()
 toplayer = 0
+axis_down_prev = (gamepad_axis_value(0,gp_axislv) > 0.5);
+controllerConnectedPopup = 0
+controllerConnected = 0
 _player1x = 0
 _xscale = 0
 _player1y = 0
 scr_keycodetokeyname()
 collectfont  = font_add_sprite_ext(spr_collectfont, "0123456789/", true, 0)
 global.level = "junkbeach"
+global.firsttime = 1
+ini_open("SaveData.ini")
+if ini_read_string("junkbeach", "time", "None") != "None"
+   global.firsttime = 0
+ini_close();
 controllerfinished = 1
 //make it 1 when controller bugs are fixed.
 enum states
@@ -30,6 +38,7 @@ depth = -6;
 alarm[0] = room_speed * 0.1
 global.coop = 0
 timerend = 0
+setNewTime = 0
 hp = 4;
 losehp = 0
 image_speed = 0.35;

@@ -32,8 +32,16 @@ if room == hub_1
    timerend = 0  
 }
 if (keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)) && room != room_customlevel  && room != room_editor
-   global.timeattack = 1
-
+   global.timeattack = (global.timeattack ? 0 : 1)
+if gamepad_is_connected(0)
+{
+	if controllerConnectedPopup == 0
+	{
+		controllerConnectedPopup = 1
+		controllerConnected = 1
+		alarm[7] = 200
+	}
+}
 //controllers fixed now, still wanna add a way to press 2 direction keys at once though,,
 ini_open("keybinds.ini")
 if global.coop == 0
@@ -48,19 +56,19 @@ if !gamepad_is_connected(0) || os_type == os_android
 	else
 	    	key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
 			//right
-var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
+	var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
 	if !is_undefined(check)
 		key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
 	else
 	    	key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
 			//up
-var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
+	var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
 	if !is_undefined(check)
 		key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
 	else
 	    	key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
 			//down
-var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
+	var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
 	if !is_undefined(check)
 	{
 		key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
@@ -74,7 +82,7 @@ var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
 	}
 //key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
 //jump
-var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
+	var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
 	if !is_undefined(check)
 	{
 		key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
@@ -88,37 +96,37 @@ var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
 	}
 //key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
 
-with obj_joystickmove
-{
+	with obj_joystickmove
+	{
 	
-	if place_meeting(x-30, y, obj_joystick_right)
-	   obj_player.key_right = 1
-    if place_meeting(x+30, y, obj_joystick_left)
-	   obj_player.key_left = -1
-	if place_meeting(x, y+25, obj_joystick_up)
-	   obj_player.key_up = 1
-	 if !place_meeting(x, y-25, obj_joystick_down)
-	{
-	  obj_player.key_down2thing = 0
-	}
-	if place_meeting(x, y-25, obj_joystick_down)
-	{
-	   obj_player.key_down = 1
-	   if obj_player.key_down2thing == 0
-			 obj_player.key_down2 = 1
-	}
+		if place_meeting(x-30, y, obj_joystick_right)
+		   obj_player.key_right = 1
+	    if place_meeting(x+30, y, obj_joystick_left)
+		   obj_player.key_left = -1
+		if place_meeting(x, y+25, obj_joystick_up)
+		   obj_player.key_up = 1
+		 if !place_meeting(x, y-25, obj_joystick_down)
+		{
+		  obj_player.key_down2thing = 0
+		}
+		if place_meeting(x, y-25, obj_joystick_down)
+		{
+		   obj_player.key_down = 1
+		   if obj_player.key_down2thing == 0
+				 obj_player.key_down2 = 1
+		}
 
 	
-}
+	}
   debuggingthisfuckingshitiwannakillmyself = 0
-move = key_left + key_right;
- forward = gamepad_button_check(0, gp_shoulderrb)
+  move = key_left + key_right;
+  forward = gamepad_button_check(0, gp_shoulderrb)
 }
 else if controllerfinished == 1
 {
   if global.coop == 0
   {
-	  debuggingthisfuckingshitiwannakillmyself = 1
+	debuggingthisfuckingshitiwannakillmyself = 1
 	key_right =gamepad_axis_value(0, gp_axislh) > 0.5 //|| gamepad_button_check(0, gp_shoulderrb) && !((gamepad_axis_value(0, gp_axislh) < -0.5) *-1)
 	key_left  =((gamepad_axis_value(0, gp_axislh) < -0.5) *-1) 
 	
@@ -126,7 +134,18 @@ else if controllerfinished == 1
 	key_down = gamepad_axis_value(0, gp_axislv) > 0.5
 	_key_right = key_up
 	_key_left = key_down
-	key_down2 = gamepad_axis_value(0, gp_axislv) > 0.5
+	var _keydown2 = 0
+	
+	if _keydown2 == false && axis_down_prev == false
+	{
+		if gamepad_axis_value(0, gp_axislv) > 0.5
+	    {
+			 _keydown2 = true;
+	    }
+	}
+	
+	key_down2 = _keydown2
+	
 	key_jump = gamepad_button_check_pressed(0, global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
 	key_jump2 = gamepad_button_check(0,global.keys[? ini_read_string("keybinds", "key_jumpC", "gp_face1")])
 	
@@ -140,55 +159,7 @@ else if controllerfinished == 1
 
 }
 }
-else
-{
-	var check = global.keys[? ini_read_string("keybinds", "key_left", "vk_left")]
-	if !is_undefined(check)
-		key_left = -keyboard_check(global.keys[? ini_read_string("keybinds", "key_left", "vk_left")])
-	else
-	    	key_left = -keyboard_check(ord(ini_read_string("keybinds", "key_left", "A")))
-			//right
-var check = global.keys[? ini_read_string("keybinds", "key_right", "vk_right")]
-	if !is_undefined(check)
-		key_right = keyboard_check(global.keys[? ini_read_string("keybinds", "key_right", "vk_right")])
-	else
-	    	key_right = keyboard_check(ord(ini_read_string("keybinds", "key_right", "D")))
-			//up
-var check = global.keys[? ini_read_string("keybinds", "key_up", "vk_up")]
-	if !is_undefined(check)
-		key_up = keyboard_check(global.keys[? ini_read_string("keybinds", "key_up", "vk_up")])
-	else
-	    	key_up = keyboard_check(ord(ini_read_string("keybinds", "key_up", "W")))
-			//down
-var check = global.keys[? ini_read_string("keybinds", "key_down", "vk_down")]
-	if !is_undefined(check)
-	{
-		key_down = keyboard_check(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
-		key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
-		
-	}
-	else
-	{
-	    	key_down = keyboard_check(ord(ini_read_string("keybinds", "key_down", "S")))
-			key_down2 = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_down", "S")))
-	}
-//key_down2 = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_down", "vk_down")])
-//jump
-var check = global.keys[? ini_read_string("keybinds", "key_jump", "Z")]
-	if !is_undefined(check)
-	{
-		key_jump = keyboard_check_pressed(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
-		key_jump2 = keyboard_check(global.keys[? ini_read_string("keybinds", "key_jump", "Z")])
-		
-	}
-	else
-	{
-	    	key_jump = keyboard_check_pressed(ord(ini_read_string("keybinds", "key_jump", "Z")))
-			key_jump2 = keyboard_check(ord(ini_read_string("keybinds", "key_jump", "Z")))
-	}
-	move = key_left + key_right;
-	 forward = 0
-}
+
 ini_close()
 
 //mobiler!!
@@ -635,11 +606,15 @@ switch state
 			}
 			sprite_index = spr_player_wallslide;
 		}
+		//nuh...
+		/*
 		if !grounded && sprite_index == spr_player_crouchslip
 		{
 			sprite_index = spr_player_dive
 			vsp = 13
 		}
+		*/
+		
 		break;
 	
 	case states.hurt:
@@ -801,11 +776,13 @@ if input_buffer_jump && sprite_index == spr_player_longjump
 			sprite_index = spr_player_bounce;
 			vsp = -16;
 		}
+/*
 if keyboard_check_pressed(vk_rcontrol)
 {
 	global.mainplayer = (global.mainplayer == obj_player ? obj_player2 : obj_player)
 }
-if keyboard_check_pressed(vk_escape) && !instance_exists(obj_minime) && room != room_editor
+*/
+if (keyboard_check_pressed(vk_escape) ||gamepad_button_check_pressed(0, gp_start)) && !instance_exists(obj_minime) && room != room_editor && room != rm_changelog
 {
 	audio_pause_all()
     with all 
@@ -820,4 +797,25 @@ if keyboard_check_pressed(vk_escape) && !instance_exists(obj_minime) && room != 
 		pauseScreenshot=sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), false, false, 0, 0);
 	}
     
+}
+if timerend == 1 && setNewTime == 0
+{
+       setNewTime = 1
+	   ini_open("SaveData.ini")
+	   if ini_key_exists(global.level, "time")
+	   {
+		   if timer < real(ini_read_string(global.level, "time", 9999999))
+		   {
+			   ini_write_string(global.level, "time", string(timer))
+		   }
+	   }
+	   else
+	   {
+		   ini_write_string(global.level, "time", string(timer))
+	   }
+	   ini_close()
+}
+if timerend == 0
+{
+	setNewTime = 0
 }

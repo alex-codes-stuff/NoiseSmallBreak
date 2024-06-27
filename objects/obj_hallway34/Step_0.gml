@@ -41,7 +41,7 @@ if sprite_index = spr_shuttle_move && backToShuttle == 1 && scr_solid(x, y)
 			
 		//xscale *= -1;
 		movespeed = 7
-		hsp = 7
+	    xscale = other.image_xscale
 		y -= 20
 	
 		state = states.bounce;

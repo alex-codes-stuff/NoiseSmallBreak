@@ -27,10 +27,17 @@ draw_set_font(collectfont)
 //draw_text(150, 145, global.points);
 draw_text(150, 150, string(global.collect) + "/30");
 //draw_sprite_ext(spr_teacup,0, 32 + (78 * (hp +1)), 16, 1.2, 1.2, image_angle, image_blend, 1)
+
+}
 if global.timeattack
 {
 	draw_set_font(fnt_console_big)
 	draw_text(1100, 0, "TIME ATTACK");
 	
 }
+if controllerConnected
+{
+	draw_set_font(fnt_console_big)
+	draw_text(1040, 690, "CONTROLLER CONNECTED");
+	
 }

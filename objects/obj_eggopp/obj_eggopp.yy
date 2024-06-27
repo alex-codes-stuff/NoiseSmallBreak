@@ -37,6 +37,9 @@
     "name": "spr_eggopp_idle",
     "path": "sprites/spr_eggopp_idle/spr_eggopp_idle.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_player_mask",
+    "path": "sprites/spr_player_mask/spr_player_mask.yy",
+  },
   "visible": true,
 }

@@ -16,7 +16,12 @@ if (room == moonlight_1 || room == testroom_1) && targetDoor == "A"
 		image_yscale = -1
 		y -= 700
 	}
+	sprite_index = spr_null
+	vsp = 0
+	hsp = 0
+	state = states.actor
 }
+
 if global.coop
 	if global.mainplayer != obj_player2
 	{

@@ -1,1 +1,1 @@
-text = "Changelog"
+text = "Changelog\n& Credits"

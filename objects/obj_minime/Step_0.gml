@@ -13,18 +13,8 @@ if delayright > 0
    delayright--
 if delayleft > 0
    delayleft--
-  /* 
-if gamepad_axis_value(0, gp_axislv) > 0.9 && delaydown == 0
-{
-	delaydown = 10;
-	controllerdown = true;
-}
-if gamepad_axis_value(0, gp_axislv) < -0.9 && delayup == 0
-{
-	delayup = 10;
-	controllerup = true;
-}
-*/
+controllerdown = gamepad_button_check_pressed(0, gp_padd)
+controllerup = gamepad_button_check_pressed(0, gp_padu)
 if (gamepad_button_check_pressed(0, gp_face1))
 {
 	controllera = true;
@@ -108,95 +98,97 @@ if (index == 5 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(o
 break
 
  case 3:
- if keyboard_check_pressed(vk_down)|| controllerdown
-{
-   index++;
-   audio_play_sound(sfx_select2, 0 ,0)
-}
-if keyboard_check_pressed(vk_up)  || controllerup
-{
-   index--;
-    audio_play_sound(sfx_select2, 0 ,0)
-}
-if index > 3
-    index = 1
- break
+	 if keyboard_check_pressed(vk_down)|| controllerdown
+	{
+	   index++;
+	   audio_play_sound(sfx_select2, 0 ,0)
+	}
+	if keyboard_check_pressed(vk_up)  || controllerup
+	{
+	   index--;
+	    audio_play_sound(sfx_select2, 0 ,0)
+	}
+	if index > 3
+	    index = 1
+	if index < 1
+	    index = 3
+	 break
  case 4:
- if setkey == 0
- {
- if keyboard_check_pressed(vk_down) || controllerdown
-{
-   index++
-   audio_play_sound(sfx_select2, 0 ,0)
-}
-if keyboard_check_pressed(vk_up)  || controllerup
-{
-   index--
-    audio_play_sound(sfx_select2, 0 ,0)
-}
- }
-if index > 6
-    index = 1
-if keyboard_check_pressed(vk_anykey) && setkey == 1
-{
-	if index == 2
+	 if setkey == 0
+	 {
+	 if keyboard_check_pressed(vk_down) || controllerdown
 	{
-		ini_open("keybinds.ini")
-	var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
-	if !is_undefined(check)
-		ini_write_string("keybinds", "key_left", scr_keyboard_key_name(keyboard_lastkey))
-	else
-	   ini_write_string("keybinds", "key_left",scr_keyboard_key_name(keyboard_lastkey))
-	ini_close()
+	   index++
+	   audio_play_sound(sfx_select2, 0 ,0)
 	}
-	if index == 3
+	if keyboard_check_pressed(vk_up)  || controllerup
 	{
+	   index--
+	    audio_play_sound(sfx_select2, 0 ,0)
+	}
+	 }
+	if index > 6
+	    index = 1
+	if keyboard_check_pressed(vk_anykey) && setkey == 1
+	{
+		if index == 2
+		{
 			ini_open("keybinds.ini")
-	var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
-	if !is_undefined(check)
-		ini_write_string("keybinds", "key_right", scr_keyboard_key_name(keyboard_lastkey))
-	else
-	   ini_write_string("keybinds", "key_right",scr_keyboard_key_name(keyboard_lastkey))
-	ini_close()
+		var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
+		if !is_undefined(check)
+			ini_write_string("keybinds", "key_left", scr_keyboard_key_name(keyboard_lastkey))
+		else
+		   ini_write_string("keybinds", "key_left",scr_keyboard_key_name(keyboard_lastkey))
+		ini_close()
+		}
+		if index == 3
+		{
+				ini_open("keybinds.ini")
+		var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
+		if !is_undefined(check)
+			ini_write_string("keybinds", "key_right", scr_keyboard_key_name(keyboard_lastkey))
+		else
+		   ini_write_string("keybinds", "key_right",scr_keyboard_key_name(keyboard_lastkey))
+		ini_close()
+		}
+		if index == 4
+		{
+				ini_open("keybinds.ini")
+		var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
+		if !is_undefined(check)
+			ini_write_string("keybinds", "key_up", scr_keyboard_key_name(keyboard_lastkey))
+		else
+		   ini_write_string("keybinds", "key_up",scr_keyboard_key_name(keyboard_lastkey))
+		ini_close()
+		}
+		if index == 5
+		{
+				ini_open("keybinds.ini")
+		var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
+		if !is_undefined(check)
+			ini_write_string("keybinds", "key_down", scr_keyboard_key_name(keyboard_lastkey))
+		else
+		   ini_write_string("keybinds", "key_down",scr_keyboard_key_name(keyboard_lastkey))
+		ini_close()
+		}
+			if index == 6
+		{
+				ini_open("keybinds.ini")
+		var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
+		if !is_undefined(check)
+			ini_write_string("keybinds", "key_jump", scr_keyboard_key_name(keyboard_lastkey))
+		else
+		   ini_write_string("keybinds", "key_jump",scr_keyboard_key_name(keyboard_lastkey))
+		ini_close()
+		}
+		setkey = 0
 	}
-	if index == 4
+	if keyboard_check_pressed(vk_enter) && setkey == 0
 	{
-			ini_open("keybinds.ini")
-	var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
-	if !is_undefined(check)
-		ini_write_string("keybinds", "key_up", scr_keyboard_key_name(keyboard_lastkey))
-	else
-	   ini_write_string("keybinds", "key_up",scr_keyboard_key_name(keyboard_lastkey))
-	ini_close()
-	}
-	if index == 5
-	{
-			ini_open("keybinds.ini")
-	var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
-	if !is_undefined(check)
-		ini_write_string("keybinds", "key_down", scr_keyboard_key_name(keyboard_lastkey))
-	else
-	   ini_write_string("keybinds", "key_down",scr_keyboard_key_name(keyboard_lastkey))
-	ini_close()
-	}
-		if index == 6
-	{
-			ini_open("keybinds.ini")
-	var check = global.keys[? scr_keyboard_key_name(keyboard_lastkey)]
-	if !is_undefined(check)
-		ini_write_string("keybinds", "key_jump", scr_keyboard_key_name(keyboard_lastkey))
-	else
-	   ini_write_string("keybinds", "key_jump",scr_keyboard_key_name(keyboard_lastkey))
-	ini_close()
-	}
-	setkey = 0
-}
-if keyboard_check_pressed(vk_enter) && setkey == 0
-{
-	setkey = 1
+		setkey = 1
 	
-}
- break
+	}
+	 break
 }
 if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1)
 {

@@ -7,6 +7,7 @@ if obj_player.key_up && obj_player.grounded && obj_player.state = states.normal 
 	obj_player.state = states.actor
 	obj_player.hsp = 0
 	obj_player.vsp = 0
+	obj_player.movespeed = 0
 	obj_player.sprite_index = spr_null
 	audio_stop_sound(mu_smb)
 }
