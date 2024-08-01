@@ -9,7 +9,7 @@
   "option_windows_copyright_info": "",
   "option_windows_description_info": "",
   "option_windows_disable_sandbox": true,
-  "option_windows_display_cursor": true,
+  "option_windows_display_cursor": false,
   "option_windows_display_name": "Pizza Tower: Noise's Small Break",
   "option_windows_enable_steam": false,
   "option_windows_executable_name": "NoiseSmallBreak.exe",
@@ -30,5 +30,5 @@
   "option_windows_texture_page": "4096x4096",
   "option_windows_use_splash": false,
   "option_windows_version": "1.0.0.0",
-  "option_windows_vsync": false,
+  "option_windows_vsync": true,
 }

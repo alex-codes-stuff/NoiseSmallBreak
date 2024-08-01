@@ -1,20 +1,14 @@
-if wait > 5 && hit == 1
-	{
-		draw_sprite(spr_brickblock,1,x,y+spd)
-		hit = 2
-	}
-
-switch (hit)
+if hit == 0
+   draw_self()
+   
+if hit == 1
 {
-	case 1:
+	if wait > 0
+	   draw_sprite(spr_questionmarkblock, 0, x, y-wait)
+	else
 	{
-		wait = wait + 1
-		draw_sprite(spr_brickblock,1,x,y-spd)
+		draw_set_color(c_red)
+	   draw_sprite(spr_questionmarkblock, 0, x, y-wait)
+	   hit = 0
 	}
-	
-	case 2:
-		draw_sprite(spr_baddie,1,x,y)
-		
-	default:
-
 }
