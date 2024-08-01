@@ -94,6 +94,10 @@ if (index == 5 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(o
 	// Feather disable once GM1041 YOU FUCKING SUCK FEATHER HOLY SHIT
 	ini_write_real("Settings", "fullscreen", global.fullscreen);
 	ini_close();
+	if !(global.fullscreen)
+	    window_set_position(0, 0)
+	window_set_fullscreen(global.fullscreen)
+	window_set_showborder(!global.fullscreen)
 }if (index == 6 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera))
 {
 	global.texturefilter = !global.texturefilter;
