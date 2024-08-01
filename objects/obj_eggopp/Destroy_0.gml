@@ -27,7 +27,7 @@ with instance_create(x, y, obj_explosion)
 }
 ds_list_add(global.saveroom, id);
 obj_camera.shakestrength = 10
-if ++global.collect >= 20 && obj_player.hp < 8
+if ++global.collect >= 30 && obj_player.hp < 7
 {
 	global.collect = 0;
 	obj_player.hp++;

@@ -697,7 +697,7 @@ else
 var spike = instance_nearest(x, y, obj_spike);
 if spike && abs(distance_to_object(spike)) < 1
 {
-	if state == states.bounce
+	if sprite_index == spr_player_bounce
 	{
 		vsp = -14;
 		grounded = false;

@@ -4,7 +4,6 @@ draw_self()
 if arrow == 1
 {
 	draw_set_color(c_white)
-	draw_set_font(Font2)
-	draw_text(x-10, y-80, "UP")
+	draw_sprite(spr_uparrow, arrowindex, x, y-50)
 }
 

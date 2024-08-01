@@ -22,50 +22,50 @@ if (gamepad_button_check_pressed(0, gp_face1))
 switch menu
 {
 	case 1:
-if keyboard_check_pressed(vk_down) || controllerdown
-{
-   index++
-   audio_play_sound(sfx_select2, 0 ,0)
-}
+	if keyboard_check_pressed(vk_down) || controllerdown
+	{
+	   index++
+	   audio_play_sound(sfx_select2, 0 ,0)
+	}
 
 
-if keyboard_check_pressed(vk_up)   || controllerup
-{
-   index--
-    audio_play_sound(sfx_select2, 0 ,0)
-}
-if index > 6
-    index = 1
-if index < 1
-    index = 7
-/*	
-if ((keyboard_check_pressed(vk_right) || controllerright) && index != 7)
-{
-	index = 7;
-}
+	if keyboard_check_pressed(vk_up)   || controllerup
+	{
+	   index--
+	    audio_play_sound(sfx_select2, 0 ,0)
+	}
+	if index > 6
+	    index = 1
+	if index < 1
+	    index = 7
+	/*	
+	if ((keyboard_check_pressed(vk_right) || controllerright) && index != 7)
+	{
+		index = 7;
+	}
 
-if ((keyboard_check_pressed(vk_left) || controllerleft) && index == 7)
-{
-	index = 3;
-}
-*/
+	if ((keyboard_check_pressed(vk_left) || controllerleft) && index == 7)
+	{
+		index = 3;
+	}
+	*/
 break 
 case 2:
      	
-if keyboard_check_pressed(vk_down) || controllerdown
-{
-   index++
-   audio_play_sound(sfx_select2, 0 ,0)
-}
-if keyboard_check_pressed(vk_up) || controllerup
-{
-   index--
-    audio_play_sound(sfx_select2, 0 ,0)
-}
-if index > 5
-    index = 1
-if index < 1
-    index = 1
+	if keyboard_check_pressed(vk_down) || controllerdown
+	{
+	   index++
+	   audio_play_sound(sfx_select2, 0 ,0)
+	}
+	if keyboard_check_pressed(vk_up) || controllerup
+	{
+	   index--
+	    audio_play_sound(sfx_select2, 0 ,0)
+	}
+	if index > 6
+	    index = 1
+	if index < 1
+	    index = 1
 	//coop
 /*
 if index == 2 && keyboard_check_pressed(vk_right)
@@ -94,7 +94,15 @@ if (index == 5 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(o
 	// Feather disable once GM1041 YOU FUCKING SUCK FEATHER HOLY SHIT
 	ini_write_real("Settings", "fullscreen", global.fullscreen);
 	ini_close();
+}if (index == 6 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera))
+{
+	global.texturefilter = !global.texturefilter;
+	ini_open("settings.ini");
+	// Feather disable once GM1041 YOU FUCKING SUCK FEATHER HOLY SHIT
+	ini_write_real("Settings", "filter", global.texturefilter);
+	ini_close();
 }
+
 break
 
  case 3:

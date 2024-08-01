@@ -66,7 +66,7 @@ if instance_exists(target)
 		camy += flycam;
 	}
 	
-	
+	if room != desertbus
 	camx = clamp(camx, 0, room_width - CAMW);
 	
 	

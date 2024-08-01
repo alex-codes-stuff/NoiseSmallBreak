@@ -8,6 +8,7 @@ global.debuglog = [];
 ini_open("settings.ini");
 global.performance = ini_read_real("Settings", "performance", false);
 global.fullscreen = ini_read_real("Settings", "fullscreen", false);
+global.texturefilter = ini_read_real("Settings", "filter", false);
 ini_close();
 // Game ver is now obj_gmconsole.con.strings.game_version
 // NOTE: 0.03.00.00 removed obj_gmconsole.con.strings.game_version

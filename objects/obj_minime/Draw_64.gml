@@ -61,8 +61,8 @@ switch menu
 	break
 		
 	case 2:
-		_menuitems = 5
-		_menuitemnames = ["BACK", ("COOP MODE: " + string(global.coop)), "KEY REMAPPING",  $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}", ("FULLSCREEN: " + string(global.fullscreen))]
+		_menuitems = 6
+		_menuitemnames = ["BACK", ("COOP MODE: " + string(global.coop)), "KEY REMAPPING",  $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}", ("FULLSCREEN: " + string(global.fullscreen)), ("TEXTURE FILTER: " + string(global.texturefilter))]
 		distance = 125
 		draw_set_alpha(1)
 		for (var i = 1; i < (_menuitems+1); i += 1)

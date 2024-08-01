@@ -13,3 +13,7 @@ if place_meeting(x, y, obj_player)
 }
 else
     arrow = 0
+if arrowindex < 2
+	arrowindex += 0.1
+else
+	arrowindex = 0

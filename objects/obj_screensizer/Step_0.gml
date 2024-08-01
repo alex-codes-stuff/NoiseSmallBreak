@@ -27,3 +27,4 @@ if (keyboard_check(vk_control) && keyboard_check_pressed(ord("R"))) || gamepad_b
 	ds_list_clear(global.saveroom);
 	global.collect = 0
 }
+gpu_set_texfilter(global.texturefilter)
