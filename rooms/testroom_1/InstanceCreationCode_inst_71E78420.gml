@@ -1,2 +1,2 @@
 
-text = "You can dive while going forward and in the air."
+text = "You can dive if you press DOWN while you are in the air."

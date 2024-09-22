@@ -819,3 +819,5 @@ if timerend == 0
 {
 	setNewTime = 0
 }
+sintimer += sinspeed
+noiseicon_speed += 0.4

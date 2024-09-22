@@ -2,11 +2,15 @@
 timer = 0
 wallbounceCount = 0
 tnt = 0
+sintimer = 0
+sinspeed = 0.1
 scr_initinput()
 toplayer = 0
 axis_down_prev = (gamepad_axis_value(0,gp_axislv) > 0.5);
 controllerConnectedPopup = 0
 controllerConnected = 0
+lasthealthbar_x = 0
+noiseicon_speed = 0
 _player1x = 0
 _xscale = 0
 _player1y = 0

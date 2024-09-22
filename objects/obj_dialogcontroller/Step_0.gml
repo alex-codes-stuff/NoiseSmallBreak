@@ -14,4 +14,6 @@ if (func != -4)
     else
         self.method(id, func)()
 }
-
+width -= 150
+if width < 0
+   width = 0

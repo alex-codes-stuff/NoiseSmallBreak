@@ -3,9 +3,26 @@ live_auto_call;
 if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(obj_minime) && room != hub_1 && room != rm_changelog
 {
 	for(var i = 0; i < max(hp, 4); i++)
-		draw_sprite_ext(spr_healthHUD, 0, 32 + 78 * i, 16, 1, 1, 0, i >= hp ? c_black : c_white, 1);
-	draw_healthbar(32, 112, 288, 128, (movespeed / 19) * 100, c_black, c_blue, c_red, 0, true, true);
-	draw_healthbar(32, 112 + 50, 288, 128 + 50, (global.collect / 30) * 100, c_black, c_orange, c_red, 0, true, true);
+	{	
+		var _y = (sin(sintimer+i)*5)-5
+		draw_sprite_ext(spr_health_indicators, i, 55 + 78 * i, _y, 1, 1, 0, i >= hp ? c_black : c_white, 1)
+	};
+	draw_healthbar(32, 112, 288, 144, (movespeed / 13) * 100, c_purple, c_purple, c_purple, 0, false, false);
+	var _sprite = spr_player_idle
+	var _noiseicon_x = (movespeed / 13) * 256
+	if _noiseicon_x > 256
+	   _noiseicon_x = 256
+	if lasthealthbar_x < _noiseicon_x
+		_sprite = spr_player_mach3
+	if lasthealthbar_x > _noiseicon_x
+		_sprite = spr_player_crouchslip
+	if lasthealthbar_x == _noiseicon_x && _noiseicon_x != 0
+		_sprite = spr_player_mach3
+	else if _noiseicon_x == 0
+		_sprite = spr_player_idle
+	lasthealthbar_x = _noiseicon_x
+	draw_sprite(_sprite, noiseicon_speed, 32 + _noiseicon_x, 112)
+	draw_sprite(spr_teacup, 0, 128+42, 152)
 	draw_set_font(fnt_console_big)
 	draw_set_color(c_white)
 	if global.timeattack
@@ -26,7 +43,9 @@ if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(ob
 	draw_set_color(c_white)
 	draw_set_font(collectfont)
 	//draw_text(150, 145, global.points);
-	draw_text(150, 150, string(global.collect) + "/30");
+	draw_set_halign(fa_center)
+	draw_text(150+20, 185, string(global.collect) + "/30");
+	draw_set_halign(fa_left)
 	//draw_sprite_ext(spr_teacup,0, 32 + (78 * (hp +1)), 16, 1.2, 1.2, image_angle, image_blend, 1)
 
 }

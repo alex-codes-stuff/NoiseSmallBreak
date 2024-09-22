@@ -205,9 +205,9 @@ if keyboard_check_pressed(ord("R"))
 	   selected = noone
 	}
 	}
-var objects = ["obj_solid", "obj_slope", "obj_eggopp", "obj_convexslope", "obj_collect", "obj_destroyable", "obj_hallway34", "obj_dooC", "obj_doorB", "obj_spike", "obj_levelfinish"]
+var objects = ["obj_solid", "obj_slope", "obj_eggopp", "obj_convexslope", "obj_collect", "obj_destroyable", "obj_hallway34", "obj_doorC", "obj_doorB", "obj_spike", "obj_levelfinish"]
 if keyboard_check_pressed(ord("L"))
-if selectnumber <= array_length(objects) - 2
+if selectnumber < array_length(objects) - 1
      selectnumber+=1
 else
     selectnumber = 0

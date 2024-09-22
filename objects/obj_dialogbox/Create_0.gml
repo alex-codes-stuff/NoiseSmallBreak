@@ -4,3 +4,6 @@ draw = 0
 text = ""
 arrow = 0
 arrowindex = 0
+width = 880
+thingy = 0
+retract = 0

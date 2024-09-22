@@ -10,6 +10,7 @@ textbuffer = 0
 textspeed = 1
 dialogheight = 0
 dialogsprite = -4
+width = camera_get_view_width(view_camera[0])
 npcID = -4
 /// @description Insert description here
 // You can write your code in this editor

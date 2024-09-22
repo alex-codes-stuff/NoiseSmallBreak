@@ -1,1 +1,0 @@
-text = "Recreation originally made by Loy. Noise's Big Break by Tour de Pizza."

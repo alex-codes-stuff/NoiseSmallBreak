@@ -1,1 +1,0 @@
-text = "Changelog\n& Credits"

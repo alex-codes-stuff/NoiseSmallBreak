@@ -15,6 +15,7 @@ shakestrength = 0
 global.points = 0
 global.timeattack = 0
 bruh = 0
+zoom = 0.75
 _camx = 0
 _camy = 0
 _camw = 0

@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var _w = camera_get_view_width(view_camera[0])
+var _w = camera_get_view_width(view_camera[0]) - width
 var _h = camera_get_view_height(view_camera[0])
 var ds_h = 0
 if (dialogsprite != -4)
@@ -9,7 +9,9 @@ display_set_gui_size(_w, _h)
 draw_set_font(Font2)
 var x1 = rpadding
 var y1 = (_h - (((dialogheight + rpadding) + (padding * 2)) + ds_h))
-draw_rectangle_color(x1, y1, (_w - rpadding), (_h - rpadding), c_white, c_white, c_white, c_white, 0)
+draw_set_alpha(0.6)
+draw_rectangle_color(x1, y1, (_w - rpadding), (_h - rpadding), c_black, c_black, c_black, c_black, 0)
+draw_set_alpha(1)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 if (dialogsprite != -4)
