@@ -679,7 +679,7 @@ if movespeed > 12 or state == states.slide
 	with instance_place(x, y + vsp + 1, obj_destroyable)
 		instance_destroy();
 }
-if !instance_exists(obj_minime)
+if !instance_exists(obj_pausemenu)
 	scr_collide_player();
 
 if inv > 0
@@ -782,7 +782,7 @@ if keyboard_check_pressed(vk_rcontrol)
 	global.mainplayer = (global.mainplayer == obj_player ? obj_player2 : obj_player)
 }
 */
-if (keyboard_check_pressed(vk_escape) ||gamepad_button_check_pressed(0, gp_start)) && !instance_exists(obj_minime) && room != room_editor && room != rm_changelog
+if (keyboard_check_pressed(vk_escape) ||gamepad_button_check_pressed(0, gp_start)) && !instance_exists(obj_pausemenu) && room != room_editor && room != rm_changelog
 {
 	audio_pause_all()
     with all 
@@ -791,8 +791,8 @@ if (keyboard_check_pressed(vk_escape) ||gamepad_button_check_pressed(0, gp_start
 		   instance_deactivate_object(self)
 	}
 	
-	instance_create(x, y, obj_minime)
-	with obj_minime
+	instance_create(x, y, obj_pausemenu)
+	with obj_pausemenu
 	{
 		pauseScreenshot=sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), false, false, 0, 0);
 	}

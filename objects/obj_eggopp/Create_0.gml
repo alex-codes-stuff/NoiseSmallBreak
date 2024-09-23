@@ -10,6 +10,7 @@ queuerandom = random_range(90, 150)
 thingy2 = 0
 thingy3 = 0
 thingy4 = 0
+about_to_detect = 0
 with (instance_create(x, y, obj_eggopp_detectionbox))
 {
 	target = other.id

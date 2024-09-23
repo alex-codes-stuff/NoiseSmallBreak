@@ -1,5 +1,6 @@
 live_auto_call;
 toplayer = 0
+tnt = 0
 if (room == hub_1 || room == room_editor) && state == states.actor
 {
      state = states.normal

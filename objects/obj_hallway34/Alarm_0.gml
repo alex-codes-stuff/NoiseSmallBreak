@@ -5,7 +5,7 @@ with obj_player
 	if room == moonlight_4
 	{
 	   timerend = 1
-	   ds_list_clear(global.saveroom);
+	 //  ds_list_clear(global.saveroom);
 	}
 	
 	//sprite_index = spr_player_idle

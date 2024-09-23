@@ -5,6 +5,8 @@ tnt = 0
 sintimer = 0
 sinspeed = 0.1
 scr_initinput()
+pigtimer = 0
+atepig = 0
 toplayer = 0
 axis_down_prev = (gamepad_axis_value(0,gp_axislv) > 0.5);
 controllerConnectedPopup = 0

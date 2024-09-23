@@ -18,7 +18,8 @@ switch state
 		{
 			if !collision_line(x, y-5, obj_player.x, obj_player.y-5, obj_solid, false, false)
 			{
-				other.alarm[0] = 25
+				other.alarm[0] = 34
+				other.alarm[2] = 20
 				other.thingy = 1
 			}
 		}
@@ -59,6 +60,7 @@ switch state
 		thingy2 = 0
 		thingy3 = 0
 		thingy4 = 0
+		about_to_detect = 0
 		image_speed = 0.7
 		ds_queue_clear(queue);
 	}

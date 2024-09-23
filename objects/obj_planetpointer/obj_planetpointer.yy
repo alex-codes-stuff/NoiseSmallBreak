@@ -32,5 +32,5 @@
     "path": "sprites/spr_planet1/spr_planet1.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

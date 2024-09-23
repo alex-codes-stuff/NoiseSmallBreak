@@ -4,8 +4,10 @@ draw_sprite_ext(sprite_index, -1, x, y, image_xscale * xscale, image_yscale * ys
 draw_set_font(fnt_console_small)
 draw_set_color(c_white)
 
+
 //draw_text(x, y - 150, key_down2);
-// draw_text(x, y - 200,  hp)
+if atepig
+	draw_text(x, y - 50,  pigtimer)
 
 //gamepad_button_check(0, gp_shoulderrb)
 

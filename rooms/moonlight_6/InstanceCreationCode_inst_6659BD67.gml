@@ -1,0 +1,1 @@
+text = "Watch out! While the effects of the Super Cool And Magic Cheese That Gives You Superpowers (TM) are active, Noise will eat the explosive Piggy bank when he comes in contact with it! He'll spit it out after a bit though, don't worry."

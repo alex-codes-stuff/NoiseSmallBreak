@@ -10,7 +10,7 @@ else
     audio_play_sound(sfx_finish, 0, 0)
 	exit;
 }
-if !instance_exists(obj_minime)
+if !instance_exists(obj_pausemenu)
 	timer += 0.1
 
 if losehp == 0

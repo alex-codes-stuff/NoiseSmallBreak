@@ -1,46 +1,49 @@
 /// @description Insert description here
 // You can write your code in this editor
-if obj_player.key_right && key_right == false
-   {
-	   key_right = true
-	   global.selectedlevel = (global.selectedlevel == 0 ? 1 : 0)
-	   with obj_planetpointer
+if moonlightUnlocked != "None"
+{
+	if obj_player.key_right && key_right == false
 	   {
-		   if global.selectedlevel == 1
+		   key_right = true
+		   global.selectedlevel = (global.selectedlevel == 0 ? 1 : 0)
+		   with obj_planetpointer
 		   {
-			  speed = 9.5
+			   if global.selectedlevel == 1
+			   {
+				  speed = 9.5
+			   }
+			   if global.selectedlevel == 0
+			   {
+				  speed = -9.5
+			   }
 		   }
-		   if global.selectedlevel == 0
-		   {
-			  speed = -9.5
-		   }
-	   }
 	   
-   }
+	   }
  
-if !obj_player.key_right
-   key_right = false
+	if !obj_player.key_right
+	   key_right = false
    
-if obj_player.key_left == -1 && key_left == false
-   {
-	   key_left = true
-	   global.selectedlevel = (global.selectedlevel == 0 ? 1 : 0)
-	   with obj_planetpointer
+	if obj_player.key_left == -1 && key_left == false
 	   {
-		   if global.selectedlevel == 1
+		   key_left = true
+		   global.selectedlevel = (global.selectedlevel == 0 ? 1 : 0)
+		   with obj_planetpointer
 		   {
-			  speed = 9.5
+			   if global.selectedlevel == 1
+			   {
+				  speed = 9.5
+			   }
+			   if global.selectedlevel == 0
+			   {
+				  speed = -9.5
+			   }
 		   }
-		   if global.selectedlevel == 0
-		   {
-			  speed = -9.5
-		   }
-	   }
 	   
-   }
+	   }
  
-if obj_player.key_left != -1
-   key_left = false
+	if obj_player.key_left != -1
+	   key_left = false
+}
 switch global.selectedlevel
 {
 	case 0:

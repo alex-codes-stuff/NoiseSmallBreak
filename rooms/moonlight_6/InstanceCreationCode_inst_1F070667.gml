@@ -1,0 +1,1 @@
+targetRoom = moonlight_7

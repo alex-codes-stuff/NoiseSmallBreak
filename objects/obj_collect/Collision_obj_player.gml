@@ -1,7 +1,8 @@
-if ++global.collect >= 30 && obj_player.hp < 7
+if ++global.collect >= 20 && obj_player.hp < 7
 {
 	global.collect = 0;
 	other.hp++;
 }
-global.points += 10
+if global.collect <= 20
+	global.points += 10
 instance_destroy();

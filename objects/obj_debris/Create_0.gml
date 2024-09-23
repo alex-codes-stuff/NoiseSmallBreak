@@ -4,3 +4,4 @@ hspeed = random_range(-8, 8);
 vspeed = random_range(-6, -8);
 gravity = 0.5;
 randomspeed = random_range(6, 13)
+touched = 0
