@@ -11,6 +11,8 @@ toplayer = 0
 axis_down_prev = (gamepad_axis_value(0,gp_axislv) > 0.5);
 controllerConnectedPopup = 0
 controllerConnected = 0
+cheese_thing = 0
+
 lasthealthbar_x = 0
 noiseicon_speed = 0
 _player1x = 0

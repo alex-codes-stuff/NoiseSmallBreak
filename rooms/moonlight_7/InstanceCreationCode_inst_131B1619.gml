@@ -1,1 +1,1 @@
-pigtimer_time = 60
+pigtimer_time = 70

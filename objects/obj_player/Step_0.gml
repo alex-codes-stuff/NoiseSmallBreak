@@ -820,4 +820,6 @@ if timerend == 0
 	setNewTime = 0
 }
 sintimer += sinspeed
+cheese_thing += 0.05
+
 noiseicon_speed += 0.4
